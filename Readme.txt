@@ -10,11 +10,7 @@ Joei Lysens		(killercxii@hotmail.com)
 
 Version history
 ---------------
-
-Version	Name	Description
-
-0.0.1	Brecht	Created empty project
-0.0.0	Brecht	Created svn repository
+See google code for version history
 
 Planning
 --------
@@ -23,9 +19,16 @@ Ideas		Concepts		In progress		Completed
 
 Geluidjes
 		Klasse Gans
-		Klasse Vakje
+					Klasse Tile
+					Klasse TileDeath
+					Klasse TileGoose
+					Klasse TileInn
+					Klasse TileJail
+					Klasse TileMaze
+					Klasse TileStart
+					Klasse TileFinish
 		Klasse Dobbelsteen
 					Form NewPlayers
 								Klasse Player
 					Form About
-					Foto's		
+					Foto's	

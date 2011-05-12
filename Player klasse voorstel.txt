@@ -1,0 +1,10 @@
+Dit zijn de properties die ik oproep vanuit men klassen
+- SkipTurn
+- IsInJail
+- LastRoll
+- HasFinished
+
+As ge die wilt implementere fzo, dan zyt ge merci :p
+Ah en zulle we de 'move' Sub in de player klasse zette?
+Zo met relatieve posities (+3) of (-6) fzo..
+Dan komt da ook sgoon uit ^^
