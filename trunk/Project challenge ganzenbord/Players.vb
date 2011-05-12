@@ -1,4 +1,6 @@
-﻿Public Class Players
+﻿'Kristof
+'Deze klasse behoudt de speler zijn informatie
+Public Class Players
     Private mNaam As String
     Private mKleur As Color
     Private mComput As Boolean

@@ -1,4 +1,5 @@
-﻿Public Class CreatePlayer
+﻿'Kristof
+Public Class CreatePlayer
     Dim mtxt As TextBox
     Dim mlbl As Label
     Dim mbtn As Button
