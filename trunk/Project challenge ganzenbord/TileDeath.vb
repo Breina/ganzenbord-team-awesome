@@ -11,7 +11,7 @@ Public Class TileDeath
     End Function
 
     Public Overrides Sub Go(ByRef player As Players)
-        'Go to start
+        player.Move(-player.Position)
     End Sub
 
 End Class
