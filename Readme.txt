@@ -15,3 +15,17 @@ Version	Name	Description
 
 0.0.1	Brecht	Created empty project
 0.0.0	Brecht	Created svn repository
+
+Planning
+--------
+
+Ideas		Concepts		In progress		Completed
+
+Geluidjes
+		Klasse Gans
+		Klasse Vakje
+		Klasse Dobbelsteen
+		Form NewPlayers
+		Klasse Player
+		Form About
+					Foto's		
