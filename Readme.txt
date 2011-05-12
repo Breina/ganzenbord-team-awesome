@@ -15,7 +15,7 @@ See google code for version history
 Planning
 --------
 
-Ideas		Concepts		In progress		Completed		Tested
+Ideas		Concepts		In progress		Completed			Tested
 
 Geluidjes
 								Klasse Tile (B)
@@ -28,10 +28,11 @@ Geluidjes
 								Klasse TileFinish (B)
 					Klasse Level (B)
 		Klasse Dobbelsteen
-					Form NewPlayers
-								Klasse Player
+								Klasse CreatePlayers(k)
+								Form NewPlayers(k)
+								Klasse Player(k)
 					Form About (I)
-					Foto's	
+					Foto's(k)	
 
 					Drag & Drop opzoeken (I)
 
