@@ -6,7 +6,7 @@ People
 Kristof Colson		(kristof_colson@hotmail.com)
 Brecht Derwael		(brecht_derwael@msn.com)
 Ine Dewil		(ine_dewil@hotmail.com)
-Joei Liesens		(killercxii@hotmail.com)
+Joei Lysens		(killercxii@hotmail.com)
 
 Version history
 ---------------
