@@ -51,7 +51,7 @@ Partial Class NewGame
         '
         'btnCancel
         '
-        Me.btnCancel.Location = New System.Drawing.Point(26, 279)
+        Me.btnCancel.Location = New System.Drawing.Point(219, 279)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(68, 25)
         Me.btnCancel.TabIndex = 24
@@ -60,7 +60,7 @@ Partial Class NewGame
         '
         'btnStart
         '
-        Me.btnStart.Location = New System.Drawing.Point(100, 279)
+        Me.btnStart.Location = New System.Drawing.Point(293, 279)
         Me.btnStart.Name = "btnStart"
         Me.btnStart.Size = New System.Drawing.Size(68, 25)
         Me.btnStart.TabIndex = 23
@@ -71,7 +71,7 @@ Partial Class NewGame
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(338, 326)
+        Me.ClientSize = New System.Drawing.Size(373, 326)
         Me.Controls.Add(Me.nudPlayers)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnCancel)

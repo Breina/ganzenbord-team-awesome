@@ -11,7 +11,7 @@
         mbtn.SetBounds(225, 60 + 30 * i, 30, 30)
         mtxt.SetBounds(85, 60 + 30 * i, 140, 25)
         mlbl.SetBounds(5, 60 + 30 * i, 80, 30)
-        mcheck.SetBounds(250, 60 + 30 * 1, 80, 30)
+        mcheck.SetBounds(275, 60 + 30 * i, 80, 30)
         mlbl.Text = "Geef de naam speler " & (i + 1).ToString & "."
     End Sub
     Public Property tekst() As TextBox

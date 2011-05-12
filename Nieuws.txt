@@ -6,4 +6,10 @@ Keb dus het geraamte van de vakskes gemaakt, mak heb dus n deel properties van d
 - LastRoll	(Hoeveel die mss verder of trug moet)
 - HasFinished	(As em uit is)
 
-En dan nog ne "Move" sub, ma hebt ge dan liever relatieve of absolute cordinate? Ah en na de move functie, dan zou de Go functie van het vakske moete opgeroepe worde indien het iet speciaal doet. Goed? :p
+En dan nog ne "Move" sub, ma hebt ge dan liever relatieve of absolute cordinate? Ah en na de move functie, dan zou de 
+Go functie van het vakske moete opgeroepe worde indien het iet speciaal doet. Goed? :p
+
+Kristof:
+kheb de properties erbij gezet
+en dat van de coordinaten moet ge morgen effe uitleggen hoe ge het wilt doen eh 
+en normaal moet het form met new game klaar zijn kheb de checkbox met computer erbij gezet
