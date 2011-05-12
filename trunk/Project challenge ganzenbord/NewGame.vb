@@ -12,7 +12,7 @@
             Else
                 checked = False
             End If
-            player.Add(New Players(objCreatePlayer(i).tekst.Text, objCreatePlayer(i).btn.BackColor, checked))
+            player.Add(New Players(objCreatePlayer(i).tekst.Text, objCreatePlayer(i).btn.BackColor, checked, False, 0, False, False))
         Next
         Me.Close()
     End Sub
