@@ -103,6 +103,14 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Players.vb" />
+    <Compile Include="Tile.vb" />
+    <Compile Include="TileDeath.vb" />
+    <Compile Include="TileFinish.vb" />
+    <Compile Include="TileGoose.vb" />
+    <Compile Include="TileInn.vb" />
+    <Compile Include="TileJail.vb" />
+    <Compile Include="TileMaze.vb" />
+    <Compile Include="TileStart.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">

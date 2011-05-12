@@ -10,3 +10,15 @@ C:\Users\Student\Documents\ganzenbord-team-awesome\Project challenge ganzenbord\
 C:\Users\Student\Documents\ganzenbord-team-awesome\Project challenge ganzenbord\obj\x86\Debug\Project challenge ganzenbord.xml
 C:\Users\Student\Documents\ganzenbord-team-awesome\Project challenge ganzenbord\obj\x86\Debug\Project challenge ganzenbord.pdb
 C:\Users\Student\Documents\ganzenbord-team-awesome\Project challenge ganzenbord\obj\x86\Debug\Project_challenge_ganzenbord.Form1.resources
+C:\Users\CX\Desktop\Ganzenbord\Project challenge ganzenbord\obj\x86\Debug\Project challenge ganzenbord.exe
+C:\Users\CX\Desktop\Ganzenbord\Project challenge ganzenbord\obj\x86\Debug\Project challenge ganzenbord.xml
+C:\Users\CX\Desktop\Ganzenbord\Project challenge ganzenbord\obj\x86\Debug\Project challenge ganzenbord.pdb
+C:\Users\CX\Desktop\Ganzenbord\Project challenge ganzenbord\bin\Debug\Project challenge ganzenbord.exe
+C:\Users\CX\Desktop\Ganzenbord\Project challenge ganzenbord\bin\Debug\Project challenge ganzenbord.pdb
+C:\Users\CX\Desktop\Ganzenbord\Project challenge ganzenbord\bin\Debug\Project challenge ganzenbord.xml
+C:\Users\CX\Desktop\Ganzenbord\Project challenge ganzenbord\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\CX\Desktop\Ganzenbord\Project challenge ganzenbord\obj\x86\Debug\Project_challenge_ganzenbord.Form1.resources
+C:\Users\CX\Desktop\Ganzenbord\Project challenge ganzenbord\obj\x86\Debug\Project_challenge_ganzenbord.Resources.resources
+C:\Users\CX\Desktop\Ganzenbord\Project challenge ganzenbord\obj\x86\Debug\Project_challenge_ganzenbord.NewGame.resources
+C:\Users\CX\Desktop\Ganzenbord\Project challenge ganzenbord\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\CX\Desktop\Ganzenbord\Project challenge ganzenbord\obj\x86\Debug\GenerateResource.write.1.tlog
