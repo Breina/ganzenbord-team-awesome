@@ -28,3 +28,5 @@ player.Move(player.LastRoll)			' Gwn bewege
 player.Move(- player.Position)			' Naar start
 
 Ik opteer voor absoluut relatief, want ge moet toch maar ene keer naar start gaan. :p
+
+Ben ook begonne aan de level-structuur eh :p
