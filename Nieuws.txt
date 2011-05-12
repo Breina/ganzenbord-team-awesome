@@ -30,3 +30,12 @@ player.Move(- player.Position)			' Naar start
 Ik opteer voor absoluut relatief, want ge moet toch maar ene keer naar start gaan. :p
 
 Ben ook begonne aan de level-structuur eh :p
+
+
+
+Ine:
+
+Heb drag & drop gedoe zitten uitzoeken.. 
+heb iets gevonden en beetje aangepast zodat het normaal gezien moet lukken. 
+Laat het jullie morgen zien !
+Toedels :) xxx
