@@ -15,18 +15,18 @@ See google code for version history
 Planning
 --------
 
-Ideas		Concepts		In progress		Completed
+Ideas		Concepts		In progress		Completed		Tested
 
 Geluidjes
-		Klasse Gans
-					Klasse Tile
-					Klasse TileDeath
-					Klasse TileGoose
-					Klasse TileInn
-					Klasse TileJail
-					Klasse TileMaze
-					Klasse TileStart
-					Klasse TileFinish
+								Klasse Tile (B)
+								Klasse TileDeath (B)
+								Klasse TileGoose (B)
+								Klasse TileInn (B)
+								Klasse TileJail (B)
+								Klasse TileMaze (B)
+								Klasse TileStart (B)
+								Klasse TileFinish (B)
+					Klasse Level (B)
 		Klasse Dobbelsteen
 					Form NewPlayers
 								Klasse Player
@@ -44,4 +44,4 @@ Note
 
 Zet de eerste letter van uw voornaam erbij, zodat je weet wie waar aan bezig is !
 
-
+Ahaha sgoed, zo lijk het of ik veel gedaan heb xD
