@@ -6,6 +6,7 @@
     Private mLastRoll As Integer
     Private mSkipTurn As Boolean
     Private mInJail As Boolean
+    Private mPosition As Integer
 
     Public Sub New(ByVal Naam As String, ByVal Kleur As Color, ByVal Comput As Boolean, ByVal HasFinished As Boolean, ByVal LastRoll As Integer, ByVal SkipTurn As Boolean, ByVal InJail As Boolean)
         mNaam = Naam
@@ -70,6 +71,14 @@
         End Get
         Set(ByVal value As Boolean)
             Me.mInJail = value
+        End Set
+    End Property
+    Public Property Position() As Integer
+        Get
+            Return Me.mPosition
+        End Get
+        Set(ByVal value As Integer)
+            Me.mPosition = value
         End Set
     End Property
     Public Overridable Sub Move(ByVal LastRoll As Integer)
