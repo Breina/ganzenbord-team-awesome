@@ -9,7 +9,22 @@ Keb dus het geraamte van de vakskes gemaakt, mak heb dus n deel properties van d
 En dan nog ne "Move" sub, ma hebt ge dan liever relatieve of absolute cordinate? Ah en na de move functie, dan zou de 
 Go functie van het vakske moete opgeroepe worde indien het iet speciaal doet. Goed? :p
 
+
 Kristof:
 kheb de properties erbij gezet
 en dat van de coordinaten moet ge morgen effe uitleggen hoe ge het wilt doen eh 
 en normaal moet het form met new game klaar zijn kheb de checkbox met computer erbij gezet
+
+
+Brecht:
+Merci ^^ Um relatieve cordinate zijn bv 5 vooruit, 3 achteruit. En absolute zijn bv spring naar vakske 12. Absolute maakt het gemakkelek om trug naar start te springe as ge dood gaat, ma het nadeel is dan wel in alle andere gevalle ge iedere keer uw positie moet ophale. Bevoorbeeld;
+
+Absoluut:
+player.Move(player.Position + player.LastRoll)	' Gwn bewege
+player.Move(0)					' Naar start
+
+Relatief:
+player.Move(player.LastRoll)			' Gwn bewege
+player.Move(- player.Position)			' Naar start
+
+Ik opteer voor absoluut relatief, want ge moet toch maar ene keer naar start gaan. :p
