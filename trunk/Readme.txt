@@ -26,6 +26,6 @@ Geluidjes
 		Klasse Vakje
 		Klasse Dobbelsteen
 					Form NewPlayers
-					Klasse Player
+								Klasse Player
 					Form About
 					Foto's		
