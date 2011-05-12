@@ -1,0 +1,9 @@
+Brecht:
+Dan kunne we hier de laatste updates share :D
+Keb dus het geraamte van de vakskes gemaakt, mak heb dus n deel properties van de player klasse gebruikt die nog moete gemaakt worde;
+- SkipTurn	(Voor een herberg)
+- IsInJail	(Voor t gevang)
+- LastRoll	(Hoeveel die mss verder of trug moet)
+- HasFinished	(As em uit is)
+
+En dan nog ne "Move" sub, ma hebt ge dan liever relatieve of absolute cordinate? Ah en na de move functie, dan zou de Go functie van het vakske moete opgeroepe worde indien het iet speciaal doet. Goed? :p
