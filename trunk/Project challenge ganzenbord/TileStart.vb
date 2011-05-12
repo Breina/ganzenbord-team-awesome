@@ -3,7 +3,7 @@ Public Class TileStart
     Inherits Tile
 
     Public Sub New(ByVal x As Integer, ByVal y As Integer)
-        MyBase.New(x, y, 0)
+        MyBase.New(x, y)
     End Sub
 
     Public Overrides Function Type() As TypesEnum

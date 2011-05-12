@@ -2,8 +2,8 @@
 Public Class TileInn
     Inherits Tile
 
-    Public Sub New(ByVal x As Integer, ByVal y As Integer, ByVal id As Integer)
-        MyBase.New(x, y, id)
+    Public Sub New(ByVal x As Integer, ByVal y As Integer)
+        MyBase.New(x, y)
     End Sub
 
     Public Overrides Function Type() As TypesEnum

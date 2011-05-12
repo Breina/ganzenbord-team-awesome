@@ -1,6 +1,6 @@
 ﻿'Brecht
 Public Class Tile
-    Protected _x, _y, _id As Integer  'x en y zijn cordinaten om te tekenen, id is hoe ver het zich bevind in het veld, 0 is de start
+    Protected _x, _y As Integer  'x en y zijn cordinaten om te tekenen, id is hoe ver het zich bevind in het veld, 0 is de start
 
     Public ReadOnly Property X() As Integer
         Get
@@ -14,10 +14,9 @@ Public Class Tile
         End Get
     End Property
 
-    Public Sub New(ByVal x As Integer, ByVal y As Integer, ByVal id As Integer)
+    Public Sub New(ByVal x As Integer, ByVal y As Integer)
         _x = x
         _y = y
-        _id = id
     End Sub
 
     Public Overridable Function Type() As TypesEnum

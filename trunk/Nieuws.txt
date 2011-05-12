@@ -32,10 +32,14 @@ Ik opteer voor absoluut relatief, want ge moet toch maar ene keer naar start gaa
 Ben ook begonne aan de level-structuur eh :p
 
 
-
 Ine:
-
 Heb drag & drop gedoe zitten uitzoeken.. 
 heb iets gevonden en beetje aangepast zodat het normaal gezien moet lukken. 
 Laat het jullie morgen zien !
 Toedels :) xxx
+
+
+Brecht:
+Jha we kunne nu dus bestandjes leze in de map levels, die parse ik dan en dan hebbe we een lijst met tile, nu nog die random vakjes kiezen. Dat is gwn een kwestie van iedere keer een constructor oproepe. Ma tis nu 1u, en heb morge die economie test, spijtig dak der ni nog aan kan werke. Kzal vanuit level code voorzien om elk vakje apart te kunne aansture enzo.
+Ahjha, en de code compilede nimeer, iemand had resources toegevoegd ma deze ni aangevingt in het svn, dus had n tijdelijke afbeelding in resources gezet.
+Jhaa toedels ook eh :3
