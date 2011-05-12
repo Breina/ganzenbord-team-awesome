@@ -30,5 +30,18 @@ Geluidjes
 		Klasse Dobbelsteen
 					Form NewPlayers
 								Klasse Player
-					Form About
+					Form About (I)
 					Foto's	
+
+					Drag & Drop opzoeken (I)
+
+
+
+
+
+Note
+-----
+
+Zet de eerste letter van uw voornaam erbij, zodat je weet wie waar aan bezig is !
+
+
