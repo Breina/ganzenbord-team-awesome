@@ -25,7 +25,7 @@ Geluidjes
 		Klasse Gans
 		Klasse Vakje
 		Klasse Dobbelsteen
-		Form NewPlayers
-		Klasse Player
-		Form About
+					Form NewPlayers
+					Klasse Player
+					Form About
 					Foto's		
