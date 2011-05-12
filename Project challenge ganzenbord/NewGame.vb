@@ -1,4 +1,5 @@
-﻿Public Class NewGame
+﻿'Kristof
+Public Class NewGame
     Dim loaded As Boolean = False
     Dim objCreatePlayer() As CreatePlayer
     Dim checked As Boolean
