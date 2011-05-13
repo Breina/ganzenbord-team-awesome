@@ -34,6 +34,8 @@ Partial Class Form1
         Me.LstChatLog = New System.Windows.Forms.ListBox()
         Me.NewPlayer = New System.Windows.Forms.GroupBox()
         Me.BtnDice = New System.Windows.Forms.Button()
+        Me.lbl1 = New System.Windows.Forms.Label()
+        Me.lbl2 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PctDice1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PctDice2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -129,11 +131,31 @@ Partial Class Form1
         Me.BtnDice.Text = "Gooi"
         Me.BtnDice.UseVisualStyleBackColor = True
         '
+        'lbl1
+        '
+        Me.lbl1.AutoSize = True
+        Me.lbl1.Location = New System.Drawing.Point(652, 413)
+        Me.lbl1.Name = "lbl1"
+        Me.lbl1.Size = New System.Drawing.Size(39, 13)
+        Me.lbl1.TabIndex = 6
+        Me.lbl1.Text = "Label1"
+        '
+        'lbl2
+        '
+        Me.lbl2.AutoSize = True
+        Me.lbl2.Location = New System.Drawing.Point(697, 413)
+        Me.lbl2.Name = "lbl2"
+        Me.lbl2.Size = New System.Drawing.Size(39, 13)
+        Me.lbl2.TabIndex = 7
+        Me.lbl2.Text = "Label2"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(784, 562)
+        Me.Controls.Add(Me.lbl2)
+        Me.Controls.Add(Me.lbl1)
         Me.Controls.Add(Me.BtnDice)
         Me.Controls.Add(Me.NewPlayer)
         Me.Controls.Add(Me.LstChatLog)
@@ -164,5 +186,7 @@ Partial Class Form1
     Friend WithEvents LstChatLog As System.Windows.Forms.ListBox
     Friend WithEvents NewPlayer As System.Windows.Forms.GroupBox
     Friend WithEvents BtnDice As System.Windows.Forms.Button
+    Friend WithEvents lbl1 As System.Windows.Forms.Label
+    Friend WithEvents lbl2 As System.Windows.Forms.Label
 
 End Class

@@ -6,18 +6,27 @@
     Const FIVE = "five.png"
     Const SIX = "six.png"
 
-    Private value As Integer
+    Private value1, value2 As Integer
     Private nums As List(Of String)
     Private random As Random
 
-    Public Sub Roll(ByRef pic As PictureBox)
-        value = random.Next * 6
-        pic.ImageLocation = nums.Item(value)
+    Public Sub Roll1(ByRef pic As PictureBox)
+        value1 = random.Next * 6
+        pic.ImageLocation = nums.Item(value1)
+    End Sub
+    Public Sub Roll2(ByRef pic As PictureBox)
+        value2 = random.Next * 6
+        pic.ImageLocation = nums.Item(value2)
     End Sub
 
-    Public ReadOnly Property DiceValue() As Integer
+    Public ReadOnly Property DiceValue1() As Integer
         Get
-            Return Value
+            Return value1
+        End Get
+    End Property
+    Public ReadOnly Property DiceValue2() As Integer
+        Get
+            Return value2
         End Get
     End Property
 
