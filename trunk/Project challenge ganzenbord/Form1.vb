@@ -36,9 +36,13 @@
         
     End Sub
 
-
-
-    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub BtnDice_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnDice.Click
+        Dim dobbel As Dice
+        dobbel = New Dice
+        'dobbel.Roll1(PctDice1)
+        'dobbel.Roll2(PctDice2)
+        lbl1.Text = CStr(dobbel.DiceValue1)
+        lbl2.Text = CStr(dobbel.DiceValue2)
 
     End Sub
 End Class
