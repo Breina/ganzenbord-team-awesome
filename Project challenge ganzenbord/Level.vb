@@ -9,10 +9,21 @@ Public Class Level
     Const PATH = "X"
 
     Private level As List(Of Tile)  ' Tile objects for level
-    Private length As Integer       ' Length of the level
+    Private length, width, height As Integer
+
+    ' Adds a tile to level
+    Private Sub AddTile(ByVal pos As Integer)
+        Dim x, y As Integer
+        x = pos Mod width
+        y = pos \ width
+
+        level.Add(New Tile(x, y))
+
+        If x > width Then width = x
+        If y > height Then height = y
+    End Sub
 
     ' Reads the file and generates Tile objects accordingly
-
     Public Sub New(ByVal fileName As String)
         Dim sr As StreamReader
         sr = File.OpenText("../../../levels/" & fileName) ' From the debug .exe, change this when folder structure is made. Also catch errors
@@ -60,25 +71,26 @@ Public Class Level
         Next
 
         Dim c As Char
+        Dim x, y As Integer
 
         ' Finds the rest of the path
         Do Until c = FINISH
             c = s.ElementAt(pos + directions.Item(lastDirection))
             If FP.Contains(c) Then                                          ' Check for valid path straight ahead
                 pos += directions.Item(lastDirection)
-                level.Add(New Tile(pos Mod width, pos \ width))
+                AddTile(pos)
             Else
                 lastDirection += 1
                 c = s.ElementAt(pos + directions.Item(lastDirection))
                 If FP.Contains(c) Then                                      ' Check for valid path turned right
                     pos += directions.Item(lastDirection)
-                    level.Add(New Tile(pos Mod width, pos \ width))
+                    AddTile(pos)
                 Else
                     lastDirection -= 2
                     c = s.ElementAt(pos + directions.Item(lastDirection))
                     If FP.Contains(c) Then                                  ' Check for valid path turned left
                         pos += directions.Item(lastDirection)
-                        level.Add(New Tile(pos Mod width, pos \ width))
+                        AddTile(pos)
                     Else
                         ' Path break exception
                     End If
@@ -111,17 +123,25 @@ Public Class Level
 
     Public ReadOnly Property LevelLength() As Integer
         Get
-            Return Length
+            Return length
+        End Get
+    End Property
+
+    Public ReadOnly Property LevelWidth() As Integer
+        Get
+            Return width
+        End Get
+    End Property
+
+    Public ReadOnly Property LevelHeight() As Integer
+        Get
+            Return height
         End Get
     End Property
 
     ' Returns the tile at index
     Public ReadOnly Property TileIndex(ByVal index As Integer) As Tile
         Get
-            'If index > length Then  ' If it's past the finish
-            '   index -= index - length
-            'End If
-
             Return level.Item(index)
         End Get
     End Property
