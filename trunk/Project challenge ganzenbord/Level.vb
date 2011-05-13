@@ -26,7 +26,7 @@ Public Class Level
     ' Reads the file and generates Tile objects accordingly
     Public Sub New(ByVal fileName As String)
         Dim sr As StreamReader
-        sr = File.OpenText("../../../levels/" & fileName) ' From the debug .exe, change this when folder structure is made. Also catch errors
+        sr = File.OpenText("levels/" & fileName) ' From the debug .exe, change this when folder structure is made. Also catch errors
 
         Dim s, line As String
         s = ""

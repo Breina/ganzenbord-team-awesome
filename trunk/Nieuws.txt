@@ -46,3 +46,5 @@ Jhaa toedels ook eh :3
 
 Okee we kunne nu met de property TileSelect(ByVal index As Integer) elke tile op het speelveld aanroepen. Na een speler zich verplaatst heeft is het de bedoeling the .Go(player) functie van de tile op te roepen, om voor de speciale tiles te zorgen.
 Ma nu ga ik drek men economie pe make ze :p
+
+Images en levels zitte nu in \Project challenge ganzenbord\bin\Debug eh

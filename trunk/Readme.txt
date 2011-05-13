@@ -26,8 +26,8 @@ Geluidjes
 								Klasse TileMaze (B)
 								Klasse TileStart (B)
 								Klasse TileFinish (B)
-					Klasse Level (B)
-		Klasse Dobbelsteen
+								Klasse Level (B)
+								Klasse Dobbelsteen (B)
 								Klasse CreatePlayers(k)
 								Form NewPlayers(k)
 								Klasse Player(k)
