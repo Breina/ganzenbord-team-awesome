@@ -28,7 +28,15 @@ Partial Class Form1
         Me.CloseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TestToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Bord = New System.Windows.Forms.GroupBox()
+        Me.PctDice1 = New System.Windows.Forms.PictureBox()
+        Me.PctDice2 = New System.Windows.Forms.PictureBox()
+        Me.LstChatLog = New System.Windows.Forms.ListBox()
+        Me.NewPlayer = New System.Windows.Forms.GroupBox()
+        Me.BtnDice = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
+        CType(Me.PctDice1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PctDice2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -36,7 +44,7 @@ Partial Class Form1
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem, Me.TestToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(284, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(784, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -72,17 +80,74 @@ Partial Class Form1
         Me.TestToolStripMenuItem1.Size = New System.Drawing.Size(123, 22)
         Me.TestToolStripMenuItem1.Text = "TestLevel"
         '
+        'Bord
+        '
+        Me.Bord.Location = New System.Drawing.Point(12, 27)
+        Me.Bord.Name = "Bord"
+        Me.Bord.Size = New System.Drawing.Size(623, 380)
+        Me.Bord.TabIndex = 1
+        Me.Bord.TabStop = False
+        '
+        'PctDice1
+        '
+        Me.PctDice1.Location = New System.Drawing.Point(535, 489)
+        Me.PctDice1.Name = "PctDice1"
+        Me.PctDice1.Size = New System.Drawing.Size(100, 68)
+        Me.PctDice1.TabIndex = 2
+        Me.PctDice1.TabStop = False
+        '
+        'PctDice2
+        '
+        Me.PctDice2.Location = New System.Drawing.Point(535, 413)
+        Me.PctDice2.Name = "PctDice2"
+        Me.PctDice2.Size = New System.Drawing.Size(100, 68)
+        Me.PctDice2.TabIndex = 3
+        Me.PctDice2.TabStop = False
+        '
+        'LstChatLog
+        '
+        Me.LstChatLog.FormattingEnabled = True
+        Me.LstChatLog.Location = New System.Drawing.Point(12, 413)
+        Me.LstChatLog.Name = "LstChatLog"
+        Me.LstChatLog.Size = New System.Drawing.Size(517, 147)
+        Me.LstChatLog.TabIndex = 4
+        '
+        'NewPlayer
+        '
+        Me.NewPlayer.Location = New System.Drawing.Point(641, 27)
+        Me.NewPlayer.Name = "NewPlayer"
+        Me.NewPlayer.Size = New System.Drawing.Size(139, 380)
+        Me.NewPlayer.TabIndex = 2
+        Me.NewPlayer.TabStop = False
+        '
+        'BtnDice
+        '
+        Me.BtnDice.Location = New System.Drawing.Point(641, 515)
+        Me.BtnDice.Name = "BtnDice"
+        Me.BtnDice.Size = New System.Drawing.Size(139, 42)
+        Me.BtnDice.TabIndex = 5
+        Me.BtnDice.Text = "Gooi"
+        Me.BtnDice.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 262)
+        Me.ClientSize = New System.Drawing.Size(784, 562)
+        Me.Controls.Add(Me.BtnDice)
+        Me.Controls.Add(Me.NewPlayer)
+        Me.Controls.Add(Me.LstChatLog)
+        Me.Controls.Add(Me.PctDice2)
+        Me.Controls.Add(Me.PctDice1)
+        Me.Controls.Add(Me.Bord)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Text = "Gooseboard "
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        CType(Me.PctDice1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PctDice2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -93,5 +158,11 @@ Partial Class Form1
     Friend WithEvents CloseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TestToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TestToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Bord As System.Windows.Forms.GroupBox
+    Friend WithEvents PctDice1 As System.Windows.Forms.PictureBox
+    Friend WithEvents PctDice2 As System.Windows.Forms.PictureBox
+    Friend WithEvents LstChatLog As System.Windows.Forms.ListBox
+    Friend WithEvents NewPlayer As System.Windows.Forms.GroupBox
+    Friend WithEvents BtnDice As System.Windows.Forms.Button
 
 End Class

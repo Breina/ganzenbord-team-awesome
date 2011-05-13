@@ -30,3 +30,15 @@ C:\Users\CX\Desktop\Project challenge ganzenbord\Project challenge ganzenbord\ob
 C:\Users\student\Desktop\Project challenge ganzenbord\Project challenge ganzenbord\obj\x86\Debug\Project challenge ganzenbord.exe
 C:\Users\student\Desktop\Project challenge ganzenbord\Project challenge ganzenbord\obj\x86\Debug\Project challenge ganzenbord.xml
 C:\Users\student\Desktop\Project challenge ganzenbord\Project challenge ganzenbord\obj\x86\Debug\Project challenge ganzenbord.pdb
+C:\Users\Student\Desktop\SVn\Project challenge ganzenbord\obj\x86\Debug\Project challenge ganzenbord.exe
+C:\Users\Student\Desktop\SVn\Project challenge ganzenbord\obj\x86\Debug\Project challenge ganzenbord.xml
+C:\Users\Student\Desktop\SVn\Project challenge ganzenbord\obj\x86\Debug\Project challenge ganzenbord.pdb
+C:\Users\Student\Desktop\SVn\Project challenge ganzenbord\bin\Debug\Project challenge ganzenbord.exe
+C:\Users\Student\Desktop\SVn\Project challenge ganzenbord\bin\Debug\Project challenge ganzenbord.pdb
+C:\Users\Student\Desktop\SVn\Project challenge ganzenbord\bin\Debug\Project challenge ganzenbord.xml
+C:\Users\Student\Desktop\SVn\Project challenge ganzenbord\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Student\Desktop\SVn\Project challenge ganzenbord\obj\x86\Debug\Project_challenge_ganzenbord.Form1.resources
+C:\Users\Student\Desktop\SVn\Project challenge ganzenbord\obj\x86\Debug\Project_challenge_ganzenbord.Resources.resources
+C:\Users\Student\Desktop\SVn\Project challenge ganzenbord\obj\x86\Debug\Project_challenge_ganzenbord.NewGame.resources
+C:\Users\Student\Desktop\SVn\Project challenge ganzenbord\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Student\Desktop\SVn\Project challenge ganzenbord\obj\x86\Debug\GenerateResource.write.1.tlog
