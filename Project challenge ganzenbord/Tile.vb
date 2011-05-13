@@ -19,6 +19,10 @@ Public Class Tile
         _y = y
     End Sub
 
+    Public Sub New()
+
+    End Sub
+
     Public Overridable Function Type() As TypesEnum
         Return TypesEnum.blank
     End Function

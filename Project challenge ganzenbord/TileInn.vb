@@ -6,6 +6,10 @@ Public Class TileInn
         MyBase.New(x, y)
     End Sub
 
+    Public Sub New()
+        MyBase.New()
+    End Sub
+
     Public Overrides Function Type() As TypesEnum
         Return TypesEnum.inn
     End Function

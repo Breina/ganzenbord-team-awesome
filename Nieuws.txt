@@ -43,3 +43,6 @@ Brecht:
 Jha we kunne nu dus bestandjes leze in de map levels, die parse ik dan en dan hebbe we een lijst met tile, nu nog die random vakjes kiezen. Dat is gwn een kwestie van iedere keer een constructor oproepe. Ma tis nu 1u, en heb morge die economie test, spijtig dak der ni nog aan kan werke. Kzal vanuit level code voorzien om elk vakje apart te kunne aansture enzo.
 Ahjha, en de code compilede nimeer, iemand had resources toegevoegd ma deze ni aangevingt in het svn, dus had n tijdelijke afbeelding in resources gezet.
 Jhaa toedels ook eh :3
+
+Okee we kunne nu met de property TileSelect(ByVal index As Integer) elke tile op het speelveld aanroepen. Na een speler zich verplaatst heeft is het de bedoeling the .Go(player) functie van de tile op te roepen, om voor de speciale tiles te zorgen.
+Ma nu ga ik drek men economie pe make ze :p
