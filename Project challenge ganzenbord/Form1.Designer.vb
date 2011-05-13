@@ -69,7 +69,7 @@ Partial Class Form1
         'TestToolStripMenuItem1
         '
         Me.TestToolStripMenuItem1.Name = "TestToolStripMenuItem1"
-        Me.TestToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.TestToolStripMenuItem1.Size = New System.Drawing.Size(123, 22)
         Me.TestToolStripMenuItem1.Text = "TestLevel"
         '
         'Form1

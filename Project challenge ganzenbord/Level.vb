@@ -12,9 +12,10 @@ Public Class Level
     Private length As Integer       ' Length of the level
 
     ' Reads the file and generates Tile objects accordingly
-    Public Sub DecodeLevelFile(ByVal fileName As String)
+
+    Public Sub New(ByVal fileName As String)
         Dim sr As StreamReader
-        sr = File.OpenText("../../../levels/test.txt") ' From the debug .exe, change this when folder structure is made. Also catch errors
+        sr = File.OpenText("../../../levels/" & fileName) ' From the debug .exe, change this when folder structure is made. Also catch errors
 
         Dim s, line As String
         s = ""
@@ -29,7 +30,7 @@ Public Class Level
         End While
 
         line = Nothing
-        sr = Nothing
+        sr.Close()
 
         Dim pos As Integer
         pos = s.IndexOf(START)
@@ -91,6 +92,8 @@ Public Class Level
             End If
         Loop
 
+
+
         level.Item(level.Count - 1) = New TileFinish(pos Mod width, pos \ width)    ' Finish tile
     End Sub
 
@@ -106,15 +109,20 @@ Public Class Level
         level.Item(r.Next * (length - 1) + 1) = New TileMaze()
     End Sub
 
-    ' Returns the tile at index
-    Public ReadOnly Property TileSelect(ByVal index As Integer) As Tile
+    Public ReadOnly Property LevelLength() As Integer
         Get
-            If index > length Then  ' If it's past the finish
-                index -= index - length
-            End If
+            Return Length
+        End Get
+    End Property
+
+    ' Returns the tile at index
+    Public ReadOnly Property TileIndex(ByVal index As Integer) As Tile
+        Get
+            'If index > length Then  ' If it's past the finish
+            '   index -= index - length
+            'End If
 
             Return level.Item(index)
         End Get
     End Property
-
 End Class
