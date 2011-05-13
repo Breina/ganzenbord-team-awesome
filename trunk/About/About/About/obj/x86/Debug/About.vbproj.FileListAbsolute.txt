@@ -1,0 +1,11 @@
+c:\users\student\documents\visual studio 2010\Projects\About\About\bin\Debug\About.exe
+c:\users\student\documents\visual studio 2010\Projects\About\About\bin\Debug\About.pdb
+c:\users\student\documents\visual studio 2010\Projects\About\About\bin\Debug\About.xml
+c:\users\student\documents\visual studio 2010\Projects\About\About\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\student\documents\visual studio 2010\Projects\About\About\obj\x86\Debug\About.About.resources
+c:\users\student\documents\visual studio 2010\Projects\About\About\obj\x86\Debug\About.Resources.resources
+c:\users\student\documents\visual studio 2010\Projects\About\About\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\users\student\documents\visual studio 2010\Projects\About\About\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\users\student\documents\visual studio 2010\Projects\About\About\obj\x86\Debug\About.exe
+c:\users\student\documents\visual studio 2010\Projects\About\About\obj\x86\Debug\About.xml
+c:\users\student\documents\visual studio 2010\Projects\About\About\obj\x86\Debug\About.pdb
