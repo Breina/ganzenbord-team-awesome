@@ -48,3 +48,5 @@ Okee we kunne nu met de property TileSelect(ByVal index As Integer) elke tile op
 Ma nu ga ik drek men economie pe make ze :p
 
 Images en levels zitte nu in \Project challenge ganzenbord\bin\Debug eh
+
+Joeri: ik heb de lay out van de form gemaakt zoals afgesproken straks doe ik verder voor de code ;)
