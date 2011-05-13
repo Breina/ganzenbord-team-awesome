@@ -50,3 +50,4 @@ Ma nu ga ik drek men economie pe make ze :p
 Images en levels zitte nu in \Project challenge ganzenbord\bin\Debug eh
 
 Joeri: ik heb de lay out van de form gemaakt zoals afgesproken straks doe ik verder voor de code ;)
+	de random is niet random in dice die stuurt 0 terug ?? 
