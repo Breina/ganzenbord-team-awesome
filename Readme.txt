@@ -34,7 +34,7 @@ Geluidjes
 					Form About (I)
 					Foto's(k)	
 
-					Drag & Drop opzoeken (I)
+								Drag & Drop opzoeken (I)
 
 
 
