@@ -1,0 +1,12 @@
+c:\users\student\documents\visual studio 2010\Projects\dragdropµ\dragdropµ\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\student\documents\visual studio 2010\Projects\dragdropµ\dragdropµ\obj\x86\Debug\dragdropµ.Form1.resources
+c:\users\student\documents\visual studio 2010\Projects\dragdropµ\dragdropµ\obj\x86\Debug\dragdropµ.Resources.resources
+c:\users\student\documents\visual studio 2010\Projects\dragdropµ\dragdropµ\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\users\student\documents\visual studio 2010\Projects\dragdropµ\dragdropµ\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\users\student\documents\visual studio 2010\Projects\dragdropµ\dragdropµ\bin\Debug\dragdropµ.exe
+c:\users\student\documents\visual studio 2010\Projects\dragdropµ\dragdropµ\bin\Debug\dragdropµ.pdb
+c:\users\student\documents\visual studio 2010\Projects\dragdropµ\dragdropµ\bin\Debug\dragdropµ.xml
+c:\users\student\documents\visual studio 2010\Projects\dragdropµ\dragdropµ\obj\x86\Debug\dragdropµ.exe
+c:\users\student\documents\visual studio 2010\Projects\dragdropµ\dragdropµ\obj\x86\Debug\dragdropµ.xml
+c:\users\student\documents\visual studio 2010\Projects\dragdropµ\dragdropµ\obj\x86\Debug\dragdropµ.pdb
+C:\Users\student\documents\visual studio 2010\Projects\dragdropµ\dragdropµ\obj\x86\Debug\GenerateResource.read.139.tlog
