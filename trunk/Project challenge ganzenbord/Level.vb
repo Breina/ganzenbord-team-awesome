@@ -1,7 +1,6 @@
 ﻿'Brecht
-
-' Een level moet altyd omgeven zijn door IGNORE
 Imports System.IO
+
 Public Class Level
 
     Const START = "S"
@@ -9,8 +8,10 @@ Public Class Level
     Const IGNORE = "O"
     Const PATH = "X"
 
-    Private level As List(Of Tile)
+    Private level As List(Of Tile)  ' Tile objects for level
+    Private length As Integer       ' Length of the level
 
+    ' Reads the file and generates Tile objects accordingly
     Public Sub DecodeLevelFile(ByVal fileName As String)
         Dim sr As StreamReader
         sr = File.OpenText("../../../levels/test.txt") ' From the debug .exe, change this when folder structure is made. Also catch errors
@@ -28,7 +29,7 @@ Public Class Level
         End While
 
         line = Nothing
-        sr = Nothing    ' Opening up some memory
+        sr = Nothing
 
         Dim pos As Integer
         pos = s.IndexOf(START)
@@ -90,8 +91,30 @@ Public Class Level
             End If
         Loop
 
-        level.Item(level.Count - 1) = New TileFinish(pos Mod width, pos \ width)
-
-        MessageBox.Show("Neem maar aan dat het level nu volledig geparsed is")
+        level.Item(level.Count - 1) = New TileFinish(pos Mod width, pos \ width)    ' Finish tile
     End Sub
+
+    ' Generates tile events randomly, may be overlapping (!)
+    Public Sub GenerateRandomTileEvents()
+        Dim r As Random
+        r = New Random()
+
+        level.Item(r.Next * (length - 1) + 1) = New TileDeath()
+        level.Item(r.Next * (length - 1) + 1) = New TileInn()
+        level.Item(r.Next * (length - 1) + 1) = New TileGoose()
+        level.Item(r.Next * (length - 1) + 1) = New TileJail()
+        level.Item(r.Next * (length - 1) + 1) = New TileMaze()
+    End Sub
+
+    ' Returns the tile at index
+    Public ReadOnly Property TileSelect(ByVal index As Integer) As Tile
+        Get
+            If index > length Then  ' If it's past the finish
+                index -= index - length
+            End If
+
+            Return level.Item(index)
+        End Get
+    End Property
+
 End Class
