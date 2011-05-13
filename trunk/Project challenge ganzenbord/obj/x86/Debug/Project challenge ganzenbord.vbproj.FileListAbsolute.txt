@@ -27,3 +27,6 @@ C:\Users\CX\Desktop\Project challenge ganzenbord\Project challenge ganzenbord\bi
 C:\Users\CX\Desktop\Project challenge ganzenbord\Project challenge ganzenbord\bin\Debug\Project challenge ganzenbord.pdb
 C:\Users\CX\Desktop\Project challenge ganzenbord\Project challenge ganzenbord\bin\Debug\Project challenge ganzenbord.xml
 C:\Users\CX\Desktop\Project challenge ganzenbord\Project challenge ganzenbord\obj\x86\Debug\Project_challenge_ganzenbord.Resources.resources
+C:\Users\student\Desktop\Project challenge ganzenbord\Project challenge ganzenbord\obj\x86\Debug\Project challenge ganzenbord.exe
+C:\Users\student\Desktop\Project challenge ganzenbord\Project challenge ganzenbord\obj\x86\Debug\Project challenge ganzenbord.xml
+C:\Users\student\Desktop\Project challenge ganzenbord\Project challenge ganzenbord\obj\x86\Debug\Project challenge ganzenbord.pdb
