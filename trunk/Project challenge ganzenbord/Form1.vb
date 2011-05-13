@@ -21,6 +21,18 @@
         'lvl.TileIndex(length - 1)  ' Finish
 
         'lvl.TileIndex(2).Go(player1)    ' Na iedere move moet deze aangeroepen worden
+        'lvl.TileIndex(2).X
+        'lvl.TileIndex(2).Y
+        'lvl.TileIndex(2).Type
+
+        'blank()   'Normal tile
+        'jail()    'Stuck until another player get's jailed
+        'maze()    'Go back x tiles
+        'goose()   'Go x tiles forward
+        'inn()     'Skip 1 turn
+        'death()   'Start over
+        'start()   'Start here
+        'finish()  'End here
         
     End Sub
 
