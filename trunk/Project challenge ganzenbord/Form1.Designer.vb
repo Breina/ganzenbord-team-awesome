@@ -86,23 +86,23 @@ Partial Class Form1
         '
         Me.Bord.Location = New System.Drawing.Point(12, 27)
         Me.Bord.Name = "Bord"
-        Me.Bord.Size = New System.Drawing.Size(623, 380)
+        Me.Bord.Size = New System.Drawing.Size(554, 380)
         Me.Bord.TabIndex = 1
         Me.Bord.TabStop = False
         '
         'PctDice1
         '
-        Me.PctDice1.Location = New System.Drawing.Point(535, 489)
+        Me.PctDice1.Location = New System.Drawing.Point(572, 483)
         Me.PctDice1.Name = "PctDice1"
-        Me.PctDice1.Size = New System.Drawing.Size(100, 68)
+        Me.PctDice1.Size = New System.Drawing.Size(64, 64)
         Me.PctDice1.TabIndex = 2
         Me.PctDice1.TabStop = False
         '
         'PctDice2
         '
-        Me.PctDice2.Location = New System.Drawing.Point(535, 413)
+        Me.PctDice2.Location = New System.Drawing.Point(572, 413)
         Me.PctDice2.Name = "PctDice2"
-        Me.PctDice2.Size = New System.Drawing.Size(100, 68)
+        Me.PctDice2.Size = New System.Drawing.Size(64, 64)
         Me.PctDice2.TabIndex = 3
         Me.PctDice2.TabStop = False
         '
@@ -110,25 +110,28 @@ Partial Class Form1
         '
         Me.LstChatLog.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.LstChatLog.FormattingEnabled = True
-        Me.LstChatLog.Items.AddRange(New Object() {"Started new game"})
+        Me.LstChatLog.Items.AddRange(New Object() {"Deze eerste regel is verplicht! Zie da hier iets staat eh! Zever anders mr iet :p" & _
+                        ""})
         Me.LstChatLog.Location = New System.Drawing.Point(12, 413)
         Me.LstChatLog.Name = "LstChatLog"
-        Me.LstChatLog.Size = New System.Drawing.Size(517, 147)
+        Me.LstChatLog.ScrollAlwaysVisible = True
+        Me.LstChatLog.Size = New System.Drawing.Size(554, 134)
         Me.LstChatLog.TabIndex = 4
+        Me.LstChatLog.TabStop = False
         '
         'NewPlayer
         '
-        Me.NewPlayer.Location = New System.Drawing.Point(641, 27)
+        Me.NewPlayer.Location = New System.Drawing.Point(572, 27)
         Me.NewPlayer.Name = "NewPlayer"
-        Me.NewPlayer.Size = New System.Drawing.Size(139, 380)
+        Me.NewPlayer.Size = New System.Drawing.Size(200, 380)
         Me.NewPlayer.TabIndex = 2
         Me.NewPlayer.TabStop = False
         '
         'BtnDice
         '
-        Me.BtnDice.Location = New System.Drawing.Point(641, 515)
+        Me.BtnDice.Location = New System.Drawing.Point(645, 505)
         Me.BtnDice.Name = "BtnDice"
-        Me.BtnDice.Size = New System.Drawing.Size(139, 42)
+        Me.BtnDice.Size = New System.Drawing.Size(127, 42)
         Me.BtnDice.TabIndex = 5
         Me.BtnDice.Text = "Gooi"
         Me.BtnDice.UseVisualStyleBackColor = True
@@ -155,7 +158,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(784, 562)
+        Me.ClientSize = New System.Drawing.Size(784, 558)
         Me.Controls.Add(Me.lbl2)
         Me.Controls.Add(Me.lbl1)
         Me.Controls.Add(Me.BtnDice)

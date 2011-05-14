@@ -61,4 +61,5 @@ How shit jho, mja okee de kleur werkt, ma ik moet wel een private class variable
 Nvm heb het :p
 
 Um Kristof, wrm zitte HasFinished, LastRoll, SkipTurn en InJail in de Public Sub New()? Als een nieuwe game begint, dan zijn die toch allemaal false?
-We hebbe kleur in de ChatLog! Ma tis e gesmodder ze
+We hebbe kleur in de ChatLog! Ma tis e gesmodder ze.
+Okee nu kunne we Private Sub AddToChatLog gebruike om aan het chatlog toe te voege!
