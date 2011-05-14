@@ -10,12 +10,12 @@ Public Class TileStart
         MyBase.New()
     End Sub
 
-    Public Overrides Function Type() As TypesEnum
-        Return TypesEnum.start
+    ' The following shouldn't ever be called, unless the board is shorter than 12 tiles
+    Public Overrides Function IsSpecialType() As Boolean
+        Return False
     End Function
 
     Public Overrides Sub Go(ByRef player As Players)
-        'Unless there are fewer than 12 tiles, this Sub shouldn't be called
     End Sub
 
 End Class

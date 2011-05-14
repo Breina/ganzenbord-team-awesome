@@ -9,33 +9,30 @@ Public Class Level
     Const PATH = "X"
 
     Private level As List(Of Tile)  ' Tile objects for level
-    Private length, width, height As Integer
 
     ' Adds a tile to level
-    Private Sub AddTile(ByVal pos As Integer)
+    Private Sub AddTile(ByVal pos As Integer, ByVal width As Integer)
         Dim x, y As Integer
         x = pos Mod width
         y = pos \ width
 
         level.Add(New Tile(x, y))
-
-        If x > width Then width = x
-        If y > height Then height = y
     End Sub
 
     ' Reads the file and generates Tile objects accordingly
-    Public Sub New(ByVal fileName As String)
+    Public Sub New(ByVal fileName As String, ByRef width As Integer, ByRef height As Integer, ByRef length As Integer)
         Dim sr As StreamReader
         sr = File.OpenText("levels/" & fileName) ' From the debug .exe, change this when folder structure is made. Also catch errors
 
         Dim s, line As String
         s = ""
-        Dim width As Integer
 
         line = sr.ReadLine()
         width = line.Length()
+        height = 0
 
         While line <> Nothing
+            height += 1
             s &= line
             line = sr.ReadLine()
         End While
@@ -71,26 +68,25 @@ Public Class Level
         Next
 
         Dim c As Char
-        Dim x, y As Integer
 
         ' Finds the rest of the path
         Do Until c = FINISH
             c = s.ElementAt(pos + directions.Item(lastDirection))
             If FP.Contains(c) Then                                          ' Check for valid path straight ahead
                 pos += directions.Item(lastDirection)
-                AddTile(pos)
+                AddTile(pos, width)
             Else
                 lastDirection += 1
                 c = s.ElementAt(pos + directions.Item(lastDirection))
                 If FP.Contains(c) Then                                      ' Check for valid path turned right
                     pos += directions.Item(lastDirection)
-                    AddTile(pos)
+                    AddTile(pos, width)
                 Else
                     lastDirection -= 2
                     c = s.ElementAt(pos + directions.Item(lastDirection))
                     If FP.Contains(c) Then                                  ' Check for valid path turned left
                         pos += directions.Item(lastDirection)
-                        AddTile(pos)
+                        AddTile(pos, width)
                     Else
                         ' Path break exception
                     End If
@@ -104,40 +100,9 @@ Public Class Level
             End If
         Loop
 
-
-
-        level.Item(level.Count - 1) = New TileFinish(pos Mod width, pos \ width)    ' Finish tile
+        length = level.Count()
+        level.Item(length - 1) = New TileFinish(pos Mod width, pos \ width)    ' Finish tile
     End Sub
-
-    ' Generates tile events randomly, may be overlapping (!)
-    Public Sub GenerateRandomTileEvents()
-        Dim r As Random
-        r = New Random()
-
-        level.Item(r.Next * (length - 1) + 1) = New TileDeath()
-        level.Item(r.Next * (length - 1) + 1) = New TileInn()
-        level.Item(r.Next * (length - 1) + 1) = New TileGoose()
-        level.Item(r.Next * (length - 1) + 1) = New TileJail()
-        level.Item(r.Next * (length - 1) + 1) = New TileMaze()
-    End Sub
-
-    Public ReadOnly Property LevelLength() As Integer
-        Get
-            Return length
-        End Get
-    End Property
-
-    Public ReadOnly Property LevelWidth() As Integer
-        Get
-            Return width
-        End Get
-    End Property
-
-    Public ReadOnly Property LevelHeight() As Integer
-        Get
-            Return height
-        End Get
-    End Property
 
     ' Returns the tile at index
     Public ReadOnly Property TileIndex(ByVal index As Integer) As Tile

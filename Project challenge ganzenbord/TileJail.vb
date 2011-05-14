@@ -10,8 +10,8 @@ Public Class TileJail
         MyBase.New()
     End Sub
 
-    Public Overrides Function Type() As TypesEnum
-        Return TypesEnum.jail
+    Public Overrides Function IsSpecialType() As Boolean
+        Return True
     End Function
 
     Public Overrides Sub Go(ByRef player As Players)

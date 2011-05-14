@@ -1,8 +1,24 @@
 ﻿' Brecht en Joeri
 Public Class Form1
 
-    Private length As Integer
-    Private logColor As List(Of Color)
+    Private lvlLength As Integer              ' Length of the level
+    Private logColor As List(Of Color)          ' Tracks the colours for log messages
+    Private lvlWidth, lvlHeight As Integer  ' Dimentions of the board
+    Private lvl As Level                      ' The level
+
+    Private Sub RenderLevel(ByVal name As String)
+        lvl = New Level(name, lvlWidth, lvlHeight, lvlLength)
+
+        Dim size As Integer
+        size = Convert.ToInt32(Math.Min(Board.Width / lvlWidth, Board.Height / lvlHeight))
+
+        For x As Integer = 0 To lvlWidth
+            For y As Integer = 0 To lvlHeight
+
+            Next
+        Next
+
+    End Sub
 
     Private Sub NewGameToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NewGameToolStripMenuItem.Click
         NewGame.Show()
@@ -14,9 +30,7 @@ Public Class Form1
     End Sub
 
     Private Sub TestToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TestToolStripMenuItem1.Click
-        Dim lvl As Level
-        lvl = New Level("spiral.txt")
-        length = lvl.LevelLength
+        RenderLevel("spiral.txt")
 
         'lvl.TileIndex(0)   ' Start vakske
         'lvl.TileIndex(1)   ' 1e vakske
@@ -25,16 +39,7 @@ Public Class Form1
         'lvl.TileIndex(2).Go(player1)    ' Na iedere move moet deze aangeroepen worden
         'lvl.TileIndex(2).X
         'lvl.TileIndex(2).Y
-        'lvl.TileIndex(2).Type
-
-        'blank()   'Normal tile
-        'jail()    'Stuck until another player get's jailed
-        'maze()    'Go back x tiles
-        'goose()   'Go x tiles forward
-        'inn()     'Skip 1 turn
-        'death()   'Start over
-        'start()   'Start here
-        'finish()  'End here
+        'lvl.TileIndex(2).IsSpecialType
     End Sub
 
     Private Sub AddToChatLog(ByVal msg As String, ByVal col As Color)
@@ -68,7 +73,6 @@ Public Class Form1
         'http://msdn.microsoft.com/en-us/library/system.windows.forms.listbox.drawmode%28v=vs.71%29.aspx
 
         Dim colorBrush As Brush
-
         colorBrush = New SolidBrush(logColor.Item(e.Index))
 
         e.Graphics.FillRectangle(colorBrush, New RectangleF(e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height))
