@@ -2,7 +2,7 @@
 Public Class Form1
 
     Private length As Integer
-    Private chatLogBrush As Brush = New SolidBrush(Color.White)   ' Kweet ni hoe het anders moet :$
+    Private logColor As List(Of Color)
 
     Private Sub NewGameToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NewGameToolStripMenuItem.Click
         NewGame.Show()
@@ -38,8 +38,9 @@ Public Class Form1
     End Sub
 
     Private Sub AddToChatLog(ByVal msg As String, ByVal col As Color)
-        chatLogBrush = New SolidBrush(col)
+        logColor.Add(col)
         LstChatLog.Items.Add(msg)
+        LstChatLog.SelectedIndex = LstChatLog.Items.Count - 1       ' Autoscroll
     End Sub
 
     Private Sub BtnDice_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnDice.Click
@@ -47,7 +48,7 @@ Public Class Form1
         Dim player1, player2 As Players
         'om te testen of het werkt 
         player1 = New Players("Joeri", Color.Beige, False, False, 0, False, False)
-        player2 = New Players("Joke", Color.LightPink, False, False, 0, False, False)
+        player2 = New Players("Joske", Color.LightPink, False, False, 0, False, False)
 
         dobbel1 = New Dice
         dobbel2 = New Dice
@@ -58,7 +59,7 @@ Public Class Form1
         lbl1.Text = CStr(dobbel1.DiceValue)
         lbl2.Text = CStr(dobbel2.DiceValue)
         AddToChatLog(player1.Naam & " heeft " & (dobbel1.DiceValue + dobbel2.DiceValue).ToString & " gegooid", player1.Kleur)
-        'AddToChatLog(player2.Naam & " zijne toer!", player2.Kleur)
+        AddToChatLog(player2.Naam & " zijne toer!", player2.Kleur)
 
     End Sub
 
@@ -66,11 +67,16 @@ Public Class Form1
     Private Sub LstChatLog_DrawItem(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles LstChatLog.DrawItem
         'http://msdn.microsoft.com/en-us/library/system.windows.forms.listbox.drawmode%28v=vs.71%29.aspx
 
-        'e.DrawBackground()
+        Dim colorBrush As Brush
 
-        e.Graphics.FillRectangle(chatLogBrush, New RectangleF(e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height))
+        colorBrush = New SolidBrush(logColor.Item(e.Index))
+
+        e.Graphics.FillRectangle(colorBrush, New RectangleF(e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height))
         e.Graphics.DrawString(LstChatLog.Items(e.Index).ToString, e.Font, Brushes.Black, New RectangleF(e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height))
+    End Sub
 
-        'e.DrawFocusRectangle()
+    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        logColor = New List(Of Color)
+        logColor.Add(Color.LightGray)
     End Sub
 End Class
