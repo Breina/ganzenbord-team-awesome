@@ -37,17 +37,18 @@
     End Sub
 
     Private Sub BtnDice_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnDice.Click
-        Dim dobbel As Dice
+        Dim dobbel1, dobbel2 As Dice
         Dim player1 As Players
         'om te testen of het werkt 
         player1 = New Players("joeri", Color.Beige, False, False, 0, False, False)
 
-        dobbel = New Dice
-        'dobbel.Roll1(PctDice1)
-        'dobbel.Roll2(PctDice2)
-        lbl1.Text = CStr(dobbel.DiceValue1)
-        lbl2.Text = CStr(dobbel.DiceValue2)
-        LstChatLog.Items.Add(player1.Naam & " heeft " & (dobbel.DiceValue1 + dobbel.DiceValue2).ToString & " gegooid")
+        dobbel1 = New Dice
+        dobbel2 = New Dice
+        dobbel1.Roll(PctDice1)
+        dobbel2.Roll(PctDice2)
+        lbl1.Text = CStr(dobbel1.DiceValue)
+        lbl2.Text = CStr(dobbel2.DiceValue)
+        LstChatLog.Items.Add(player1.Naam & " heeft " & (dobbel1.DiceValue + dobbel2.DiceValue).ToString & " gegooid")
         LstChatLog.BackColor = player1.Kleur
 
     End Sub
