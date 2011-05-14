@@ -1,16 +1,31 @@
 ﻿' Brecht en Joeri
 Public Class Form1
 
-    Private lvlLength As Integer              ' Length of the level
+    Private lvlLength As Integer                ' Length of the level
     Private logColor As List(Of Color)          ' Tracks the colours for log messages
-    Private lvlWidth, lvlHeight As Integer  ' Dimentions of the board
-    Private lvl As Level                      ' The level
+    Private lvlWidth, lvlHeight As Integer      ' Dimentions of the board
+    Private lvl As Level                        ' The level
+    Private lvlTilePics As List(Of PictureBox)  ' Pictureboxes for each tile
 
     Private Sub RenderLevel(ByVal name As String)
         lvl = New Level(name, lvlWidth, lvlHeight, lvlLength)
 
         Dim size As Integer
         size = Convert.ToInt32(Math.Min(Board.Width / lvlWidth, Board.Height / lvlHeight))
+
+        lvlTilePics = New List(Of PictureBox)
+        For i As Integer = 0 To lvlLength
+            lvlTilePics.Add(New PictureBox())
+            lvlTilePics.Item(i).Left = Board.Left + size * lvl.TileIndex(i).X
+            lvlTilePics.Item(i).Top = Board.Top + size * lvl.TileIndex(i).Y
+            lvlTilePics.Item(i).Width = size
+            lvlTilePics.Item(i).Height = size
+            lvlTilePics.Item(i).ImageLocation = "C:\Users\CX\Desktop\Project challenge ganzenbord\Project challenge ganzenbord\bin\Debug\images/tile.png"
+
+            'Kristof kijk ns hier joh, wrm kome die ni op me scherm? ;(
+
+            'MessageBox.Show("Coordinates: (" & Convert.ToString(lvlTilePics.Item(i).Left) & "," & Convert.ToString(lvlTilePics.Item(i).Top) & ")")
+        Next
 
         For x As Integer = 0 To lvlWidth
             For y As Integer = 0 To lvlHeight
