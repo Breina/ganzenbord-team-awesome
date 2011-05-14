@@ -62,4 +62,5 @@ Nvm heb het :p
 
 Um Kristof, wrm zitte HasFinished, LastRoll, SkipTurn en InJail in de Public Sub New()? Als een nieuwe game begint, dan zijn die toch allemaal false?
 We hebbe kleur in de ChatLog! Ma tis e gesmodder ze.
-Okee nu kunne we Private Sub AddToChatLog gebruike om aan het chatlog toe te voege!
+Okee nu kunne we Private Sub AddToChatLog gebruike om aan het chatlog toe te voege.
+Begonne aan de level render method, en de level klasse ewa geoptimaliseerd.

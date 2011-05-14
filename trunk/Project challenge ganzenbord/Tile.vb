@@ -23,23 +23,22 @@ Public Class Tile
 
     End Sub
 
-    Public Overridable Function Type() As TypesEnum
-        Return TypesEnum.blank
+    Public Overridable Function IsSpecialType() As Boolean
+        Return False
     End Function
 
     Public Overridable Sub Go(ByRef player As Players)
-
     End Sub
 
 End Class
 
-Public Enum TypesEnum
-    blank   'Normal tile
-    jail    'Stuck until another player get's jailed
-    maze    'Go back x tiles
-    goose   'Go x tiles forward
-    inn     'Skip 1 turn
-    death   'Start over
-    start   'Start here
-    finish  'End here
-End Enum
+'Public Enum TypesEnum
+'    blank   'Normal tile
+'    jail    'Stuck until another player get's jailed
+'    maze    'Go back x tiles
+'    goose   'Go x tiles forward
+'    inn     'Skip 1 turn
+'    death   'Start over
+'    start   'Start here
+'    finish  'End here
+'End Enum

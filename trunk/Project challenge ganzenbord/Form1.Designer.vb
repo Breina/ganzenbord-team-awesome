@@ -28,7 +28,7 @@ Partial Class Form1
         Me.CloseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TestToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Bord = New System.Windows.Forms.GroupBox()
+        Me.Board = New System.Windows.Forms.GroupBox()
         Me.PctDice1 = New System.Windows.Forms.PictureBox()
         Me.PctDice2 = New System.Windows.Forms.PictureBox()
         Me.LstChatLog = New System.Windows.Forms.ListBox()
@@ -82,13 +82,13 @@ Partial Class Form1
         Me.TestToolStripMenuItem1.Size = New System.Drawing.Size(123, 22)
         Me.TestToolStripMenuItem1.Text = "TestLevel"
         '
-        'Bord
+        'Board
         '
-        Me.Bord.Location = New System.Drawing.Point(12, 27)
-        Me.Bord.Name = "Bord"
-        Me.Bord.Size = New System.Drawing.Size(554, 380)
-        Me.Bord.TabIndex = 1
-        Me.Bord.TabStop = False
+        Me.Board.Location = New System.Drawing.Point(12, 27)
+        Me.Board.Name = "Board"
+        Me.Board.Size = New System.Drawing.Size(554, 380)
+        Me.Board.TabIndex = 1
+        Me.Board.TabStop = False
         '
         'PctDice1
         '
@@ -166,7 +166,7 @@ Partial Class Form1
         Me.Controls.Add(Me.LstChatLog)
         Me.Controls.Add(Me.PctDice2)
         Me.Controls.Add(Me.PctDice1)
-        Me.Controls.Add(Me.Bord)
+        Me.Controls.Add(Me.Board)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "Form1"
@@ -185,7 +185,7 @@ Partial Class Form1
     Friend WithEvents CloseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TestToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TestToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents Bord As System.Windows.Forms.GroupBox
+    Friend WithEvents Board As System.Windows.Forms.GroupBox
     Friend WithEvents PctDice1 As System.Windows.Forms.PictureBox
     Friend WithEvents PctDice2 As System.Windows.Forms.PictureBox
     Friend WithEvents LstChatLog As System.Windows.Forms.ListBox
