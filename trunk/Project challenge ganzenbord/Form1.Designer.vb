@@ -36,7 +36,9 @@ Partial Class Form1
         Me.BtnDice = New System.Windows.Forms.Button()
         Me.lbl1 = New System.Windows.Forms.Label()
         Me.lbl2 = New System.Windows.Forms.Label()
+        Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.MenuStrip1.SuspendLayout()
+        Me.Bord.SuspendLayout()
         CType(Me.PctDice1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PctDice2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -84,6 +86,7 @@ Partial Class Form1
         '
         'Bord
         '
+        Me.Bord.Controls.Add(Me.ListBox1)
         Me.Bord.Location = New System.Drawing.Point(12, 27)
         Me.Bord.Name = "Bord"
         Me.Bord.Size = New System.Drawing.Size(623, 380)
@@ -108,6 +111,7 @@ Partial Class Form1
         '
         'LstChatLog
         '
+        Me.LstChatLog.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.LstChatLog.FormattingEnabled = True
         Me.LstChatLog.Location = New System.Drawing.Point(12, 413)
         Me.LstChatLog.Name = "LstChatLog"
@@ -149,6 +153,16 @@ Partial Class Form1
         Me.lbl2.TabIndex = 7
         Me.lbl2.Text = "Label2"
         '
+        'ListBox1
+        '
+        Me.ListBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.Items.AddRange(New Object() {"Jos", "Flip", "Jaak"})
+        Me.ListBox1.Location = New System.Drawing.Point(60, 59)
+        Me.ListBox1.Name = "ListBox1"
+        Me.ListBox1.Size = New System.Drawing.Size(320, 199)
+        Me.ListBox1.TabIndex = 0
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -168,6 +182,7 @@ Partial Class Form1
         Me.Text = "Gooseboard "
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        Me.Bord.ResumeLayout(False)
         CType(Me.PctDice1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PctDice2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -188,5 +203,6 @@ Partial Class Form1
     Friend WithEvents BtnDice As System.Windows.Forms.Button
     Friend WithEvents lbl1 As System.Windows.Forms.Label
     Friend WithEvents lbl2 As System.Windows.Forms.Label
+    Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
 
 End Class
