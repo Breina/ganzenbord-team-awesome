@@ -1,10 +1,11 @@
 ﻿Public Class Form1
+
     Private length As Integer
+    Private chatLogBrush As Brush   ' Kweet ni hoe het anders moet :$
 
     Private Sub NewGameToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NewGameToolStripMenuItem.Click
         NewGame.Show()
-        Me.Hide()
-
+        Me.Hide()       ' Make NewGame have priority over Me, so you can't do anything in Me while NewGame is open, then remove this line
     End Sub
 
     Private Sub CloseToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CloseToolStripMenuItem.Click
@@ -33,7 +34,11 @@
         'death()   'Start over
         'start()   'Start here
         'finish()  'End here
-        
+    End Sub
+
+    Private Sub AddToChatLog(ByVal msg As String, ByVal col As Color)
+        chatLogBrush = Brushes.Beige    ' Nja hoe converteer ik col naar n brush?
+        LstChatLog.Items.Add(msg)
     End Sub
 
     Private Sub BtnDice_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnDice.Click
@@ -44,12 +49,25 @@
 
         dobbel1 = New Dice
         dobbel2 = New Dice
+
         dobbel1.Roll(PctDice1)
         dobbel2.Roll(PctDice2)
+
         lbl1.Text = CStr(dobbel1.DiceValue)
         lbl2.Text = CStr(dobbel2.DiceValue)
-        LstChatLog.Items.Add(player1.Naam & " heeft " & (dobbel1.DiceValue + dobbel2.DiceValue).ToString & " gegooid")
-        LstChatLog.BackColor = player1.Kleur
+        AddToChatLog(player1.Naam & " heeft " & (dobbel1.DiceValue + dobbel2.DiceValue).ToString & " gegooid", player1.Kleur)
 
+    End Sub
+
+    Private Sub LstChatLog_DrawItem(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles LstChatLog.DrawItem
+        'http://msdn.microsoft.com/en-us/library/system.windows.forms.listbox.drawmode%28v=vs.71%29.aspx
+
+        e.DrawBackground()
+
+        e.Graphics.FillRectangle(chatLogBrush, New RectangleF(e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height))
+        e.Graphics.DrawString(LstChatLog.Items(e.Index).ToString, e.Font, Brushes.Black, New RectangleF(e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height))
+
+        ' If the ListBox has focus, draw a focus rectangle around the selected item.
+        'e.DrawFocusRectangle()
     End Sub
 End Class

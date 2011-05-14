@@ -54,3 +54,4 @@ Joeri: ik heb de lay out van de form gemaakt zoals afgesproken straks doe ik ver
 	Chatlog moet nog bekeken worden de msg toch want ik moet eerst de players van new game hebben brecht kunt gij daar naar kijken ?
 
 Brecht: Dice werkt nu trug. Stom fout ofc >.< Kzal der nu naar kijke eh :p
+How shit jho, mja okee de kleur werkt, ma ik moet wel een private class variable gebruike, weet gy hoe ge die anders kunt doorgeve? En t zou handig zyn om een color naar brush te kunne convertere, bv. Color.beige naar Brush.beige.
