@@ -36,9 +36,12 @@ Partial Class Form1
         Me.BtnDice = New System.Windows.Forms.Button()
         Me.lbl1 = New System.Windows.Forms.Label()
         Me.lbl2 = New System.Windows.Forms.Label()
+        Me.lstplayers = New System.Windows.Forms.ListBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PctDice1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PctDice2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.NewPlayer.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -79,7 +82,7 @@ Partial Class Form1
         'TestToolStripMenuItem1
         '
         Me.TestToolStripMenuItem1.Name = "TestToolStripMenuItem1"
-        Me.TestToolStripMenuItem1.Size = New System.Drawing.Size(123, 22)
+        Me.TestToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.TestToolStripMenuItem1.Text = "TestLevel"
         '
         'Board
@@ -110,8 +113,7 @@ Partial Class Form1
         '
         Me.LstChatLog.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.LstChatLog.FormattingEnabled = True
-        Me.LstChatLog.Items.AddRange(New Object() {"Deze eerste regel is verplicht! Zie da hier iets staat eh! Zever anders mr iet :p" & _
-                        ""})
+        Me.LstChatLog.Items.AddRange(New Object() {"Let the Game begin"})
         Me.LstChatLog.Location = New System.Drawing.Point(12, 413)
         Me.LstChatLog.Name = "LstChatLog"
         Me.LstChatLog.ScrollAlwaysVisible = True
@@ -121,9 +123,11 @@ Partial Class Form1
         '
         'NewPlayer
         '
+        Me.NewPlayer.Controls.Add(Me.Label1)
+        Me.NewPlayer.Controls.Add(Me.lstplayers)
         Me.NewPlayer.Location = New System.Drawing.Point(572, 27)
         Me.NewPlayer.Name = "NewPlayer"
-        Me.NewPlayer.Size = New System.Drawing.Size(200, 380)
+        Me.NewPlayer.Size = New System.Drawing.Size(200, 383)
         Me.NewPlayer.TabIndex = 2
         Me.NewPlayer.TabStop = False
         '
@@ -139,7 +143,7 @@ Partial Class Form1
         'lbl1
         '
         Me.lbl1.AutoSize = True
-        Me.lbl1.Location = New System.Drawing.Point(652, 413)
+        Me.lbl1.Location = New System.Drawing.Point(667, 454)
         Me.lbl1.Name = "lbl1"
         Me.lbl1.Size = New System.Drawing.Size(39, 13)
         Me.lbl1.TabIndex = 6
@@ -148,11 +152,28 @@ Partial Class Form1
         'lbl2
         '
         Me.lbl2.AutoSize = True
-        Me.lbl2.Location = New System.Drawing.Point(697, 413)
+        Me.lbl2.Location = New System.Drawing.Point(712, 454)
         Me.lbl2.Name = "lbl2"
         Me.lbl2.Size = New System.Drawing.Size(39, 13)
         Me.lbl2.TabIndex = 7
         Me.lbl2.Text = "Label2"
+        '
+        'lstplayers
+        '
+        Me.lstplayers.FormattingEnabled = True
+        Me.lstplayers.Location = New System.Drawing.Point(6, 32)
+        Me.lstplayers.Name = "lstplayers"
+        Me.lstplayers.Size = New System.Drawing.Size(180, 173)
+        Me.lstplayers.TabIndex = 0
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(6, 16)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(42, 13)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Spelers"
         '
         'Form1
         '
@@ -175,6 +196,8 @@ Partial Class Form1
         Me.MenuStrip1.PerformLayout()
         CType(Me.PctDice1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PctDice2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.NewPlayer.ResumeLayout(False)
+        Me.NewPlayer.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -193,5 +216,7 @@ Partial Class Form1
     Friend WithEvents BtnDice As System.Windows.Forms.Button
     Friend WithEvents lbl1 As System.Windows.Forms.Label
     Friend WithEvents lbl2 As System.Windows.Forms.Label
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents lstplayers As System.Windows.Forms.ListBox
 
 End Class

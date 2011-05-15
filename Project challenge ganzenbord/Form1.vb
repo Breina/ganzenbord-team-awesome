@@ -6,7 +6,10 @@ Public Class Form1
     Private lvlWidth, lvlHeight As Integer      ' Dimentions of the board
     Private lvl As Level                        ' The level
     Private lvlTilePics As List(Of PictureBox)  ' Pictureboxes for each tile
-
+    Private player1 As Players
+    Private player2 As Players
+    Private turn As Integer
+      
     Private Sub RenderLevel(ByVal name As String)
         lvl = New Level(name, lvlWidth, lvlHeight, lvlLength)
 
@@ -76,11 +79,7 @@ Public Class Form1
 
     Private Sub BtnDice_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnDice.Click
         Dim dobbel1, dobbel2 As Dice
-        Dim player1, player2 As Players
         'om te testen of het werkt 
-        player1 = New Players("Joeri", Color.Beige, False, False, 0, False, False)
-        player2 = New Players("Joske", Color.LightPink, False, False, 0, False, False)
-
         dobbel1 = New Dice
         dobbel2 = New Dice
 
@@ -90,7 +89,12 @@ Public Class Form1
         lbl1.Text = CStr(dobbel1.DiceValue)
         lbl2.Text = CStr(dobbel2.DiceValue)
         AddToChatLog(player1.Naam & " heeft " & (dobbel1.DiceValue + dobbel2.DiceValue).ToString & " gegooid", player1.Kleur)
-        AddToChatLog(player2.Naam & " zijne toer!", player2.Kleur)
+        player1.Position = player1.Position + (dobbel1.DiceValue + dobbel2.DiceValue)
+        AddToChatLog(player2.Naam & " zijn beurt!", player2.Kleur)
+
+        lstplayers.Items.Clear()
+        lstplayers.Items.Add(player1.Naam & " staat op posistie " & player1.Position)
+        lstplayers.Items.Add(player2.Naam & " staat op posistie " & player2.Position)
 
     End Sub
 
@@ -108,5 +112,11 @@ Public Class Form1
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         logColor = New List(Of Color)
         logColor.Add(Color.LightGray)
+
+        player1 = New Players("Joske", Color.LightPink, False, False, 0, False, False)
+        player2 = New Players("Joeri", Color.Beige, False, False, 0, False, False)
+        lstplayers.Items.Add(player1.Naam & " staat op posistie " & player1.Position)
+        lstplayers.Items.Add(player2.Naam & " staat op posistie " & player2.Position)
+
     End Sub
 End Class
