@@ -64,3 +64,5 @@ Um Kristof, wrm zitte HasFinished, LastRoll, SkipTurn en InJail in de Public Sub
 We hebbe kleur in de ChatLog! Ma tis e gesmodder ze.
 Okee nu kunne we Private Sub AddToChatLog gebruike om aan het chatlog toe te voege.
 Begonne aan de level render method, en de level klasse ewa geoptimaliseerd.
+
+Joeri: kristof kunt gij mij effe risico door sturen voor die beurten met de gooi knop of zou ge er zelf naar kunnen kijken als ge daar zin in hebt ;) :p
