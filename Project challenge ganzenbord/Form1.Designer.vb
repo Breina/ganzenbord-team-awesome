@@ -22,6 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.MenuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NewGameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -82,11 +83,12 @@ Partial Class Form1
         'TestToolStripMenuItem1
         '
         Me.TestToolStripMenuItem1.Name = "TestToolStripMenuItem1"
-        Me.TestToolStripMenuItem1.Size = New System.Drawing.Size(123, 22)
+        Me.TestToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.TestToolStripMenuItem1.Text = "TestLevel"
         '
         'Board
         '
+        Me.Board.BackgroundImage = CType(resources.GetObject("Board.BackgroundImage"), System.Drawing.Image)
         Me.Board.Location = New System.Drawing.Point(12, 43)
         Me.Board.Name = "Board"
         Me.Board.Size = New System.Drawing.Size(554, 364)

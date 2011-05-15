@@ -30,16 +30,7 @@ Public Class Form1
             End With
 
             Board.Controls.Add(lvlTilePics.Item(i))
-
-            'MessageBox.Show("Coordinates: (" & Convert.ToString(lvlTilePics.Item(i).Left) & "," & Convert.ToString(lvlTilePics.Item(i).Top) & ")")
         Next
-
-        For x As Integer = 0 To lvlWidth
-            For y As Integer = 0 To lvlHeight
-
-            Next
-        Next
-
     End Sub
 
     Private Sub NewGameToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NewGameToolStripMenuItem.Click
@@ -112,4 +103,5 @@ Public Class Form1
         lstplayers.Items.Add(player2.Naam & " staat op posistie " & player2.Position)
 
     End Sub
+
 End Class
