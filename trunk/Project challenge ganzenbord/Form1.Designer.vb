@@ -87,9 +87,9 @@ Partial Class Form1
         '
         'Board
         '
-        Me.Board.Location = New System.Drawing.Point(12, 27)
+        Me.Board.Location = New System.Drawing.Point(12, 43)
         Me.Board.Name = "Board"
-        Me.Board.Size = New System.Drawing.Size(554, 380)
+        Me.Board.Size = New System.Drawing.Size(554, 364)
         Me.Board.TabIndex = 1
         Me.Board.TabStop = False
         '

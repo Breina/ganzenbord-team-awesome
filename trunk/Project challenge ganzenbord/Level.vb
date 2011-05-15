@@ -101,7 +101,7 @@ Public Class Level
         Loop
 
         length = level.Count() - 1
-        level.Item(length - 1) = New TileFinish(pos Mod width, pos \ width)    ' Finish tile
+        AddTile(pos, width)    ' Finish tile
     End Sub
 
     ' Returns the tile at index

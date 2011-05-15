@@ -16,30 +16,23 @@ Public Class Form1
         Dim size As Integer
         size = Convert.ToInt32(Math.Min(Board.Width / lvlWidth, Board.Height / lvlHeight))
 
-        Me.lvlTilePics = New List(Of PictureBox)
-        Me.SuspendLayout()
+        lvlTilePics = New List(Of PictureBox)
 
         For i As Integer = 0 To lvlLength
-            Me.lvlTilePics.Add(New PictureBox())
-            CType(Me.lvlTilePics.Item(i), System.ComponentModel.ISupportInitialize).BeginInit()
+            lvlTilePics.Add(New PictureBox())
 
-            Me.lvlTilePics.Item(i).Location = New Point(Board.Left + size * lvl.TileIndex(i).X, Board.Top + size * lvl.TileIndex(i).Y)
-            Me.lvlTilePics.Item(i).Size = New Size(size, size)
-            Me.lvlTilePics.Item(i).Name = "PicBoxTile" & Convert.ToString(i)
-            Me.lvlTilePics.Item(i).ImageLocation = "C:\Users\CX\Desktop\Project challenge ganzenbord\Project challenge ganzenbord\bin\Debug\images\tile.png"
-            Me.lvlTilePics.Item(i).TabIndex = 10 + i
-            Me.lvlTilePics.Item(i).TabStop = False
+            With lvlTilePics.Item(i)
+                .Location = New Point(Board.Left + size * lvl.TileIndex(i).X, Board.Top + size * lvl.TileIndex(i).Y)
+                .Size = New Size(size, size)
+                .Name = "PicBoxTile" & Convert.ToString(i)
+                .ImageLocation = "images\tile.png"
+                '.AutoSize = True
+            End With
 
-            Me.Controls.Add(Me.lvlTilePics.Item(i))
-            CType(Me.lvlTilePics.Item(i), System.ComponentModel.ISupportInitialize).EndInit()
-
-            'Kristof kijk ns hier joh, wrm kome die ni op me scherm? ;(
+            Board.Controls.Add(lvlTilePics.Item(i))
 
             'MessageBox.Show("Coordinates: (" & Convert.ToString(lvlTilePics.Item(i).Left) & "," & Convert.ToString(lvlTilePics.Item(i).Top) & ")")
         Next
-
-        Me.ResumeLayout(False)
-        Me.PerformLayout()
 
         For x As Integer = 0 To lvlWidth
             For y As Integer = 0 To lvlHeight
