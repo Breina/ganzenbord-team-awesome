@@ -33,11 +33,11 @@ Partial Class Form1
         Me.PctDice2 = New System.Windows.Forms.PictureBox()
         Me.LstChatLog = New System.Windows.Forms.ListBox()
         Me.NewPlayer = New System.Windows.Forms.GroupBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lstplayers = New System.Windows.Forms.ListBox()
         Me.BtnDice = New System.Windows.Forms.Button()
         Me.lbl1 = New System.Windows.Forms.Label()
         Me.lbl2 = New System.Windows.Forms.Label()
-        Me.lstplayers = New System.Windows.Forms.ListBox()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PctDice1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PctDice2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -82,7 +82,7 @@ Partial Class Form1
         'TestToolStripMenuItem1
         '
         Me.TestToolStripMenuItem1.Name = "TestToolStripMenuItem1"
-        Me.TestToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.TestToolStripMenuItem1.Size = New System.Drawing.Size(123, 22)
         Me.TestToolStripMenuItem1.Text = "TestLevel"
         '
         'Board
@@ -131,6 +131,23 @@ Partial Class Form1
         Me.NewPlayer.TabIndex = 2
         Me.NewPlayer.TabStop = False
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(6, 16)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(42, 13)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Spelers"
+        '
+        'lstplayers
+        '
+        Me.lstplayers.FormattingEnabled = True
+        Me.lstplayers.Location = New System.Drawing.Point(6, 32)
+        Me.lstplayers.Name = "lstplayers"
+        Me.lstplayers.Size = New System.Drawing.Size(180, 173)
+        Me.lstplayers.TabIndex = 0
+        '
         'BtnDice
         '
         Me.BtnDice.Location = New System.Drawing.Point(645, 505)
@@ -157,23 +174,6 @@ Partial Class Form1
         Me.lbl2.Size = New System.Drawing.Size(39, 13)
         Me.lbl2.TabIndex = 7
         Me.lbl2.Text = "Label2"
-        '
-        'lstplayers
-        '
-        Me.lstplayers.FormattingEnabled = True
-        Me.lstplayers.Location = New System.Drawing.Point(6, 32)
-        Me.lstplayers.Name = "lstplayers"
-        Me.lstplayers.Size = New System.Drawing.Size(180, 173)
-        Me.lstplayers.TabIndex = 0
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 16)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(42, 13)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Spelers"
         '
         'Form1
         '

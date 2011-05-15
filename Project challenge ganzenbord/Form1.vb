@@ -26,7 +26,7 @@ Public Class Form1
             Me.lvlTilePics.Item(i).Location = New Point(Board.Left + size * lvl.TileIndex(i).X, Board.Top + size * lvl.TileIndex(i).Y)
             Me.lvlTilePics.Item(i).Size = New Size(size, size)
             Me.lvlTilePics.Item(i).Name = "PicBoxTile" & Convert.ToString(i)
-            Me.lvlTilePics.Item(i).ImageLocation = "C:\Users\CX\Desktop\Project challenge ganzenbord\Project challenge ganzenbord\bin\Debug\images/tile.png"
+            Me.lvlTilePics.Item(i).ImageLocation = "C:\Users\CX\Desktop\Project challenge ganzenbord\Project challenge ganzenbord\bin\Debug\images\tile.png"
             Me.lvlTilePics.Item(i).TabIndex = 10 + i
             Me.lvlTilePics.Item(i).TabStop = False
 
