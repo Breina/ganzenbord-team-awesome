@@ -13,19 +13,30 @@ Public Class Form1
         Dim size As Integer
         size = Convert.ToInt32(Math.Min(Board.Width / lvlWidth, Board.Height / lvlHeight))
 
-        lvlTilePics = New List(Of PictureBox)
+        Me.lvlTilePics = New List(Of PictureBox)
+        Me.SuspendLayout()
+
         For i As Integer = 0 To lvlLength
-            lvlTilePics.Add(New PictureBox())
-            lvlTilePics.Item(i).Left = Board.Left + size * lvl.TileIndex(i).X
-            lvlTilePics.Item(i).Top = Board.Top + size * lvl.TileIndex(i).Y
-            lvlTilePics.Item(i).Width = size
-            lvlTilePics.Item(i).Height = size
-            lvlTilePics.Item(i).ImageLocation = "C:\Users\CX\Desktop\Project challenge ganzenbord\Project challenge ganzenbord\bin\Debug\images/tile.png"
+            Me.lvlTilePics.Add(New PictureBox())
+            CType(Me.lvlTilePics.Item(i), System.ComponentModel.ISupportInitialize).BeginInit()
+
+            Me.lvlTilePics.Item(i).Location = New Point(Board.Left + size * lvl.TileIndex(i).X, Board.Top + size * lvl.TileIndex(i).Y)
+            Me.lvlTilePics.Item(i).Size = New Size(size, size)
+            Me.lvlTilePics.Item(i).Name = "PicBoxTile" & Convert.ToString(i)
+            Me.lvlTilePics.Item(i).ImageLocation = "C:\Users\CX\Desktop\Project challenge ganzenbord\Project challenge ganzenbord\bin\Debug\images/tile.png"
+            Me.lvlTilePics.Item(i).TabIndex = 10 + i
+            Me.lvlTilePics.Item(i).TabStop = False
+
+            Me.Controls.Add(Me.lvlTilePics.Item(i))
+            CType(Me.lvlTilePics.Item(i), System.ComponentModel.ISupportInitialize).EndInit()
 
             'Kristof kijk ns hier joh, wrm kome die ni op me scherm? ;(
 
             'MessageBox.Show("Coordinates: (" & Convert.ToString(lvlTilePics.Item(i).Left) & "," & Convert.ToString(lvlTilePics.Item(i).Top) & ")")
         Next
+
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
 
         For x As Integer = 0 To lvlWidth
             For y As Integer = 0 To lvlHeight
