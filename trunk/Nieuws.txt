@@ -65,4 +65,10 @@ We hebbe kleur in de ChatLog! Ma tis e gesmodder ze.
 Okee nu kunne we Private Sub AddToChatLog gebruike om aan het chatlog toe te voege.
 Begonne aan de level render method, en de level klasse ewa geoptimaliseerd.
 
+
 Joeri: kristof kunt gij mij effe risico door sturen voor die beurten met de gooi knop of zou ge er zelf naar kunnen kijken als ge daar zin in hebt ;) :p
+
+
+Brecht:
+De levels kunne dus worde gerenderd! Enig probleempje is wel da de afbeeldinge nog geresized moete worde, en daar gene gemakkeleke functie voor bestaan. Ma moelek gaat ook eh ^^
+Dus voor ieder vakske is der ne picturebox. Het is mss beter kwa performantie alles te tekene op ne panel, ma kwa functionaliteit denk ik da het beter zo is. Als der iemand int gevang zit, kunne we alsnog dynamisch veranderende vakskes hebbe. :D
