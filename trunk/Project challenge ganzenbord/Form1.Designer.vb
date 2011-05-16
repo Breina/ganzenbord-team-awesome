@@ -39,6 +39,7 @@ Partial Class Form1
         Me.BtnDice = New System.Windows.Forms.Button()
         Me.lbl1 = New System.Windows.Forms.Label()
         Me.lbl2 = New System.Windows.Forms.Label()
+        Me.SpiraltxtToolStripMenuItem = New System.Windows.Forms.ToolStripTextBox()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PctDice1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PctDice2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -75,7 +76,7 @@ Partial Class Form1
         '
         'TestToolStripMenuItem
         '
-        Me.TestToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TestToolStripMenuItem1})
+        Me.TestToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TestToolStripMenuItem1, Me.SpiraltxtToolStripMenuItem})
         Me.TestToolStripMenuItem.Name = "TestToolStripMenuItem"
         Me.TestToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
         Me.TestToolStripMenuItem.Text = "Test"
@@ -83,7 +84,7 @@ Partial Class Form1
         'TestToolStripMenuItem1
         '
         Me.TestToolStripMenuItem1.Name = "TestToolStripMenuItem1"
-        Me.TestToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.TestToolStripMenuItem1.Size = New System.Drawing.Size(212, 22)
         Me.TestToolStripMenuItem1.Text = "TestLevel"
         '
         'Board
@@ -177,6 +178,12 @@ Partial Class Form1
         Me.lbl2.TabIndex = 7
         Me.lbl2.Text = "Label2"
         '
+        'SpiraltxtToolStripMenuItem
+        '
+        Me.SpiraltxtToolStripMenuItem.Name = "SpiraltxtToolStripMenuItem"
+        Me.SpiraltxtToolStripMenuItem.Size = New System.Drawing.Size(152, 23)
+        Me.SpiraltxtToolStripMenuItem.Text = "spiral.txt"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -220,5 +227,6 @@ Partial Class Form1
     Friend WithEvents lbl2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents lstplayers As System.Windows.Forms.ListBox
+    Friend WithEvents SpiraltxtToolStripMenuItem As System.Windows.Forms.ToolStripTextBox
 
 End Class
