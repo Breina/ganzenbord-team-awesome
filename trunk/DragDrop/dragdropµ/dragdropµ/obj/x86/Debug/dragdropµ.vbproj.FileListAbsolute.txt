@@ -10,3 +10,15 @@ c:\users\student\documents\visual studio 2010\Projects\dragdropµ\dragdropµ\obj
 c:\users\student\documents\visual studio 2010\Projects\dragdropµ\dragdropµ\obj\x86\Debug\dragdropµ.xml
 c:\users\student\documents\visual studio 2010\Projects\dragdropµ\dragdropµ\obj\x86\Debug\dragdropµ.pdb
 C:\Users\student\documents\visual studio 2010\Projects\dragdropµ\dragdropµ\obj\x86\Debug\GenerateResource.read.139.tlog
+C:\Users\CX\Desktop\Project challenge ganzenbord\DragDrop\dragdropµ\dragdropµ\obj\x86\Debug\dragdropµ.exe
+C:\Users\CX\Desktop\Project challenge ganzenbord\DragDrop\dragdropµ\dragdropµ\obj\x86\Debug\dragdropµ.xml
+C:\Users\CX\Desktop\Project challenge ganzenbord\DragDrop\dragdropµ\dragdropµ\obj\x86\Debug\dragdropµ.pdb
+C:\Users\CX\Desktop\Project challenge ganzenbord\DragDrop\dragdropµ\dragdropµ\bin\Debug\dragdropµ.exe
+C:\Users\CX\Desktop\Project challenge ganzenbord\DragDrop\dragdropµ\dragdropµ\bin\Debug\dragdropµ.pdb
+C:\Users\CX\Desktop\Project challenge ganzenbord\DragDrop\dragdropµ\dragdropµ\bin\Debug\dragdropµ.xml
+C:\Users\CX\Desktop\Project challenge ganzenbord\DragDrop\dragdropµ\dragdropµ\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\CX\Desktop\Project challenge ganzenbord\DragDrop\dragdropµ\dragdropµ\obj\x86\Debug\dragdropµ.Form1.resources
+C:\Users\CX\Desktop\Project challenge ganzenbord\DragDrop\dragdropµ\dragdropµ\obj\x86\Debug\dragdropµ.Resources.resources
+C:\Users\CX\Desktop\Project challenge ganzenbord\DragDrop\dragdropµ\dragdropµ\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\CX\Desktop\Project challenge ganzenbord\DragDrop\dragdropµ\dragdropµ\obj\x86\Debug\GenerateResource.read.139.tlog
+C:\Users\CX\Desktop\Project challenge ganzenbord\DragDrop\dragdropµ\dragdropµ\obj\x86\Debug\GenerateResource.write.1.tlog
