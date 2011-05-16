@@ -11,12 +11,12 @@ Public Class Level
     Private level As List(Of Tile)  ' Tile objects for level
 
     ' Adds a tile to level
-    Private Sub AddTile(ByVal pos As Integer, ByVal width As Integer)
+    Private Sub AddTile(ByVal pos As Integer, ByVal width As Integer, ByVal orientation As OrientationEnum)
         Dim x, y As Integer
         x = pos Mod width
         y = pos \ width
 
-        level.Add(New Tile(x, y))
+        level.Add(New Tile(x, y, orientation))
     End Sub
 
     ' Reads the file and generates Tile objects accordingly
@@ -44,19 +44,21 @@ Public Class Level
         pos = s.IndexOf(START)
 
         level = New List(Of Tile)
-        level.Add(New TileStart(pos Mod width, pos \ width))
+        AddTile(pos, width, OrientationEnum.start)      ' Start tile
 
         Dim directions As List(Of Integer)
         directions = New List(Of Integer)
-        directions.Add(-1)      'Left   0
-        directions.Add(-width)  'Up     1
-        directions.Add(1)       'Right  2
-        directions.Add(width)   'Down   3
-        directions.Add(-1)      'Left   4
-        directions.Add(-width)  'Up     5
+
+        With directions
+            .Add(-1)      'Left   0
+            .Add(-width)  'Up     1
+            .Add(1)       'Right  2
+            .Add(width)   'Down   3
+            .Add(-1)      'Left   4
+            .Add(-width)  'Up     5
+        End With
 
         Const FP = FINISH & PATH
-
         Dim lastDirection As Integer
 
         ' Finds the first direction from start
@@ -68,25 +70,58 @@ Public Class Level
         Next
 
         Dim c As Char
+        Dim orientation As OrientationEnum
 
         ' Finds the rest of the path
         Do Until c = FINISH
             c = s.ElementAt(pos + directions.Item(lastDirection))
             If FP.Contains(c) Then                                          ' Check for valid path straight ahead
+
+                Select Case lastDirection
+                    Case 1, 3
+                        orientation = OrientationEnum.ud
+                    Case 2, 4
+                        orientation = OrientationEnum.lr
+                End Select
+                AddTile(pos, width, orientation)
+
                 pos += directions.Item(lastDirection)
-                AddTile(pos, width)
             Else
                 lastDirection += 1
                 c = s.ElementAt(pos + directions.Item(lastDirection))
                 If FP.Contains(c) Then                                      ' Check for valid path turned right
+
+                    Select Case lastDirection
+                        Case 2
+                            orientation = OrientationEnum.dr
+                        Case 3
+                            orientation = OrientationEnum.dl
+                        Case 4
+                            orientation = OrientationEnum.ul
+                        Case 5
+                            orientation = OrientationEnum.ur
+                    End Select
+                    AddTile(pos, width, orientation)
+
                     pos += directions.Item(lastDirection)
-                    AddTile(pos, width)
                 Else
                     lastDirection -= 2
                     c = s.ElementAt(pos + directions.Item(lastDirection))
                     If FP.Contains(c) Then                                  ' Check for valid path turned left
+
+                        Select Case lastDirection
+                            Case 0
+                                orientation = OrientationEnum.dl
+                            Case 1
+                                orientation = OrientationEnum.ul
+                            Case 2
+                                orientation = OrientationEnum.ur
+                            Case 3
+                                orientation = OrientationEnum.dr
+                        End Select
+                        AddTile(pos, width, orientation)
+
                         pos += directions.Item(lastDirection)
-                        AddTile(pos, width)
                     Else
                         ' Path break exception
                     End If
@@ -101,7 +136,7 @@ Public Class Level
         Loop
 
         length = level.Count() - 1
-        AddTile(pos, width)    ' Finish tile
+        AddTile(pos, width, OrientationEnum.finish)    ' Finish tile
     End Sub
 
     ' Returns the tile at index

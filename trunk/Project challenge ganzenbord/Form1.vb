@@ -25,7 +25,8 @@ Public Class Form1
                 .Location = New Point(Board.Left + size * lvl.TileIndex(i).X, Board.Top + size * lvl.TileIndex(i).Y)
                 .Size = New Size(size, size)
                 .Name = "PicBoxTile" & Convert.ToString(i)
-                .ImageLocation = "images\tile.png"
+                .ImageLocation = "images\tiles\" & lvl.TileIndex(i).Orientation & ".png"
+
                 '.AutoSize = True
             End With
 
@@ -43,7 +44,7 @@ Public Class Form1
     End Sub
 
     Private Sub TestToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TestToolStripMenuItem1.Click
-        RenderLevel("spiral.txt")
+        RenderLevel("test.txt")
 
         'lvl.TileIndex(0)   ' Start vakske
         'lvl.TileIndex(1)   ' 1e vakske

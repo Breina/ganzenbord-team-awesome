@@ -2,8 +2,8 @@
 Public Class TileDeath
     Inherits Tile
 
-    Public Sub New(ByVal x As Integer, ByVal y As Integer)
-        MyBase.New(x, y)
+    Public Sub New(ByVal x As Integer, ByVal y As Integer, ByVal orientation As OrientationEnum)
+        MyBase.New(x, y, orientation)
     End Sub
 
     Public Sub New()
