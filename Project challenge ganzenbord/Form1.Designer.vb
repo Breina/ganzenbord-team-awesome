@@ -29,6 +29,7 @@ Partial Class Form1
         Me.CloseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TestToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SpiraltxtToolStripMenuItem = New System.Windows.Forms.ToolStripTextBox()
         Me.Board = New System.Windows.Forms.GroupBox()
         Me.PctDice1 = New System.Windows.Forms.PictureBox()
         Me.PctDice2 = New System.Windows.Forms.PictureBox()
@@ -39,7 +40,6 @@ Partial Class Form1
         Me.BtnDice = New System.Windows.Forms.Button()
         Me.lbl1 = New System.Windows.Forms.Label()
         Me.lbl2 = New System.Windows.Forms.Label()
-        Me.SpiraltxtToolStripMenuItem = New System.Windows.Forms.ToolStripTextBox()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PctDice1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PctDice2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -87,12 +87,20 @@ Partial Class Form1
         Me.TestToolStripMenuItem1.Size = New System.Drawing.Size(212, 22)
         Me.TestToolStripMenuItem1.Text = "TestLevel"
         '
+        'SpiraltxtToolStripMenuItem
+        '
+        Me.SpiraltxtToolStripMenuItem.Name = "SpiraltxtToolStripMenuItem"
+        Me.SpiraltxtToolStripMenuItem.Size = New System.Drawing.Size(152, 23)
+        Me.SpiraltxtToolStripMenuItem.Text = "spiral.txt"
+        '
         'Board
         '
         Me.Board.BackgroundImage = CType(resources.GetObject("Board.BackgroundImage"), System.Drawing.Image)
-        Me.Board.Location = New System.Drawing.Point(12, 43)
+        Me.Board.Location = New System.Drawing.Point(12, 27)
+        Me.Board.Margin = New System.Windows.Forms.Padding(0)
         Me.Board.Name = "Board"
-        Me.Board.Size = New System.Drawing.Size(554, 364)
+        Me.Board.Padding = New System.Windows.Forms.Padding(0)
+        Me.Board.Size = New System.Drawing.Size(554, 380)
         Me.Board.TabIndex = 1
         Me.Board.TabStop = False
         '
@@ -178,12 +186,6 @@ Partial Class Form1
         Me.lbl2.TabIndex = 7
         Me.lbl2.Text = "Label2"
         '
-        'SpiraltxtToolStripMenuItem
-        '
-        Me.SpiraltxtToolStripMenuItem.Name = "SpiraltxtToolStripMenuItem"
-        Me.SpiraltxtToolStripMenuItem.Size = New System.Drawing.Size(152, 23)
-        Me.SpiraltxtToolStripMenuItem.Text = "spiral.txt"
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -217,7 +219,6 @@ Partial Class Form1
     Friend WithEvents CloseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TestToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TestToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents Board As System.Windows.Forms.GroupBox
     Friend WithEvents PctDice1 As System.Windows.Forms.PictureBox
     Friend WithEvents PctDice2 As System.Windows.Forms.PictureBox
     Friend WithEvents LstChatLog As System.Windows.Forms.ListBox
@@ -228,5 +229,6 @@ Partial Class Form1
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents lstplayers As System.Windows.Forms.ListBox
     Friend WithEvents SpiraltxtToolStripMenuItem As System.Windows.Forms.ToolStripTextBox
+    Friend WithEvents Board As System.Windows.Forms.GroupBox
 
 End Class

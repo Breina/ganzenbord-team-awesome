@@ -13,7 +13,7 @@
 
     Public Sub Roll(ByRef pic As PictureBox)
         value = random.Next(6)
-        pic.ImageLocation = nums.Item(value)
+        pic.ImageLocation = "images/dice/" & nums.Item(value)
         value += 1
     End Sub
 
