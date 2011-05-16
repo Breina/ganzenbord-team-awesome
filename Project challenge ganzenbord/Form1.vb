@@ -26,8 +26,7 @@ Public Class Form1
                 .Size = New Size(size, size)
                 .Name = "PicBoxTile" & Convert.ToString(i)
                 .ImageLocation = "images\tiles\" & lvl.TileIndex(i).Orientation & ".png"
-
-                '.AutoSize = True
+                .SizeMode = PictureBoxSizeMode.StretchImage
             End With
 
             Board.Controls.Add(lvlTilePics.Item(i))
@@ -44,7 +43,7 @@ Public Class Form1
     End Sub
 
     Private Sub TestToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TestToolStripMenuItem1.Click
-        RenderLevel("test.txt")
+        RenderLevel(SpiraltxtToolStripMenuItem.Text)
 
         'lvl.TileIndex(0)   ' Start vakske
         'lvl.TileIndex(1)   ' 1e vakske

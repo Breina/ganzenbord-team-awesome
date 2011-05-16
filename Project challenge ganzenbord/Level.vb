@@ -68,6 +68,7 @@ Public Class Level
                 i = 4
             End If
         Next
+        pos += directions.Item(lastDirection)
 
         Dim c As Char
         Dim orientation As OrientationEnum
@@ -135,7 +136,7 @@ Public Class Level
             End If
         Loop
 
-        length = level.Count() - 1
+        length = level.Count()
         AddTile(pos, width, OrientationEnum.finish)    ' Finish tile
     End Sub
 
