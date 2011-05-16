@@ -71,4 +71,14 @@ Joeri: kristof kunt gij mij effe risico door sturen voor die beurten met de gooi
 
 Brecht:
 De levels kunne dus worde gerenderd! Enig probleempje is wel da de afbeeldinge nog geresized moete worde, en daar gene gemakkeleke functie voor bestaan. Ma moelek gaat ook eh ^^
-Dus voor ieder vakske is der ne picturebox. Het is mss beter kwa performantie alles te tekene op ne panel, ma kwa functionaliteit denk ik da het beter zo is. Als der iemand int gevang zit, kunne we alsnog dynamisch veranderende vakskes hebbe. :D
+Dus voor ieder vakske is der ne picturebox. Het is mss beter kwa performantie alleste tekene op ne panel, ma kwa functionaliteit denk ik da het beter zo is. Als der iemand int gevang zit, kunne we alsnog dynamisch veranderende vakskes hebbe. :D
+
+Keb n klein tekstmuurke gemetseld :p
+Ahjha keb n voostel voor de volgende speler aan te kondige, glijk in tetris, da ge zo ziet wa de volgende spelers zijn. In Turnlist_voorstel.png hebbe we bv 5 spelers; Jaak, Jos, Flip, Jean en Albert. De normale ronde gaat zo;
+Jaak > Jos > Jean > Flip > Albert. Albert is in de gevangenis gesukkelt, dus hij staat mag ni meedoen tot iemand hem komt aflosse, hij wordt nie vermeld in het turnlist lijstje, ma staat vanonder bij het gevangenis icoontje.
+Jean de zoatlap is blijve plakke in de herberg, dus slaat zijn beurt na Jos over, ma de volgende ronde mag hij dus meedoen, dus de volgende ronde staat hij der trug bij na Jos. Wa vinde jullie hiervan?
+Ah jha, in het geval da de gebruiker 2 of meer gevangenisse maakt, diene die als ene globale gevangenis, of zijn da induviduele gevangeniskes? We kunne dit eventueel als optie door gebruiker late kieze. :)
+En nog een laatste zaak; de drag en drop knoppe kome op de plaats waar de lijst staat, als de gebruiker klaar is, zal die dan weggaan en dan komt de lijst trug. Ma met level select is da ni per se nodig. Dus wille we die ook op die plaats make, of een aparte form, glijk new player?
+We kunne ook Kristof martele tot hij de new player form opnieuw wil make, ma dan in 
+de main form, ipv de playerlist. Dan doen we alles via daar, een soort setupje dan?
+New players > Level select > (Plaats speciale vakskes) > Turnlist
