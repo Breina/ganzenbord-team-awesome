@@ -87,6 +87,9 @@ Public Class Form1
         For i As Integer = 0 To player.Count - 1
             lstplayers.Items.Add(player(i).Naam & " staat op posistie " & player(i).Position)
         Next
+        If player(turn).Comput = True Then
+            ComputerPlayer()
+        End If
 
     End Sub
 
@@ -112,5 +115,35 @@ Public Class Form1
 
     Private Sub AboutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AboutToolStripMenuItem.Click
         About.Show()
+    End Sub
+    Private Sub ComputerPlayer()
+        Dim dobbel1, dobbel2 As Dice
+        Dim j As Integer = 0
+        'om te testen of het werkt 
+        dobbel1 = New Dice
+        dobbel2 = New Dice
+        dobbel1.Roll(PctDice1)
+        dobbel2.Roll(PctDice2)
+        lbl1.Text = CStr(dobbel1.DiceValue)
+        lbl2.Text = CStr(dobbel2.DiceValue)
+        AddToChatLog(player(turn).Naam & " heeft " & (dobbel1.DiceValue + dobbel2.DiceValue).ToString & " gegooid", player(turn).Kleur)
+        player(turn).Position = player(turn).Position + (dobbel1.DiceValue + dobbel2.DiceValue)
+        If turn >= player.Count - 1 Then
+            AddToChatLog(player(0).Naam & " zijn beurt!", player(0).Kleur)
+        Else
+            AddToChatLog(player(turn + 1).Naam & " zijn beurt!", player(turn + 1).Kleur)
+        End If
+        turn += 1
+        If turn > player.Count - 1 Then
+            turn = 0
+        End If
+
+        lstplayers.Items.Clear()
+        For i As Integer = 0 To player.Count - 1
+            lstplayers.Items.Add(player(i).Naam & " staat op posistie " & player(i).Position)
+        Next
+        If player(turn).Comput = True Then
+            ComputerPlayer()
+        End If
     End Sub
 End Class

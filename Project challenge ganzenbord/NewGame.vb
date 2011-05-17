@@ -8,7 +8,7 @@ Public Class NewGame
         Dim i As Int16
         player.Clear()
         For i = 0 To CType(nudPlayers.Value - 1, Int16)
-            If checked = objCreatePlayer(i).check.Checked Then
+            If objCreatePlayer(i).check.Checked Then
                 checked = True
             Else
                 checked = False
@@ -38,7 +38,7 @@ Public Class NewGame
                 Me.Controls.Add(objCreatePlayer(i).tekst)
                 Me.Controls.Add(objCreatePlayer(i).check)
                 AddHandler objCreatePlayer(i).btn.Click, AddressOf pickColor
-                'AddHandler objCreatePlayer(i).check.CheckedChanged, AddressOf NaamVerandering
+                AddHandler objCreatePlayer(i).check.CheckedChanged, AddressOf VeranderNaam
             Next
             loaded = True
         Loop
@@ -66,7 +66,17 @@ Public Class NewGame
             End If
         Next
     End Sub
-
+    Private Sub VeranderNaam(ByVal sender As System.Object, ByVal e As System.EventArgs)
+        Dim checker As CheckBox
+        Dim computplayer As Integer = 1
+        checker = CType(sender, CheckBox)
+        For i = 0 To CType(nudPlayers.Value - 1, Int16)
+            If objCreatePlayer(i).check.Checked Then
+                objCreatePlayer(i).tekst.Text = "ComputerPlayer" + computplayer.ToString
+                computplayer += 1
+            End If
+        Next
+    End Sub
     Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
         Me.Close()
         Form1.Show()
