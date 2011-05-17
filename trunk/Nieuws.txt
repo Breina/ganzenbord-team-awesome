@@ -92,3 +92,7 @@ Terwijl ik het teste of het werkte kreeg ik een foutmelding bij de class level..
 De error staan in de file error.txt
 
 Toedels :) xxx 
+
+Kristof:
+ComputerSpeler werkt en die gooien automatisch
+dobbelstenen hebbe nieuwe foto 
