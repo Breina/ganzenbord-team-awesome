@@ -109,4 +109,8 @@ Public Class Form1
         Next
 
     End Sub
+
+    Private Sub AboutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AboutToolStripMenuItem.Click
+        About.Show()
+    End Sub
 End Class
