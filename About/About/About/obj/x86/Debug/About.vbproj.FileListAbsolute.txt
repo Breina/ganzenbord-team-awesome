@@ -9,3 +9,6 @@ c:\users\student\documents\visual studio 2010\Projects\About\About\obj\x86\Debug
 c:\users\student\documents\visual studio 2010\Projects\About\About\obj\x86\Debug\About.exe
 c:\users\student\documents\visual studio 2010\Projects\About\About\obj\x86\Debug\About.xml
 c:\users\student\documents\visual studio 2010\Projects\About\About\obj\x86\Debug\About.pdb
+C:\Users\student\Desktop\PC\About\About\About\obj\x86\Debug\About.exe
+C:\Users\student\Desktop\PC\About\About\About\obj\x86\Debug\About.xml
+C:\Users\student\Desktop\PC\About\About\About\obj\x86\Debug\About.pdb

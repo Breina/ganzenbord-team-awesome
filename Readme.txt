@@ -31,13 +31,13 @@ Geluidjes
 								Klasse CreatePlayers(k)
 								Form NewPlayers(k)
 								Klasse Player(k)
-					Form About (I)
+												Form About (I)
 					Foto's(k)	
 
 								Drag & Drop opzoeken (I)
 					GameForm(J/B)
 
-
+												DobbelsteenAfb(I)
 
 
 
