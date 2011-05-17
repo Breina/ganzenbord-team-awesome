@@ -149,7 +149,8 @@ Public Class Form1
             LstPlayers.Items.Add(player(i).Naam & " staat op posistie " & player(i).Position)
         Next
         BtnDice.Text = "Start het spel"
-        RenderLevel(NewGame.txtLevel.Text)
+        RenderLevel(NewGame.lvl)
+        lbllvl.Text = NewGame.lvl
     End Sub
 
     Private Sub AboutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AboutToolStripMenuItem.Click
