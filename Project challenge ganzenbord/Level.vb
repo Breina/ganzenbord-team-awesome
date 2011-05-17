@@ -5,8 +5,9 @@ Public Class Level
 
     Const START = "S"
     Const FINISH = "E"
-    Const IGNORE = "O"
     Const PATH = "X"
+    Const IGNORE = "O"
+
 
     Private level As List(Of Tile)  ' Tile objects for level
 

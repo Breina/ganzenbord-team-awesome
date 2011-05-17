@@ -54,3 +54,4 @@ C:\Users\Student\Desktop\ganzenbord-team-awesome\Project challenge ganzenbord\ob
 C:\Users\Student\Desktop\ganzenbord-team-awesome\Project challenge ganzenbord\obj\x86\Debug\Project_challenge_ganzenbord.NewGame.resources
 C:\Users\Student\Desktop\ganzenbord-team-awesome\Project challenge ganzenbord\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\Student\Desktop\ganzenbord-team-awesome\Project challenge ganzenbord\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Student\Desktop\ganzenbord-team-awesome\Project challenge ganzenbord\obj\x86\Debug\Project_challenge_ganzenbord.About.resources
