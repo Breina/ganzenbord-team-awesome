@@ -105,3 +105,4 @@ Kristoofff!!!!!@@@ wilt gy n ReadOnly Property make die zegt binne hoeveel beurt
 Joeri:
 @kristof: kijk de computer nog eens na die werkt niet als er meer dan 2 spelers zijn
 ik heb in newgame de levelselectie gezet zodat je die daar moet kiezen het zou niet bepaald praktisch zijn als ne flauwe int midden van u spel ineens de map veranderd en alles opnieuw doet beginne he :p
+De Form1 moet nog net alles wissen als je op new game drukt want die blijft dat onthouden dus je kan niet opnieuw beginnen ... best wel lame :p
