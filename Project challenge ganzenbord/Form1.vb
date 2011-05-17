@@ -92,6 +92,24 @@ Public Class Form1
 
     End Sub
 
+    'Brecht
+    Private Sub FindNextPlayer()
+        Dim found As Boolean
+        Do
+            found = True
+            turn += 1
+            If turn > player.Count Then turn = 0
+
+            If player(turn).InJail Then found = False
+            If player(turn).SkipTurn Then
+                found = False
+                player(turn).SkipTurn = False
+            End If
+
+        Loop While found
+
+    End Sub
+
     ' Brecht
     ' Overwites the system's drawing function for the chatlog, uses logColor
     Private Sub LstChatLog_DrawItem(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles LstChatLog.DrawItem
@@ -132,7 +150,7 @@ Public Class Form1
         s = Nothing
 
         e.Graphics.FillRectangle(colorBrush, New RectangleF(e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height))
-        e.Graphics.DrawString(LstPlayersTest.Items(e.Index).ToString, font, Brushes.Black, New RectangleF(e.Bounds.X + 24, e.Bounds.Y + 2, e.Bounds.Width, e.Bounds.Height))
+        e.Graphics.DrawString(player(e.Index).Naam, font, Brushes.Black, New RectangleF(e.Bounds.X + 24, e.Bounds.Y + 2, e.Bounds.Width, e.Bounds.Height))
         e.Graphics.DrawImage(img, New Point(1, 1))
     End Sub
 
@@ -150,7 +168,7 @@ Public Class Form1
             LstPlayers.Items.Add(player(i).Naam & " staat op posistie " & player(i).Position)
         Next
         BtnDice.Text = "Start het spel"
-        RenderLevel(NewGame.lvl)
+        RenderLevel(NewGame.lvl & ".txt")
         lbllvl.Text = NewGame.lvl
     End Sub
 
@@ -175,12 +193,9 @@ Public Class Form1
 
             LstPlayers.Items.Item(turn) = player(turn).Naam & " staat op posistie " & player(turn).Position
 
-            turn += 1
-            If turn > player.Count - 1 Then
-                turn = 0
-            End If
+            FindNextPlayer()
 
-            AddToChatLog(.Naam & " zijn beurt!", .Kleur)
+            AddToChatLog(.Naam & " zijn/haar beurt!", .Kleur)
 
             If .Comput = True Then
                 ComputerPlayer()

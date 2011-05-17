@@ -75,6 +75,7 @@ Partial Class NewGame
         Me.TxtLevel.Name = "TxtLevel"
         Me.TxtLevel.Size = New System.Drawing.Size(96, 20)
         Me.TxtLevel.TabIndex = 27
+        Me.TxtLevel.Text = "spiral"
         '
         'Label2
         '
