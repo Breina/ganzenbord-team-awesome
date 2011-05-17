@@ -28,9 +28,6 @@ Partial Class Form1
         Me.MenuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NewGameToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CloseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TestToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SpiraltxtToolStripMenuItem = New System.Windows.Forms.ToolStripTextBox()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Board = New System.Windows.Forms.GroupBox()
@@ -43,8 +40,6 @@ Partial Class Form1
         Me.Label1 = New System.Windows.Forms.Label()
         Me.LstPlayers = New System.Windows.Forms.ListBox()
         Me.BtnDice = New System.Windows.Forms.Button()
-        Me.lbl1 = New System.Windows.Forms.Label()
-        Me.lbl2 = New System.Windows.Forms.Label()
         Me.TimerDice = New System.Windows.Forms.Timer(Me.components)
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PctDice1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -54,7 +49,7 @@ Partial Class Form1
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem, Me.TestToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(785, 24)
@@ -71,33 +66,14 @@ Partial Class Form1
         'NewGameToolStripMenuItem
         '
         Me.NewGameToolStripMenuItem.Name = "NewGameToolStripMenuItem"
-        Me.NewGameToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+        Me.NewGameToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.NewGameToolStripMenuItem.Text = "New Game"
         '
         'CloseToolStripMenuItem
         '
         Me.CloseToolStripMenuItem.Name = "CloseToolStripMenuItem"
-        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.CloseToolStripMenuItem.Text = "Close"
-        '
-        'TestToolStripMenuItem
-        '
-        Me.TestToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TestToolStripMenuItem1, Me.SpiraltxtToolStripMenuItem})
-        Me.TestToolStripMenuItem.Name = "TestToolStripMenuItem"
-        Me.TestToolStripMenuItem.Size = New System.Drawing.Size(41, 20)
-        Me.TestToolStripMenuItem.Text = "Test"
-        '
-        'TestToolStripMenuItem1
-        '
-        Me.TestToolStripMenuItem1.Name = "TestToolStripMenuItem1"
-        Me.TestToolStripMenuItem1.Size = New System.Drawing.Size(212, 22)
-        Me.TestToolStripMenuItem1.Text = "TestLevel"
-        '
-        'SpiraltxtToolStripMenuItem
-        '
-        Me.SpiraltxtToolStripMenuItem.Name = "SpiraltxtToolStripMenuItem"
-        Me.SpiraltxtToolStripMenuItem.Size = New System.Drawing.Size(152, 23)
-        Me.SpiraltxtToolStripMenuItem.Text = "spiral.txt"
         '
         'HelpToolStripMenuItem
         '
@@ -109,7 +85,7 @@ Partial Class Form1
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AboutToolStripMenuItem.Text = "About"
         '
         'Board
@@ -204,28 +180,12 @@ Partial Class Form1
         '
         'BtnDice
         '
-        Me.BtnDice.Location = New System.Drawing.Point(645, 505)
+        Me.BtnDice.Location = New System.Drawing.Point(645, 416)
         Me.BtnDice.Name = "BtnDice"
-        Me.BtnDice.Size = New System.Drawing.Size(127, 42)
+        Me.BtnDice.Size = New System.Drawing.Size(127, 131)
         Me.BtnDice.TabIndex = 5
         Me.BtnDice.Text = "Gooi"
         Me.BtnDice.UseVisualStyleBackColor = True
-        '
-        'lbl1
-        '
-        Me.lbl1.AutoSize = True
-        Me.lbl1.Location = New System.Drawing.Point(667, 454)
-        Me.lbl1.Name = "lbl1"
-        Me.lbl1.Size = New System.Drawing.Size(0, 13)
-        Me.lbl1.TabIndex = 6
-        '
-        'lbl2
-        '
-        Me.lbl2.AutoSize = True
-        Me.lbl2.Location = New System.Drawing.Point(712, 454)
-        Me.lbl2.Name = "lbl2"
-        Me.lbl2.Size = New System.Drawing.Size(0, 13)
-        Me.lbl2.TabIndex = 7
         '
         'TimerDice
         '
@@ -236,8 +196,6 @@ Partial Class Form1
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(785, 558)
-        Me.Controls.Add(Me.lbl2)
-        Me.Controls.Add(Me.lbl1)
         Me.Controls.Add(Me.BtnDice)
         Me.Controls.Add(Me.NewPlayer)
         Me.Controls.Add(Me.LstChatLog)
@@ -262,18 +220,13 @@ Partial Class Form1
     Friend WithEvents MenuToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents NewGameToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CloseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents TestToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents TestToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PctDice1 As System.Windows.Forms.PictureBox
     Friend WithEvents PctDice2 As System.Windows.Forms.PictureBox
     Friend WithEvents LstChatLog As System.Windows.Forms.ListBox
     Friend WithEvents NewPlayer As System.Windows.Forms.GroupBox
     Friend WithEvents BtnDice As System.Windows.Forms.Button
-    Friend WithEvents lbl1 As System.Windows.Forms.Label
-    Friend WithEvents lbl2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents LstPlayers As System.Windows.Forms.ListBox
-    Friend WithEvents SpiraltxtToolStripMenuItem As System.Windows.Forms.ToolStripTextBox
     Friend WithEvents Board As System.Windows.Forms.GroupBox
     Friend WithEvents TimerDice As System.Windows.Forms.Timer
     Friend WithEvents HelpToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
