@@ -177,7 +177,6 @@ Partial Class Form1
         Me.LstPlayersTest.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.LstPlayersTest.FormattingEnabled = True
         Me.LstPlayersTest.ItemHeight = 24
-        Me.LstPlayersTest.Items.AddRange(New Object() {"Jos", "Flip", "Jaak", "Tuur"})
         Me.LstPlayersTest.Location = New System.Drawing.Point(14, 217)
         Me.LstPlayersTest.Name = "LstPlayersTest"
         Me.LstPlayersTest.SelectionMode = System.Windows.Forms.SelectionMode.None
