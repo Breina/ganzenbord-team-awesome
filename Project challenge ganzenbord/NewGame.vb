@@ -3,7 +3,7 @@ Public Class NewGame
     Dim loaded As Boolean = False
     Dim objCreatePlayer() As CreatePlayer
     Dim checked As Boolean
-    Public Sub btnStart_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Public Sub btnStart_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnStart.Click
         'creeer players
         Dim i As Int16
         player.Clear()
@@ -15,7 +15,8 @@ Public Class NewGame
             End If
             player.Add(New Players(objCreatePlayer(i).tekst.Text, objCreatePlayer(i).btn.BackColor, checked, False, 0, False, False))
         Next
-        Me.Close()
+        Me.Hide()
+        Form1.Show()
     End Sub
 
     Public Sub playersAanpassen(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles nudPlayers.ValueChanged
@@ -37,6 +38,7 @@ Public Class NewGame
                 Me.Controls.Add(objCreatePlayer(i).tekst)
                 Me.Controls.Add(objCreatePlayer(i).check)
                 AddHandler objCreatePlayer(i).btn.Click, AddressOf pickColor
+                'AddHandler objCreatePlayer(i).check.CheckedChanged, AddressOf NaamVerandering
             Next
             loaded = True
         Loop
