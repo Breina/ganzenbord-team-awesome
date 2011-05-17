@@ -1,10 +1,10 @@
 ﻿Public Class Dice
-    Const ONE = "one.png"
-    Const TWO = "two.png"
-    Const THREE = "three.png"
-    Const FOUR = "four.png"
-    Const FIVE = "five.png"
-    Const SIX = "six.png"
+    Const ONE = "oog1c.gif"
+    Const TWO = "oog2c.gif"
+    Const THREE = "oog3c.gif"
+    Const FOUR = "oog4c.gif"
+    Const FIVE = "oog5c.gif"
+    Const SIX = "oog6c.gif"
 
     Private value As Integer
     Private nums As List(Of String)
