@@ -27,6 +27,8 @@ Partial Class NewGame
         Me.btnCancel = New System.Windows.Forms.Button()
         Me.btnStart = New System.Windows.Forms.Button()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
+        Me.TxtLevel = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.nudPlayers, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -67,11 +69,29 @@ Partial Class NewGame
         Me.btnStart.Text = "Start!"
         Me.btnStart.UseVisualStyleBackColor = True
         '
+        'TxtLevel
+        '
+        Me.TxtLevel.Location = New System.Drawing.Point(117, 284)
+        Me.TxtLevel.Name = "TxtLevel"
+        Me.TxtLevel.Size = New System.Drawing.Size(96, 20)
+        Me.TxtLevel.TabIndex = 27
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(12, 284)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(99, 13)
+        Me.Label2.TabIndex = 28
+        Me.Label2.Text = "Naam van het level"
+        '
         'NewGame
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(373, 326)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.TxtLevel)
         Me.Controls.Add(Me.nudPlayers)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnCancel)
@@ -88,4 +108,6 @@ Partial Class NewGame
     Friend WithEvents btnCancel As System.Windows.Forms.Button
     Friend WithEvents btnStart As System.Windows.Forms.Button
     Friend WithEvents ColorDialog1 As System.Windows.Forms.ColorDialog
+    Friend WithEvents TxtLevel As System.Windows.Forms.TextBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
 End Class

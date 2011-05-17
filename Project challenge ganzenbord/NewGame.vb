@@ -6,17 +6,18 @@ Public Class NewGame
     Public Sub btnStart_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnStart.Click
         'creeer players
         Dim i As Int16
-        player.Clear()
-        For i = 0 To CType(nudPlayers.Value - 1, Int16)
-            If objCreatePlayer(i).check.Checked Then
-                checked = True
-            Else
-                checked = False
-            End If
-            player.Add(New Players(objCreatePlayer(i).tekst.Text, objCreatePlayer(i).btn.BackColor, checked, False, 0, False, False))
-        Next
-        Me.Hide()
-        Form1.Show()
+            player.Clear()
+            For i = 0 To CType(nudPlayers.Value - 1, Int16)
+                If objCreatePlayer(i).check.Checked Then
+                    checked = True
+                Else
+                    checked = False
+                End If
+                player.Add(New Players(objCreatePlayer(i).tekst.Text, objCreatePlayer(i).btn.BackColor, checked, False, 0, False, False))
+            Next
+            Me.Hide()
+            Form1.Show()
+
     End Sub
 
     Public Sub playersAanpassen(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles nudPlayers.ValueChanged
@@ -80,5 +81,9 @@ Public Class NewGame
     Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
         Me.Close()
         Form1.Show()
+    End Sub
+
+    Private Sub NewGame_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        TxtLevel.Text = "test.txt"
     End Sub
 End Class

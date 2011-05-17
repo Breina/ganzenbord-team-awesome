@@ -42,11 +42,6 @@ Public Class Form1
     Private Sub CloseToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CloseToolStripMenuItem.Click
         Me.Close()
     End Sub
-
-    Private Sub TestToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TestToolStripMenuItem1.Click
-        RenderLevel(SpiraltxtToolStripMenuItem.Text)
-    End Sub
-
     ' Brecht
     Private Sub AddToChatLog(ByVal msg As String, ByVal col As Color)
         logColor.Add(col)
@@ -56,6 +51,7 @@ Public Class Form1
     End Sub
 
     Private Sub BtnDice_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnDice.Click
+        BtnDice.Text = "Gooi"
         Dim dobbel1, dobbel2 As Dice
         Dim j As Integer = 0
         'om te testen of het werkt 
@@ -63,8 +59,6 @@ Public Class Form1
         dobbel2 = New Dice
         dobbel1.Roll(PctDice1)
         dobbel2.Roll(PctDice2)
-        lbl1.Text = CStr(dobbel1.DiceValue)
-        lbl2.Text = CStr(dobbel2.DiceValue)
         AddToChatLog(player(turn).Naam & " heeft " & (dobbel1.DiceValue + dobbel2.DiceValue).ToString & " gegooid", player(turn).Kleur)
         player(turn).Position = player(turn).Position + (dobbel1.DiceValue + dobbel2.DiceValue)
 
@@ -73,7 +67,7 @@ Public Class Form1
         Else
             AddToChatLog(player(turn + 1).Naam & " zijn beurt!", player(turn + 1).Kleur)
         End If
-            turn += 1
+        turn += 1
         If turn > player.Count - 1 Then
             turn = 0
 
@@ -81,14 +75,11 @@ Public Class Form1
 
 
         LstPlayersTest.Items.Clear()
-        For i = 0 To player.Count - 1
-            If i < turn Then
-                LstPlayersTest.Items.Add(player(turn + i).Naam)
-            Else
-                LstPlayersTest.Items.Add(player(turn + (i - turn)).Naam)
-            End If
-
-        Next
+        LstPlayersTest.Items.Add(player(turn).Naam)
+        Do While player(j).InJail = True And player(j).SkipTurn = True And player(j).Equals(player(turn))
+            j += 1
+        Loop
+        LstPlayersTest.Items.Add(player(j).Naam)
         LstPlayers.Items.Clear()
         For i As Integer = 0 To player.Count - 1
             LstPlayers.Items.Add(player(i).Naam & " staat op posistie " & player(i).Position)
@@ -122,7 +113,7 @@ Public Class Form1
         colorBrush = New SolidBrush(player(e.Index).Kleur)
 
         Dim font As Font
-        font = New Font("Times New Roman", 14)  ' Verander de font hier maar as ge wilt
+        font = New Font("Times New Roman", 12)  ' Verander de font hier maar as ge wilt
 
         Dim img As Image
         Dim s As String
@@ -157,7 +148,8 @@ Public Class Form1
         For i As Integer = 0 To player.Count - 1
             LstPlayers.Items.Add(player(i).Naam & " staat op posistie " & player(i).Position)
         Next
-
+        BtnDice.Text = "Start het spel"
+        RenderLevel(NewGame.txtLevel.Text)
     End Sub
 
     Private Sub AboutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AboutToolStripMenuItem.Click
@@ -172,8 +164,6 @@ Public Class Form1
         dobbel2 = New Dice
         dobbel1.Roll(PctDice1)
         dobbel2.Roll(PctDice2)
-        lbl1.Text = CStr(dobbel1.DiceValue)
-        lbl2.Text = CStr(dobbel2.DiceValue)
         With player(turn)
             Dim sum As Integer
             sum = dobbel1.DiceValue + dobbel2.DiceValue
@@ -194,9 +184,5 @@ Public Class Form1
                 ComputerPlayer()
             End If
         End With
-    End Sub
-
-    Private Sub LstPlayersTest_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LstPlayersTest.SelectedIndexChanged
-
     End Sub
 End Class
