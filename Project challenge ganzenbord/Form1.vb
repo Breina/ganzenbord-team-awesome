@@ -174,25 +174,26 @@ Public Class Form1
         dobbel2.Roll(PctDice2)
         lbl1.Text = CStr(dobbel1.DiceValue)
         lbl2.Text = CStr(dobbel2.DiceValue)
-        AddToChatLog(player(turn).Naam & " heeft " & (dobbel1.DiceValue + dobbel2.DiceValue).ToString & " gegooid", player(turn).Kleur)
-        player(turn).Position = player(turn).Position + (dobbel1.DiceValue + dobbel2.DiceValue)
-        If turn >= player.Count - 1 Then
-            AddToChatLog(player(0).Naam & " zijn beurt!", player(0).Kleur)
-        Else
-            AddToChatLog(player(turn + 1).Naam & " zijn beurt!", player(turn + 1).Kleur)
-        End If
-        turn += 1
-        If turn > player.Count - 1 Then
-            turn = 0
-        End If
+        With player(turn)
+            Dim sum As Integer
+            sum = dobbel1.DiceValue + dobbel2.DiceValue
+            AddToChatLog(.Naam & " heeft " & sum.ToString & " gegooid", .Kleur)
+            .Position = player(turn).Position + sum
+            sum = Nothing
 
-        LstPlayers.Items.Clear()
-        For i As Integer = 0 To player.Count - 1
-            LstPlayers.Items.Add(player(i).Naam & " staat op posistie " & player(i).Position)
-        Next
-        If player(turn).Comput = True Then
-            ComputerPlayer()
-        End If
+            LstPlayers.Items.Item(turn) = player(turn).Naam & " staat op posistie " & player(turn).Position
+
+            turn += 1
+            If turn > player.Count - 1 Then
+                turn = 0
+            End If
+
+            AddToChatLog(.Naam & " zijn beurt!", .Kleur)
+
+            If .Comput = True Then
+                ComputerPlayer()
+            End If
+        End With
     End Sub
 
     Private Sub LstPlayersTest_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LstPlayersTest.SelectedIndexChanged
