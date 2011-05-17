@@ -6,9 +6,7 @@ Public Class Form1
     Private lvlWidth, lvlHeight As Integer      ' Dimentions of the board
     Private lvl As Level                        ' The level
     Private lvlTilePics As List(Of PictureBox)  ' Pictureboxes for each tile
-    Private player1 As Players
-    Private player2 As Players
-    Private turn As Integer
+    Private turn As Integer = 0
       
     Private Sub RenderLevel(ByVal name As String)
         lvl = New Level(name, lvlWidth, lvlHeight, lvlLength)
@@ -72,13 +70,22 @@ Public Class Form1
 
         lbl1.Text = CStr(dobbel1.DiceValue)
         lbl2.Text = CStr(dobbel2.DiceValue)
-        AddToChatLog(player1.Naam & " heeft " & (dobbel1.DiceValue + dobbel2.DiceValue).ToString & " gegooid", player1.Kleur)
-        player1.Position = player1.Position + (dobbel1.DiceValue + dobbel2.DiceValue)
-        AddToChatLog(player2.Naam & " zijn beurt!", player2.Kleur)
+        AddToChatLog(player(turn).Naam & " heeft " & (dobbel1.DiceValue + dobbel2.DiceValue).ToString & " gegooid", player(turn).Kleur)
+        player(turn).Position = player(turn).Position + (dobbel1.DiceValue + dobbel2.DiceValue)
+        If turn >= player.Count - 1 Then
+            AddToChatLog(player(0).Naam & " zijn beurt!", player(0).Kleur)
+        Else
+            AddToChatLog(player(turn + 1).Naam & " zijn beurt!", player(turn + 1).Kleur)
+        End If
+        turn += 1
+        If turn > player.Count - 1 Then
+            turn = 0
+        End If
 
         lstplayers.Items.Clear()
-        lstplayers.Items.Add(player1.Naam & " staat op posistie " & player1.Position)
-        lstplayers.Items.Add(player2.Naam & " staat op posistie " & player2.Position)
+        For i As Integer = 0 To player.Count - 1
+            lstplayers.Items.Add(player(i).Naam & " staat op posistie " & player(i).Position)
+        Next
 
     End Sub
 
@@ -96,11 +103,9 @@ Public Class Form1
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         logColor = New List(Of Color)
         logColor.Add(Color.LightGray)
-
-        player1 = New Players("Joske", Color.LightPink, False, False, 0, False, False)
-        player2 = New Players("Joeri", Color.Beige, False, False, 0, False, False)
-        lstplayers.Items.Add(player1.Naam & " staat op posistie " & player1.Position)
-        lstplayers.Items.Add(player2.Naam & " staat op posistie " & player2.Position)
+        For i As Integer = 0 To player.Count
+            lstplayers.Items.Add(player(i).Naam & " staat op posistie " & player(i).Position)
+        Next
 
     End Sub
 
