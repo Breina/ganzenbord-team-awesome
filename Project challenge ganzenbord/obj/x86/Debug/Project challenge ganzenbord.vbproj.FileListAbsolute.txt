@@ -69,3 +69,4 @@ C:\Users\student\Desktop\PC\Project challenge ganzenbord\obj\x86\Debug\Project_c
 C:\Users\student\Desktop\PC\Project challenge ganzenbord\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\student\Desktop\PC\Project challenge ganzenbord\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\CX\Desktop\Project challenge ganzenbord\Project challenge ganzenbord\obj\x86\Debug\Project_challenge_ganzenbord.About.resources
+C:\Users\Student\Desktop\SVn\Project challenge ganzenbord\obj\x86\Debug\Project_challenge_ganzenbord.About.resources

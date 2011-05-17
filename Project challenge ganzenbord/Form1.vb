@@ -67,16 +67,28 @@ Public Class Form1
         lbl2.Text = CStr(dobbel2.DiceValue)
         AddToChatLog(player(turn).Naam & " heeft " & (dobbel1.DiceValue + dobbel2.DiceValue).ToString & " gegooid", player(turn).Kleur)
         player(turn).Position = player(turn).Position + (dobbel1.DiceValue + dobbel2.DiceValue)
+
         If turn >= player.Count - 1 Then
             AddToChatLog(player(0).Naam & " zijn beurt!", player(0).Kleur)
         Else
             AddToChatLog(player(turn + 1).Naam & " zijn beurt!", player(turn + 1).Kleur)
         End If
-        turn += 1
+            turn += 1
         If turn > player.Count - 1 Then
             turn = 0
+
         End If
 
+
+        LstPlayersTest.Items.Clear()
+        For i = 0 To player.Count - 1
+            If i < turn Then
+                LstPlayersTest.Items.Add(player(turn + i).Naam)
+            Else
+                LstPlayersTest.Items.Add(player(turn + (i - turn)).Naam)
+            End If
+
+        Next
         LstPlayers.Items.Clear()
         For i As Integer = 0 To player.Count - 1
             LstPlayers.Items.Add(player(i).Naam & " staat op posistie " & player(i).Position)
@@ -85,6 +97,7 @@ Public Class Form1
         If player(turn).Comput = True Then
             ComputerPlayer()
         End If
+
 
     End Sub
 
@@ -109,7 +122,7 @@ Public Class Form1
         colorBrush = New SolidBrush(player(e.Index).Kleur)
 
         Dim font As Font
-        font = New Font("Courier new", 14)  ' Verander de font hier maar as ge wilt
+        font = New Font("Times New Roman", 14)  ' Verander de font hier maar as ge wilt
 
         Dim img As Image
         Dim s As String
@@ -180,5 +193,9 @@ Public Class Form1
         If player(turn).Comput = True Then
             ComputerPlayer()
         End If
+    End Sub
+
+    Private Sub LstPlayersTest_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LstPlayersTest.SelectedIndexChanged
+
     End Sub
 End Class
