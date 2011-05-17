@@ -1,0 +1,13 @@
+Ganzenbordspel:
+===============
+
+Created by: 
+------------
+
+Developer:		email:					student nr:
+Kristof Colson		kristof_colson@hotmail.com			201000058	
+Brecht Derweal		brecht_derwael@msn.com			201000062		
+Ine Dewil			ine_dewil@hotmail.com			201000081
+Joeri Lysens		killercxii@hotmail.com			201021276	
+
+Version 1.1

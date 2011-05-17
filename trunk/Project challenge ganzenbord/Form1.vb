@@ -113,7 +113,7 @@ Public Class Form1
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         logColor = New List(Of Color)
         logColor.Add(Color.LightGray)
-        For i As Integer = 0 To player.Count
+        For i As Integer = 0 To player.Count - 1
             lstplayers.Items.Add(player(i).Naam & " staat op posistie " & player(i).Position)
         Next
 

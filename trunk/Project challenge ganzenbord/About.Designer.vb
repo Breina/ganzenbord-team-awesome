@@ -22,29 +22,54 @@ Partial Class About
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
+        Me.BtnOk = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.TxtAbout = New System.Windows.Forms.TextBox()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'RichTextBox1
+        'BtnOk
         '
-        Me.RichTextBox1.Enabled = False
-        Me.RichTextBox1.Location = New System.Drawing.Point(12, 12)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.ReadOnly = True
-        Me.RichTextBox1.Size = New System.Drawing.Size(718, 238)
-        Me.RichTextBox1.TabIndex = 1
-        Me.RichTextBox1.Text = ""
+        Me.BtnOk.Location = New System.Drawing.Point(285, 434)
+        Me.BtnOk.Name = "BtnOk"
+        Me.BtnOk.Size = New System.Drawing.Size(86, 29)
+        Me.BtnOk.TabIndex = 2
+        Me.BtnOk.Text = "OK"
+        Me.BtnOk.UseVisualStyleBackColor = True
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.Project_challenge_ganzenbord.My.Resources.Resources.team_awesome
+        Me.PictureBox1.Location = New System.Drawing.Point(583, 12)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(200, 205)
+        Me.PictureBox1.TabIndex = 1
+        Me.PictureBox1.TabStop = False
+        '
+        'TxtAbout
+        '
+        Me.TxtAbout.Location = New System.Drawing.Point(12, 12)
+        Me.TxtAbout.Multiline = True
+        Me.TxtAbout.Name = "TxtAbout"
+        Me.TxtAbout.Size = New System.Drawing.Size(548, 373)
+        Me.TxtAbout.TabIndex = 3
         '
         'About
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(742, 262)
-        Me.Controls.Add(Me.RichTextBox1)
+        Me.ClientSize = New System.Drawing.Size(795, 496)
+        Me.Controls.Add(Me.TxtAbout)
+        Me.Controls.Add(Me.BtnOk)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Name = "About"
         Me.Text = "About"
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
-    Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents BtnOk As System.Windows.Forms.Button
+    Friend WithEvents TxtAbout As System.Windows.Forms.TextBox
 End Class

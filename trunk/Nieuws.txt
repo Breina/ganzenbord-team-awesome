@@ -82,3 +82,13 @@ En nog een laatste zaak; de drag en drop knoppe kome op de plaats waar de lijst 
 We kunne ook Kristof martele tot hij de new player form opnieuw wil make, ma dan in 
 de main form, ipv de playerlist. Dan doen we alles via daar, een soort setupje dan?
 New players > Level select > (Plaats speciale vakskes) > Turnlist
+
+
+
+Ine:
+
+Brecht, About form is geschreven via bestandje inladen :) bestand heet About.txt
+Terwijl ik het teste of het werkte kreeg ik een foutmelding bij de class level.. 
+De error staan in de file error.txt
+
+Toedels :) xxx 

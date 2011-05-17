@@ -31,6 +31,8 @@ Partial Class Form1
         Me.TestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TestToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.SpiraltxtToolStripMenuItem = New System.Windows.Forms.ToolStripTextBox()
+        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Board = New System.Windows.Forms.GroupBox()
         Me.PctDice1 = New System.Windows.Forms.PictureBox()
         Me.PctDice2 = New System.Windows.Forms.PictureBox()
@@ -42,8 +44,6 @@ Partial Class Form1
         Me.lbl1 = New System.Windows.Forms.Label()
         Me.lbl2 = New System.Windows.Forms.Label()
         Me.TimerDice = New System.Windows.Forms.Timer(Me.components)
-        Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PctDice1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PctDice2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -96,6 +96,19 @@ Partial Class Form1
         Me.SpiraltxtToolStripMenuItem.Name = "SpiraltxtToolStripMenuItem"
         Me.SpiraltxtToolStripMenuItem.Size = New System.Drawing.Size(152, 23)
         Me.SpiraltxtToolStripMenuItem.Text = "spiral.txt"
+        '
+        'HelpToolStripMenuItem
+        '
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem})
+        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
+        Me.HelpToolStripMenuItem.Text = "Help"
+        '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
+        Me.AboutToolStripMenuItem.Text = "About"
         '
         'Board
         '
@@ -191,19 +204,6 @@ Partial Class Form1
         'TimerDice
         '
         Me.TimerDice.Interval = 500
-        '
-        'HelpToolStripMenuItem
-        '
-        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem})
-        Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
-        Me.HelpToolStripMenuItem.Text = "Help"
-        '
-        'AboutToolStripMenuItem
-        '
-        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.AboutToolStripMenuItem.Text = "About"
         '
         'Form1
         '
