@@ -1,9 +1,10 @@
 ﻿'Kristof
 Public Class NewGame
-    Public loaded As Boolean = False
-    Public objCreatePlayer() As CreatePlayer
-    Public checked As Boolean
+    Private loaded As Boolean = False
+    Private objCreatePlayer() As CreatePlayer
+    Private checked As Boolean
     Public lvl As String
+    Private filename As String
     Public Sub btnStart_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnStart.Click
         'creeer players
         Dim i As Int16
@@ -83,5 +84,16 @@ Public Class NewGame
     Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
         Me.Close()
         Form1.Show()
+    End Sub
+    Private Sub btnsearch_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnsearch.Click
+   
+        Openlvl.InitialDirectory = "\levels"
+        Openlvl.Title = "Open a Text File"
+        Openlvl.Filter = "Text files (*.txt)|*.txt|" & "All files|*.*"
+        Openlvl.ShowDialog()
+        Openlvl.Multiselect = False
+
+
+        TxtLevel.Text = Openlvl.FileName
     End Sub
 End Class
