@@ -51,6 +51,7 @@ Partial Class About
         Me.TxtAbout.Location = New System.Drawing.Point(12, 12)
         Me.TxtAbout.Multiline = True
         Me.TxtAbout.Name = "TxtAbout"
+        Me.TxtAbout.ReadOnly = True
         Me.TxtAbout.Size = New System.Drawing.Size(548, 373)
         Me.TxtAbout.TabIndex = 3
         '
