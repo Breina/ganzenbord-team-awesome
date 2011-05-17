@@ -1,8 +1,9 @@
 ﻿'Kristof
 Public Class NewGame
-    Dim loaded As Boolean = False
-    Dim objCreatePlayer() As CreatePlayer
-    Dim checked As Boolean
+    Public loaded As Boolean = False
+    Public objCreatePlayer() As CreatePlayer
+    Public checked As Boolean
+    Public lvl As String
     Public Sub btnStart_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnStart.Click
         'creeer players
         Dim i As Int16
@@ -14,7 +15,8 @@ Public Class NewGame
                     checked = False
                 End If
                 player.Add(New Players(objCreatePlayer(i).tekst.Text, objCreatePlayer(i).btn.BackColor, checked, False, 0, False, False))
-            Next
+        Next
+        lvl = TxtLevel.Text
             Me.Hide()
             Form1.Show()
 
@@ -81,9 +83,5 @@ Public Class NewGame
     Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click
         Me.Close()
         Form1.Show()
-    End Sub
-
-    Private Sub NewGame_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        TxtLevel.Text = "test.txt"
     End Sub
 End Class

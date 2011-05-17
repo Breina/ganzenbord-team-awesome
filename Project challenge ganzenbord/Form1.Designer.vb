@@ -35,6 +35,7 @@ Partial Class Form1
         Me.PctDice2 = New System.Windows.Forms.PictureBox()
         Me.LstChatLog = New System.Windows.Forms.ListBox()
         Me.NewPlayer = New System.Windows.Forms.GroupBox()
+        Me.lbllvl = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.LstPlayersTest = New System.Windows.Forms.ListBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -66,13 +67,13 @@ Partial Class Form1
         'NewGameToolStripMenuItem
         '
         Me.NewGameToolStripMenuItem.Name = "NewGameToolStripMenuItem"
-        Me.NewGameToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.NewGameToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
         Me.NewGameToolStripMenuItem.Text = "New Game"
         '
         'CloseToolStripMenuItem
         '
         Me.CloseToolStripMenuItem.Name = "CloseToolStripMenuItem"
-        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
         Me.CloseToolStripMenuItem.Text = "Close"
         '
         'HelpToolStripMenuItem
@@ -85,7 +86,7 @@ Partial Class Form1
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
         Me.AboutToolStripMenuItem.Text = "About"
         '
         'Board
@@ -129,6 +130,7 @@ Partial Class Form1
         '
         'NewPlayer
         '
+        Me.NewPlayer.Controls.Add(Me.lbllvl)
         Me.NewPlayer.Controls.Add(Me.Label2)
         Me.NewPlayer.Controls.Add(Me.LstPlayersTest)
         Me.NewPlayer.Controls.Add(Me.Label1)
@@ -138,6 +140,15 @@ Partial Class Form1
         Me.NewPlayer.Size = New System.Drawing.Size(200, 383)
         Me.NewPlayer.TabIndex = 2
         Me.NewPlayer.TabStop = False
+        '
+        'lbllvl
+        '
+        Me.lbllvl.AutoSize = True
+        Me.lbllvl.Location = New System.Drawing.Point(14, 355)
+        Me.lbllvl.Name = "lbllvl"
+        Me.lbllvl.Size = New System.Drawing.Size(39, 13)
+        Me.lbllvl.TabIndex = 4
+        Me.lbllvl.Text = "Label3"
         '
         'Label2
         '
@@ -171,10 +182,11 @@ Partial Class Form1
         '
         'LstPlayers
         '
+        Me.LstPlayers.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LstPlayers.FormattingEnabled = True
-        Me.LstPlayers.Location = New System.Drawing.Point(14, 32)
+        Me.LstPlayers.Location = New System.Drawing.Point(6, 32)
         Me.LstPlayers.Name = "LstPlayers"
-        Me.LstPlayers.Size = New System.Drawing.Size(180, 134)
+        Me.LstPlayers.Size = New System.Drawing.Size(188, 134)
         Me.LstPlayers.TabIndex = 0
         Me.LstPlayers.TabStop = False
         '
@@ -233,5 +245,6 @@ Partial Class Form1
     Friend WithEvents AboutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents LstPlayersTest As System.Windows.Forms.ListBox
+    Friend WithEvents lbllvl As System.Windows.Forms.Label
 
 End Class
