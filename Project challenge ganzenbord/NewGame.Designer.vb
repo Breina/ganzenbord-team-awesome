@@ -29,6 +29,8 @@ Partial Class NewGame
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
         Me.TxtLevel = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Openlvl = New System.Windows.Forms.OpenFileDialog()
+        Me.btnsearch = New System.Windows.Forms.Button()
         CType(Me.nudPlayers, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -71,26 +73,36 @@ Partial Class NewGame
         '
         'TxtLevel
         '
-        Me.TxtLevel.Location = New System.Drawing.Point(117, 284)
+        Me.TxtLevel.Location = New System.Drawing.Point(107, 284)
         Me.TxtLevel.Name = "TxtLevel"
-        Me.TxtLevel.Size = New System.Drawing.Size(96, 20)
+        Me.TxtLevel.ReadOnly = True
+        Me.TxtLevel.Size = New System.Drawing.Size(69, 20)
         Me.TxtLevel.TabIndex = 27
-        Me.TxtLevel.Text = "spiral"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 284)
+        Me.Label2.Location = New System.Drawing.Point(2, 284)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(99, 13)
         Me.Label2.TabIndex = 28
         Me.Label2.Text = "Naam van het level"
+        '
+        'btnsearch
+        '
+        Me.btnsearch.Location = New System.Drawing.Point(182, 281)
+        Me.btnsearch.Name = "btnsearch"
+        Me.btnsearch.Size = New System.Drawing.Size(31, 25)
+        Me.btnsearch.TabIndex = 29
+        Me.btnsearch.Text = "..."
+        Me.btnsearch.UseVisualStyleBackColor = True
         '
         'NewGame
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(373, 326)
+        Me.Controls.Add(Me.btnsearch)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.TxtLevel)
         Me.Controls.Add(Me.nudPlayers)
@@ -111,4 +123,6 @@ Partial Class NewGame
     Friend WithEvents ColorDialog1 As System.Windows.Forms.ColorDialog
     Friend WithEvents TxtLevel As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Openlvl As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents btnsearch As System.Windows.Forms.Button
 End Class
