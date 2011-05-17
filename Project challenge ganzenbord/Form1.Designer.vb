@@ -22,6 +22,7 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.MenuToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -40,6 +41,7 @@ Partial Class Form1
         Me.BtnDice = New System.Windows.Forms.Button()
         Me.lbl1 = New System.Windows.Forms.Label()
         Me.lbl2 = New System.Windows.Forms.Label()
+        Me.TimerDice = New System.Windows.Forms.Timer(Me.components)
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PctDice1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PctDice2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -173,18 +175,20 @@ Partial Class Form1
         Me.lbl1.AutoSize = True
         Me.lbl1.Location = New System.Drawing.Point(667, 454)
         Me.lbl1.Name = "lbl1"
-        Me.lbl1.Size = New System.Drawing.Size(39, 13)
+        Me.lbl1.Size = New System.Drawing.Size(0, 13)
         Me.lbl1.TabIndex = 6
-        Me.lbl1.Text = "Label1"
         '
         'lbl2
         '
         Me.lbl2.AutoSize = True
         Me.lbl2.Location = New System.Drawing.Point(712, 454)
         Me.lbl2.Name = "lbl2"
-        Me.lbl2.Size = New System.Drawing.Size(39, 13)
+        Me.lbl2.Size = New System.Drawing.Size(0, 13)
         Me.lbl2.TabIndex = 7
-        Me.lbl2.Text = "Label2"
+        '
+        'TimerDice
+        '
+        Me.TimerDice.Interval = 500
         '
         'Form1
         '
@@ -230,5 +234,6 @@ Partial Class Form1
     Friend WithEvents lstplayers As System.Windows.Forms.ListBox
     Friend WithEvents SpiraltxtToolStripMenuItem As System.Windows.Forms.ToolStripTextBox
     Friend WithEvents Board As System.Windows.Forms.GroupBox
+    Friend WithEvents TimerDice As System.Windows.Forms.Timer
 
 End Class

@@ -1,4 +1,6 @@
 ﻿' Brecht en Joeri
+Imports VB = Microsoft.VisualBasic
+Imports System.Runtime.InteropServices
 Public Class Form1
 
     Private lvlLength As Integer                ' Length of the level
@@ -61,13 +63,12 @@ Public Class Form1
 
     Private Sub BtnDice_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnDice.Click
         Dim dobbel1, dobbel2 As Dice
+        Dim j As Integer = 0
         'om te testen of het werkt 
         dobbel1 = New Dice
         dobbel2 = New Dice
-
         dobbel1.Roll(PctDice1)
         dobbel2.Roll(PctDice2)
-
         lbl1.Text = CStr(dobbel1.DiceValue)
         lbl2.Text = CStr(dobbel2.DiceValue)
         AddToChatLog(player(turn).Naam & " heeft " & (dobbel1.DiceValue + dobbel2.DiceValue).ToString & " gegooid", player(turn).Kleur)
@@ -108,5 +109,4 @@ Public Class Form1
         Next
 
     End Sub
-
 End Class
