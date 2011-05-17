@@ -38,8 +38,10 @@ Partial Class Form1
         Me.PctDice2 = New System.Windows.Forms.PictureBox()
         Me.LstChatLog = New System.Windows.Forms.ListBox()
         Me.NewPlayer = New System.Windows.Forms.GroupBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.LstPlayersTest = New System.Windows.Forms.ListBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.lstplayers = New System.Windows.Forms.ListBox()
+        Me.LstPlayers = New System.Windows.Forms.ListBox()
         Me.BtnDice = New System.Windows.Forms.Button()
         Me.lbl1 = New System.Windows.Forms.Label()
         Me.lbl2 = New System.Windows.Forms.Label()
@@ -55,7 +57,7 @@ Partial Class Form1
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem, Me.TestToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(784, 24)
+        Me.MenuStrip1.Size = New System.Drawing.Size(785, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
@@ -123,9 +125,9 @@ Partial Class Form1
         '
         'PctDice1
         '
-        Me.PctDice1.Location = New System.Drawing.Point(572, 483)
+        Me.PctDice1.Location = New System.Drawing.Point(572, 481)
         Me.PctDice1.Name = "PctDice1"
-        Me.PctDice1.Size = New System.Drawing.Size(64, 64)
+        Me.PctDice1.Size = New System.Drawing.Size(65, 65)
         Me.PctDice1.TabIndex = 2
         Me.PctDice1.TabStop = False
         '
@@ -133,7 +135,7 @@ Partial Class Form1
         '
         Me.PctDice2.Location = New System.Drawing.Point(572, 413)
         Me.PctDice2.Name = "PctDice2"
-        Me.PctDice2.Size = New System.Drawing.Size(64, 64)
+        Me.PctDice2.Size = New System.Drawing.Size(65, 65)
         Me.PctDice2.TabIndex = 3
         Me.PctDice2.TabStop = False
         '
@@ -151,13 +153,37 @@ Partial Class Form1
         '
         'NewPlayer
         '
+        Me.NewPlayer.Controls.Add(Me.Label2)
+        Me.NewPlayer.Controls.Add(Me.LstPlayersTest)
         Me.NewPlayer.Controls.Add(Me.Label1)
-        Me.NewPlayer.Controls.Add(Me.lstplayers)
+        Me.NewPlayer.Controls.Add(Me.LstPlayers)
         Me.NewPlayer.Location = New System.Drawing.Point(572, 27)
         Me.NewPlayer.Name = "NewPlayer"
         Me.NewPlayer.Size = New System.Drawing.Size(200, 383)
         Me.NewPlayer.TabIndex = 2
         Me.NewPlayer.TabStop = False
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(14, 198)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(103, 13)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "Volgende speler test"
+        '
+        'LstPlayersTest
+        '
+        Me.LstPlayersTest.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.LstPlayersTest.FormattingEnabled = True
+        Me.LstPlayersTest.ItemHeight = 24
+        Me.LstPlayersTest.Items.AddRange(New Object() {"Jos", "Flip", "Jaak", "Tuur"})
+        Me.LstPlayersTest.Location = New System.Drawing.Point(14, 217)
+        Me.LstPlayersTest.Name = "LstPlayersTest"
+        Me.LstPlayersTest.SelectionMode = System.Windows.Forms.SelectionMode.None
+        Me.LstPlayersTest.Size = New System.Drawing.Size(180, 124)
+        Me.LstPlayersTest.TabIndex = 2
+        Me.LstPlayersTest.TabStop = False
         '
         'Label1
         '
@@ -168,13 +194,14 @@ Partial Class Form1
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Spelers"
         '
-        'lstplayers
+        'LstPlayers
         '
-        Me.lstplayers.FormattingEnabled = True
-        Me.lstplayers.Location = New System.Drawing.Point(6, 32)
-        Me.lstplayers.Name = "lstplayers"
-        Me.lstplayers.Size = New System.Drawing.Size(180, 173)
-        Me.lstplayers.TabIndex = 0
+        Me.LstPlayers.FormattingEnabled = True
+        Me.LstPlayers.Location = New System.Drawing.Point(14, 32)
+        Me.LstPlayers.Name = "LstPlayers"
+        Me.LstPlayers.Size = New System.Drawing.Size(180, 134)
+        Me.LstPlayers.TabIndex = 0
+        Me.LstPlayers.TabStop = False
         '
         'BtnDice
         '
@@ -209,7 +236,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(784, 558)
+        Me.ClientSize = New System.Drawing.Size(785, 558)
         Me.Controls.Add(Me.lbl2)
         Me.Controls.Add(Me.lbl1)
         Me.Controls.Add(Me.BtnDice)
@@ -246,11 +273,13 @@ Partial Class Form1
     Friend WithEvents lbl1 As System.Windows.Forms.Label
     Friend WithEvents lbl2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents lstplayers As System.Windows.Forms.ListBox
+    Friend WithEvents LstPlayers As System.Windows.Forms.ListBox
     Friend WithEvents SpiraltxtToolStripMenuItem As System.Windows.Forms.ToolStripTextBox
     Friend WithEvents Board As System.Windows.Forms.GroupBox
     Friend WithEvents TimerDice As System.Windows.Forms.Timer
     Friend WithEvents HelpToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AboutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents LstPlayersTest As System.Windows.Forms.ListBox
 
 End Class
