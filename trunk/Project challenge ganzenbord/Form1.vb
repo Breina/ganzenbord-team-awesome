@@ -1,4 +1,4 @@
-﻿' Brecht en Joeri
+﻿' Brecht en Joeri en Kristof
 Imports VB = Microsoft.VisualBasic
 Imports System.Runtime.InteropServices
 Public Class Form1
@@ -87,6 +87,7 @@ Public Class Form1
         For i As Integer = 0 To player.Count - 1
             lstplayers.Items.Add(player(i).Naam & " staat op posistie " & player(i).Position)
         Next
+
         If player(turn).Comput = True Then
             ComputerPlayer()
         End If
@@ -113,6 +114,7 @@ Public Class Form1
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         logColor = New List(Of Color)
         logColor.Add(Color.LightGray)
+
         For i As Integer = 0 To player.Count - 1
             lstplayers.Items.Add(player(i).Naam & " staat op posistie " & player(i).Position)
         Next
