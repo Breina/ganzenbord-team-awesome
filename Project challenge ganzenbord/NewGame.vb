@@ -93,7 +93,21 @@ Public Class NewGame
         Openlvl.ShowDialog()
         Openlvl.Multiselect = False
 
+        Dim c As Char
+        Dim s As String
+        Dim i As Integer
+        s = ""
+        i = 0
 
-        TxtLevel.Text = Openlvl.FileName
+        Do
+            s = c + s
+            i += 1
+            c = Convert.ToChar(Openlvl.FileName.Substring(Openlvl.FileName.Length - i, 1))
+        Loop Until c = "\"
+        c = Nothing
+        i = Nothing
+
+        TxtLevel.Text = s
+        s = Nothing
     End Sub
 End Class
