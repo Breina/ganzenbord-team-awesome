@@ -1,6 +1,7 @@
 ﻿' Brecht en Joeri en Kristof
 Imports VB = Microsoft.VisualBasic
 Imports System.Runtime.InteropServices
+
 Public Class Form1
 
     Private lvlLength As Integer                ' Length of the level
@@ -15,8 +16,6 @@ Public Class Form1
 
     ' Brecht
     Private Sub RenderLevel(ByVal name As String)
-        lvl = New Level(name, lvlWidth, lvlHeight, lvlLength)
-
         Dim size As Integer
         size = Convert.ToInt32(Math.Min(Board.Width / lvlWidth, Board.Height / lvlHeight))
 
@@ -149,6 +148,7 @@ Public Class Form1
         logColor = New List(Of Color)
         logColor.Add(Color.LightGray)
 
+        lvl = New Level(NewGame.lvl, lvlWidth, lvlHeight, lvlLength)
         RenderLevel(NewGame.lvl)
         dobbel1 = New Dice
         dobbel2 = New Dice
@@ -161,6 +161,17 @@ Public Class Form1
 
         turn = 0
         UpdateNextPlayerList()
+    End Sub
+
+    Private Sub RedrawLevel()
+        For i As Integer = 0 To lvlTilePics.Count - 1
+            lvlTilePics(i).Dispose()
+        Next
+        RenderLevel(NewGame.lvl)
+    End Sub
+
+    Private Sub Form1_Resize(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.ResizeEnd
+        RedrawLevel()
     End Sub
 
     Private Sub AboutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AboutToolStripMenuItem.Click
@@ -198,5 +209,25 @@ Public Class Form1
         BtnDice.Enabled = True
         TimerDiceTick.Stop()
         TimerDiceDuration.Stop()
+    End Sub
+
+    Private Sub FullscreenToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FullscreenToolStripMenuItem.Click
+        With FullscreenToolStripMenuItem
+            If .Checked Then
+                .Checked = False
+
+                Me.WindowState = FormWindowState.Normal
+                Me.FormBorderStyle = FormBorderStyle.Sizable
+                Me.TopMost = False
+                RedrawLevel()
+            Else
+                .Checked = True
+
+                Me.WindowState = FormWindowState.Maximized
+                Me.FormBorderStyle = FormBorderStyle.None
+                Me.TopMost = True
+                RedrawLevel()
+            End If
+        End With
     End Sub
 End Class

@@ -40,6 +40,8 @@ Partial Class Form1
         Me.BtnDice = New System.Windows.Forms.Button()
         Me.TimerDiceTick = New System.Windows.Forms.Timer(Me.components)
         Me.TimerDiceDuration = New System.Windows.Forms.Timer(Me.components)
+        Me.WindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FullscreenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PctDice1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PctDice2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -48,7 +50,7 @@ Partial Class Form1
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem, Me.WindowToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(785, 24)
@@ -89,6 +91,9 @@ Partial Class Form1
         '
         'Board
         '
+        Me.Board.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Board.BackgroundImage = CType(resources.GetObject("Board.BackgroundImage"), System.Drawing.Image)
         Me.Board.Location = New System.Drawing.Point(12, 27)
         Me.Board.Margin = New System.Windows.Forms.Padding(0)
@@ -100,6 +105,7 @@ Partial Class Form1
         '
         'PctDice1
         '
+        Me.PctDice1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PctDice1.Location = New System.Drawing.Point(572, 481)
         Me.PctDice1.Name = "PctDice1"
         Me.PctDice1.Size = New System.Drawing.Size(65, 65)
@@ -108,6 +114,7 @@ Partial Class Form1
         '
         'PctDice2
         '
+        Me.PctDice2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PctDice2.Location = New System.Drawing.Point(572, 413)
         Me.PctDice2.Name = "PctDice2"
         Me.PctDice2.Size = New System.Drawing.Size(65, 65)
@@ -116,6 +123,8 @@ Partial Class Form1
         '
         'LstChatLog
         '
+        Me.LstChatLog.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LstChatLog.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.LstChatLog.FormattingEnabled = True
         Me.LstChatLog.Items.AddRange(New Object() {"Let the Game begin"})
@@ -128,6 +137,8 @@ Partial Class Form1
         '
         'NewPlayer
         '
+        Me.NewPlayer.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.NewPlayer.Controls.Add(Me.LstPlayers)
         Me.NewPlayer.Controls.Add(Me.Label1)
         Me.NewPlayer.Location = New System.Drawing.Point(572, 27)
@@ -159,6 +170,7 @@ Partial Class Form1
         '
         'BtnDice
         '
+        Me.BtnDice.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnDice.Location = New System.Drawing.Point(645, 416)
         Me.BtnDice.Name = "BtnDice"
         Me.BtnDice.Size = New System.Drawing.Size(127, 131)
@@ -172,6 +184,19 @@ Partial Class Form1
         'TimerDiceDuration
         '
         Me.TimerDiceDuration.Interval = 1000
+        '
+        'WindowToolStripMenuItem
+        '
+        Me.WindowToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FullscreenToolStripMenuItem})
+        Me.WindowToolStripMenuItem.Name = "WindowToolStripMenuItem"
+        Me.WindowToolStripMenuItem.Size = New System.Drawing.Size(63, 20)
+        Me.WindowToolStripMenuItem.Text = "Window"
+        '
+        'FullscreenToolStripMenuItem
+        '
+        Me.FullscreenToolStripMenuItem.Name = "FullscreenToolStripMenuItem"
+        Me.FullscreenToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.FullscreenToolStripMenuItem.Text = "Fullscreen"
         '
         'Form1
         '
@@ -214,5 +239,7 @@ Partial Class Form1
     Friend WithEvents AboutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LstPlayers As System.Windows.Forms.ListBox
     Friend WithEvents TimerDiceDuration As System.Windows.Forms.Timer
+    Friend WithEvents WindowToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents FullscreenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class
