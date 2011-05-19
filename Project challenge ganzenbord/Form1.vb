@@ -1,6 +1,7 @@
 ﻿' Brecht en Joeri en Kristof
 Imports VB = Microsoft.VisualBasic
 Imports System.Runtime.InteropServices
+Imports System.IO
 
 Public Class Form1
 
@@ -160,6 +161,7 @@ Public Class Form1
         Next
 
         turn = 0
+        pictplayer1.Hide()
         UpdateNextPlayerList()
     End Sub
 
@@ -236,5 +238,7 @@ Public Class Form1
         BtnDice.Visible = True
         Players.Visible = True
         DragAndDropBox.Hide()
+
+
     End Sub
 End Class

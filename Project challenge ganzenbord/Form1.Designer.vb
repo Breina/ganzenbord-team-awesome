@@ -54,11 +54,14 @@ Partial Class Form1
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.pictplayer1 = New System.Windows.Forms.PictureBox()
         Me.MenuStrip1.SuspendLayout()
+        Me.Board.SuspendLayout()
         CType(Me.PctDice1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PctDice2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Players.SuspendLayout()
         Me.DragAndDropBox.SuspendLayout()
+        CType(Me.pictplayer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -121,6 +124,7 @@ Partial Class Form1
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Board.BackgroundImage = CType(resources.GetObject("Board.BackgroundImage"), System.Drawing.Image)
+        Me.Board.Controls.Add(Me.pictplayer1)
         Me.Board.Location = New System.Drawing.Point(12, 27)
         Me.Board.Margin = New System.Windows.Forms.Padding(0)
         Me.Board.Name = "Board"
@@ -217,7 +221,7 @@ Partial Class Form1
         '
         'BtnReady
         '
-        Me.BtnReady.Location = New System.Drawing.Point(645, 416)
+        Me.BtnReady.Location = New System.Drawing.Point(646, 416)
         Me.BtnReady.Name = "BtnReady"
         Me.BtnReady.Size = New System.Drawing.Size(127, 131)
         Me.BtnReady.TabIndex = 6
@@ -328,6 +332,14 @@ Partial Class Form1
         Me.Button1.TabIndex = 0
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'pictplayer1
+        '
+        Me.pictplayer1.Location = New System.Drawing.Point(315, 222)
+        Me.pictplayer1.Name = "pictplayer1"
+        Me.pictplayer1.Size = New System.Drawing.Size(10, 10)
+        Me.pictplayer1.TabIndex = 0
+        Me.pictplayer1.TabStop = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -348,12 +360,14 @@ Partial Class Form1
         Me.Text = "Gooseboard "
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
+        Me.Board.ResumeLayout(False)
         CType(Me.PctDice1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PctDice2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Players.ResumeLayout(False)
         Me.Players.PerformLayout()
         Me.DragAndDropBox.ResumeLayout(False)
         Me.DragAndDropBox.PerformLayout()
+        CType(Me.pictplayer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -388,5 +402,6 @@ Partial Class Form1
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents pictplayer1 As System.Windows.Forms.PictureBox
 
 End Class
