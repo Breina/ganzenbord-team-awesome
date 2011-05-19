@@ -18,8 +18,8 @@ Public Class NewGame
                 player.Add(New Players(objCreatePlayer(i).tekst.Text, objCreatePlayer(i).btn.BackColor, checked, False, 0, False, False))
         Next
         lvl = TxtLevel.Text
-            Me.Hide()
-            Form1.Show()
+        Me.Hide()
+        Form1.Show()
 
     End Sub
 
