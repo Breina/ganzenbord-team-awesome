@@ -33,7 +33,6 @@ Partial Class Form1
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Board = New System.Windows.Forms.GroupBox()
-        Me.pictplayer1 = New System.Windows.Forms.PictureBox()
         Me.PctDice1 = New System.Windows.Forms.PictureBox()
         Me.PctDice2 = New System.Windows.Forms.PictureBox()
         Me.LstChatLog = New System.Windows.Forms.ListBox()
@@ -56,8 +55,6 @@ Partial Class Form1
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
-        Me.Board.SuspendLayout()
-        CType(Me.pictplayer1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PctDice1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PctDice2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Players.SuspendLayout()
@@ -124,7 +121,6 @@ Partial Class Form1
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Board.BackgroundImage = CType(resources.GetObject("Board.BackgroundImage"), System.Drawing.Image)
-        Me.Board.Controls.Add(Me.pictplayer1)
         Me.Board.Location = New System.Drawing.Point(12, 27)
         Me.Board.Margin = New System.Windows.Forms.Padding(0)
         Me.Board.Name = "Board"
@@ -132,15 +128,6 @@ Partial Class Form1
         Me.Board.Size = New System.Drawing.Size(554, 380)
         Me.Board.TabIndex = 1
         Me.Board.TabStop = False
-        '
-        'pictplayer1
-        '
-        Me.pictplayer1.Location = New System.Drawing.Point(315, 222)
-        Me.pictplayer1.Name = "pictplayer1"
-        Me.pictplayer1.Size = New System.Drawing.Size(10, 10)
-        Me.pictplayer1.TabIndex = 0
-        Me.pictplayer1.TabStop = False
-        Me.pictplayer1.Visible = False
         '
         'PctDice1
         '
@@ -361,8 +348,6 @@ Partial Class Form1
         Me.Text = "Gooseboard "
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
-        Me.Board.ResumeLayout(False)
-        CType(Me.pictplayer1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PctDice1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PctDice2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Players.ResumeLayout(False)
@@ -403,6 +388,5 @@ Partial Class Form1
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents pictplayer1 As System.Windows.Forms.PictureBox
 
 End Class
