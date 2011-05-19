@@ -177,7 +177,7 @@ Public Class Form1
             lvlTilePics(i).Dispose()
         Next
         RenderLevel(NewGame.lvl)
-        '''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
         For i = 0 To player.Count - 1
             With playerPics(i)
                 .Size = New Size(tileSize, tileSize)
@@ -225,19 +225,20 @@ Public Class Form1
     End Sub
 
     Private Sub PlayerMoveTick_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PlayerMoveTick.Tick
+        With playerPics(turn)
+            GetTileCords(curPlayerPos, .Left, .Top)
+            .BringToFront()
+        End With
+
         If player(turn).Position > curPlayerPos Then
             curPlayerPos += 1
         ElseIf player(turn).Position < curPlayerPos Then
             curPlayerPos -= 1
         Else
-            NextPlayer()
             PlayerMoveTick.Stop()
+            NextPlayer()
         End If
 
-        With playerPics(turn)
-            GetTileCords(curPlayerPos, .Left, .Top)
-            .BringToFront()
-        End With
     End Sub
 
     Private Sub TimerDiceTick_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TimerDiceTick.Tick
