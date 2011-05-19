@@ -14,11 +14,18 @@ Public Class Form1
     Private dobbel1, dobbel2 As Dice
     Private playerTurn As List(Of String)
     Private diceRolling As Boolean
+    Private tileSize As Integer
+
+    ' Brecht
+    Private Sub GetTileCords(ByVal pos As Integer, ByRef x As Integer, ByRef y As Integer)
+        x = Board.Left + tileSize * lvl.TileIndex(pos).X
+        y = Board.Top + tileSize * lvl.TileIndex(pos).Y
+    End Sub
 
     ' Brecht
     Private Sub RenderLevel(ByVal name As String)
-        Dim size As Integer
-        size = Convert.ToInt32(Math.Min(Board.Width / lvlWidth, Board.Height / lvlHeight))
+        Dim tileSize As Integer
+        tileSize = Convert.ToInt32(Math.Min(Board.Width / lvlWidth, Board.Height / lvlHeight))
 
         lvlTilePics = New List(Of PictureBox)
 
@@ -26,8 +33,8 @@ Public Class Form1
             lvlTilePics.Add(New PictureBox())
 
             With lvlTilePics.Item(i)
-                .Location = New Point(Board.Left + size * lvl.TileIndex(i).X, Board.Top + size * lvl.TileIndex(i).Y)
-                .Size = New Size(size, size)
+                .Location = New Point(Board.Left + tileSize * lvl.TileIndex(i).X, Board.Top + tileSize * lvl.TileIndex(i).Y)
+                .Size = New Size(tileSize, tileSize)
                 .Name = "PicBoxTile" & Convert.ToString(i)
                 .ImageLocation = "images\tiles\" & lvl.TileIndex(i).Orientation & ".png"
                 .SizeMode = PictureBoxSizeMode.StretchImage
