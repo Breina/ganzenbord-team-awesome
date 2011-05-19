@@ -235,5 +235,6 @@ Public Class Form1
         BtnReady.Visible = False
         BtnDice.Visible = True
         Players.Visible = True
+        DragAndDropBox.Hide()
     End Sub
 End Class
