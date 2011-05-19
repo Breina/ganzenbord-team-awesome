@@ -10,6 +10,7 @@ Public Class Form1
     Private lvlTilePics As List(Of PictureBox)  ' Pictureboxes for each tile
     Private turn As Integer = 0
     Private dobbel1, dobbel2 As Dice
+    Private playerTurn As List(Of String)
 
     ' Brecht
     Private Sub RenderLevel(ByVal name As String)
@@ -59,21 +60,35 @@ Public Class Form1
     End Sub
 
     'Brecht
-    Private Sub FindNextPlayer()
+    Private Sub FindNextPlayer(ByRef t As Integer)
         Dim found As Boolean
         Do
             found = True
-            turn += 1
-            If turn >= player.Count Then turn = 0
+            t += 1
+            If t >= player.Count Then t = 0
 
-            If player(turn).InJail Then found = False
-            If player(turn).SkipTurn Then
-                found = False
-                player(turn).SkipTurn = False
-            End If
-
+            With player(turn)
+                If .InJail Then found = False
+                If .SkipTurn Then
+                    found = False
+                    .SkipTurn = False
+                End If
+            End With
         Loop Until found
+    End Sub
 
+    'Brecht
+    Private Sub UpdateNextPlayerList()
+        Dim t As Integer = turn
+        Dim j As Integer = 0
+
+        For i As Integer = 1 To player.Count
+            playerTurn(t) = Convert.ToString(j)
+            FindNextPlayer(t)
+            j += 1
+        Next
+
+        LstPlayers.Refresh()
     End Sub
 
     ' Brecht
@@ -90,7 +105,7 @@ Public Class Form1
 
     ' Brecht
     ' Draws the player list in the same way
-    Private Sub LstPlayersTest_DrawItem(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles LstPlayersTest.DrawItem
+    Private Sub LstPlayersTest_DrawItem(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DrawItemEventArgs) Handles LstPlayers.DrawItem
         'http://msdn.microsoft.com/en-us/library/system.windows.forms.listbox.drawmode%28v=vs.71%29.aspx
 
         Dim colorBrush As Brush
@@ -108,7 +123,7 @@ Public Class Form1
         ElseIf player(e.Index).SkipTurn Then
             s += "inn"
         Else
-            s += "0"
+            s += playerTurn(e.Index)
         End If
         s += ".png"
 
@@ -117,7 +132,9 @@ Public Class Form1
 
         e.Graphics.FillRectangle(colorBrush, New RectangleF(e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height))
         e.Graphics.DrawString(player(e.Index).Naam, font, Brushes.Black, New RectangleF(e.Bounds.X + 24, e.Bounds.Y + 2, e.Bounds.Width, e.Bounds.Height))
-        e.Graphics.DrawImage(img, New Point(1, 1))
+
+        e.Graphics.DrawString(Convert.ToString(player(e.Index).Position), font, Brushes.Black, New RectangleF(e.Bounds.Width - 30, e.Bounds.Y + 2, e.Bounds.Width, e.Bounds.Height))
+        e.Graphics.DrawImage(img, New Point(e.Bounds.X + 1, e.Bounds.Y + 1))
     End Sub
 
     Private Sub Form1_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
@@ -130,20 +147,18 @@ Public Class Form1
         logColor = New List(Of Color)
         logColor.Add(Color.LightGray)
 
-        For i As Integer = 0 To player.Count - 1
-            LstPlayers.Items.Add(player(i).Naam & " staat op posistie " & player(i).Position)
-        Next
-        BtnDice.Text = "Start het spel"
         RenderLevel(NewGame.lvl)
-        lbllvl.Text = NewGame.lvl
         dobbel1 = New Dice
         dobbel2 = New Dice
+        playerTurn = New List(Of String)
 
         For i As Integer = 0 To player.Count - 1
-            LstPlayersTest.Items.Add(player(i).Naam)
+            LstPlayers.Items.Add(player(i).Naam)
+            playerTurn.Add(Convert.ToString(i))
         Next
 
-
+        turn = 0
+        UpdateNextPlayerList()
     End Sub
 
     Private Sub AboutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AboutToolStripMenuItem.Click
@@ -160,11 +175,10 @@ Public Class Form1
             AddToChatLog(.Naam & " heeft " & sum.ToString & " gegooid", .Kleur)
             .Position = .Position + sum
             sum = Nothing
-
-            LstPlayers.Items.Item(turn) = .Naam & " staat op posistie " & .Position
         End With
 
-        FindNextPlayer()
+        FindNextPlayer(turn)
+        UpdateNextPlayerList()
 
         With player(turn)
             AddToChatLog(.Naam & " zijn/haar beurt!", .Kleur)
