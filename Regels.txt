@@ -1,0 +1,40 @@
+Yuuuuwww de Manne !
+
+Tot nu toe hebben jullie al zéééér goed gewerkt aan onze Project Chalenge!
+Toch na het document even te hebben gelezen van de vrouw van RAD zijn er enkele dingen waar jullie rekening mee moeten houden
+Graag zou ik hebben dat wanneer 1 van jullie er zeker van is dat dit in code aanwezig is dit in vet en cursief te zetten.
+
+
+
+Verplicht voor de code:
+
+
+* level .txt inladen
+* min 2 speler ( mag computer )
+* wie het hoogste gooit mag beginnen ( met 2 dobbelstenen ) en als diegene vb als hoogste 9 gooit wordt dit ook zijn eerste verplaatsing
+* komt met op vakje waar speler staat: terug naar de oude plaats
+* gelijke ogen: extra beurt om te gooien
+* About form met logo,versienr,wie,hoe bereiken en in dialoog venster verschijnen
+* Plaatsjes worden 'at random' geladen : Welke?-gans, gevang,doolhof,herberg,dood ( 1 van elk min. aanwezig )
+* wie wint er ? - laatste worp is het juiste aantal ogen zoniet, pion overigge stappen terug zetten.
+	
+	( indien men nog 4 moet gooien en men gooit 5 en bij terugkeer van pion komt men op gans, nog eens 5 stappen terug)
+
+* Bij elk geschreven stuk code erbijzetten in comment 'omschrijving code, wie, wanneer ( tijd + datum ) als ge da nie meer weet zet dan daar maar iets he
+* MENU : - tekst bestand laden
+	 - programma afsluiten
+	 - About venster
+* MINIMUM 1 interface + implementatie ervan
+* 1 exception Class
+
+
+
+Uitbreiding:
+
+* pion kleur kiezen
+* drag/drop aan begin van spel kiezen ( dus keuze uit At random / drag&drop)
+* extra plaatjes
+* geluid
+* rollende dobbelstenen
+* meerdere spelers
+* tooltips
