@@ -25,9 +25,6 @@ Public Class Form1
 
     ' Brecht
     Private Sub RenderLevel(ByVal name As String)
-        Dim tileSize As Integer
-        tileSize = Convert.ToInt32(Math.Min(Board.Width / lvlWidth, Board.Height / lvlHeight))
-
         lvlTilePics = New List(Of PictureBox)
 
         For i As Integer = 0 To lvlLength
@@ -158,6 +155,7 @@ Public Class Form1
         logColor.Add(Color.LightGray)
 
         lvl = New Level(NewGame.lvl, lvlWidth, lvlHeight, lvlLength)
+        tileSize = Convert.ToInt32(Math.Min(Board.Width / lvlWidth, Board.Height / lvlHeight))
         RenderLevel(NewGame.lvl)
         dobbel1 = New Dice
         dobbel2 = New Dice
@@ -169,7 +167,6 @@ Public Class Form1
         Next
 
         turn = 0
-        pictplayer1.Hide()
         UpdateNextPlayerList()
     End Sub
 
@@ -249,5 +246,7 @@ Public Class Form1
         pictplayer1.BackColor = player(1).Color
 
         GetTileCords(0, pictplayer1.Left, pictplayer1.Top)
+        pictplayer1.Visible() = True
+
     End Sub
 End Class

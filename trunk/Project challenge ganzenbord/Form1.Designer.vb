@@ -140,6 +140,7 @@ Partial Class Form1
         Me.pictplayer1.Size = New System.Drawing.Size(10, 10)
         Me.pictplayer1.TabIndex = 0
         Me.pictplayer1.TabStop = False
+        Me.pictplayer1.Visible = False
         '
         'PctDice1
         '
