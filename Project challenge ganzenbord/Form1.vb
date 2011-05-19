@@ -11,6 +11,7 @@ Public Class Form1
     Private turn As Integer = 0
     Private dobbel1, dobbel2 As Dice
     Private playerTurn As List(Of String)
+    Private diceRolling As Boolean
 
     ' Brecht
     Private Sub RenderLevel(ByVal name As String)
@@ -55,8 +56,9 @@ Public Class Form1
     Private Sub BtnDice_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnDice.Click
         BtnDice.Text = "Gooi"
         BtnDice.Enabled = False
-        ProcessTurn()
-        BtnDice.Enabled = True
+        diceRolling = True
+        TimerDiceDuration.Start()
+        TimerDiceTick.Start()
     End Sub
 
     'Brecht
@@ -109,7 +111,7 @@ Public Class Form1
         'http://msdn.microsoft.com/en-us/library/system.windows.forms.listbox.drawmode%28v=vs.71%29.aspx
 
         Dim colorBrush As Brush
-        colorBrush = New SolidBrush(player(e.Index).Kleur)
+        colorBrush = New SolidBrush(player(e.Index).Color)
 
         Dim font As Font
         font = New Font("Times New Roman", 12)  ' Verander de font hier maar as ge wilt
@@ -131,7 +133,7 @@ Public Class Form1
         s = Nothing
 
         e.Graphics.FillRectangle(colorBrush, New RectangleF(e.Bounds.X, e.Bounds.Y, e.Bounds.Width, e.Bounds.Height))
-        e.Graphics.DrawString(player(e.Index).Naam, font, Brushes.Black, New RectangleF(e.Bounds.X + 24, e.Bounds.Y + 2, e.Bounds.Width, e.Bounds.Height))
+        e.Graphics.DrawString(player(e.Index).Name, font, Brushes.Black, New RectangleF(e.Bounds.X + 24, e.Bounds.Y + 2, e.Bounds.Width, e.Bounds.Height))
 
         e.Graphics.DrawString(Convert.ToString(player(e.Index).Position), font, Brushes.Black, New RectangleF(e.Bounds.Width - 30, e.Bounds.Y + 2, e.Bounds.Width, e.Bounds.Height))
         e.Graphics.DrawImage(img, New Point(e.Bounds.X + 1, e.Bounds.Y + 1))
@@ -153,7 +155,7 @@ Public Class Form1
         playerTurn = New List(Of String)
 
         For i As Integer = 0 To player.Count - 1
-            LstPlayers.Items.Add(player(i).Naam)
+            LstPlayers.Items.Add(player(i).Name)
             playerTurn.Add(Convert.ToString(i))
         Next
 
@@ -166,13 +168,10 @@ Public Class Form1
     End Sub
 
     Private Sub ProcessTurn()
-        dobbel1.Roll(PctDice1)
-        dobbel2.Roll(PctDice2)
-
         With player(turn)
             Dim sum As Integer
             sum = dobbel1.DiceValue + dobbel2.DiceValue
-            AddToChatLog(.Naam & " heeft " & sum.ToString & " gegooid", .Kleur)
+            AddToChatLog(.Name & " heeft " & sum.ToString & " gegooid", .Color)
             .Position = .Position + sum
             sum = Nothing
         End With
@@ -181,11 +180,23 @@ Public Class Form1
         UpdateNextPlayerList()
 
         With player(turn)
-            AddToChatLog(.Naam & " zijn/haar beurt!", .Kleur)
+            AddToChatLog(.Name & " zijn/haar beurt!", .Color)
 
             If .Comput = True Then
                 ProcessTurn()
             End If
         End With
+    End Sub
+
+    Private Sub TimerDiceTick_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TimerDiceTick.Tick
+        dobbel1.Roll(PctDice1)
+        dobbel2.Roll(PctDice2)
+    End Sub
+
+    Private Sub TimerDiceDuration_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TimerDiceDuration.Tick
+        ProcessTurn()
+        BtnDice.Enabled = True
+        TimerDiceTick.Stop()
+        TimerDiceDuration.Stop()
     End Sub
 End Class
