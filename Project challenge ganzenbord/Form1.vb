@@ -16,6 +16,7 @@ Public Class Form1
     Private diceRolling As Boolean
     Private tileSize As Integer
 
+
     ' Brecht
     Private Sub GetTileCords(ByVal pos As Integer, ByRef x As Integer, ByRef y As Integer)
         x = Board.Left + tileSize * lvl.TileIndex(pos).X
@@ -245,7 +246,8 @@ Public Class Form1
         BtnDice.Visible = True
         Players.Visible = True
         DragAndDropBox.Hide()
+        pictplayer1.BackColor = player(1).Color
 
-
+        GetTileCords(0, pictplayer1.Left, pictplayer1.Top)
     End Sub
 End Class

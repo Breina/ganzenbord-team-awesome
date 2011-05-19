@@ -33,6 +33,7 @@ Partial Class Form1
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Board = New System.Windows.Forms.GroupBox()
+        Me.pictplayer1 = New System.Windows.Forms.PictureBox()
         Me.PctDice1 = New System.Windows.Forms.PictureBox()
         Me.PctDice2 = New System.Windows.Forms.PictureBox()
         Me.LstChatLog = New System.Windows.Forms.ListBox()
@@ -54,14 +55,13 @@ Partial Class Form1
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.pictplayer1 = New System.Windows.Forms.PictureBox()
         Me.MenuStrip1.SuspendLayout()
         Me.Board.SuspendLayout()
+        CType(Me.pictplayer1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PctDice1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PctDice2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Players.SuspendLayout()
         Me.DragAndDropBox.SuspendLayout()
-        CType(Me.pictplayer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -132,6 +132,14 @@ Partial Class Form1
         Me.Board.Size = New System.Drawing.Size(554, 380)
         Me.Board.TabIndex = 1
         Me.Board.TabStop = False
+        '
+        'pictplayer1
+        '
+        Me.pictplayer1.Location = New System.Drawing.Point(315, 222)
+        Me.pictplayer1.Name = "pictplayer1"
+        Me.pictplayer1.Size = New System.Drawing.Size(10, 10)
+        Me.pictplayer1.TabIndex = 0
+        Me.pictplayer1.TabStop = False
         '
         'PctDice1
         '
@@ -332,14 +340,6 @@ Partial Class Form1
         Me.Button1.TabIndex = 0
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'pictplayer1
-        '
-        Me.pictplayer1.Location = New System.Drawing.Point(315, 222)
-        Me.pictplayer1.Name = "pictplayer1"
-        Me.pictplayer1.Size = New System.Drawing.Size(10, 10)
-        Me.pictplayer1.TabIndex = 0
-        Me.pictplayer1.TabStop = False
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -361,13 +361,13 @@ Partial Class Form1
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         Me.Board.ResumeLayout(False)
+        CType(Me.pictplayer1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PctDice1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PctDice2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Players.ResumeLayout(False)
         Me.Players.PerformLayout()
         Me.DragAndDropBox.ResumeLayout(False)
         Me.DragAndDropBox.PerformLayout()
-        CType(Me.pictplayer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
