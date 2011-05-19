@@ -54,6 +54,7 @@ Partial Class Form1
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.PlayerMoveTick = New System.Windows.Forms.Timer(Me.components)
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PctDice1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PctDice2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -217,6 +218,7 @@ Partial Class Form1
         '
         'BtnReady
         '
+        Me.BtnReady.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnReady.Location = New System.Drawing.Point(646, 416)
         Me.BtnReady.Name = "BtnReady"
         Me.BtnReady.Size = New System.Drawing.Size(127, 131)
@@ -226,6 +228,8 @@ Partial Class Form1
         '
         'DragAndDropBox
         '
+        Me.DragAndDropBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DragAndDropBox.Controls.Add(Me.Label6)
         Me.DragAndDropBox.Controls.Add(Me.Label5)
         Me.DragAndDropBox.Controls.Add(Me.Label4)
@@ -328,6 +332,9 @@ Partial Class Form1
         Me.Button1.TabIndex = 0
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'PlayerMoveTick
+        '
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -388,5 +395,6 @@ Partial Class Form1
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents PlayerMoveTick As System.Windows.Forms.Timer
 
 End Class
