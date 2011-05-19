@@ -9,7 +9,8 @@ Public Class Form1
     Private logColor As List(Of Color)          ' Tracks the colours for log messages
     Private lvlWidth, lvlHeight As Integer      ' Dimentions of the board
     Private lvl As Level                        ' The level
-    Private lvlTilePics As List(Of PictureBox)  ' Pictureboxes for each tile
+    Private lvlTilePics As List(Of PictureBox)
+    Private playerPics As List(Of PictureBox) ' Pictureboxes for each tile
     Private turn As Integer = 0
     Private dobbel1, dobbel2 As Dice
     Private playerTurn As List(Of String)
@@ -191,6 +192,7 @@ Public Class Form1
             sum = dobbel1.DiceValue + dobbel2.DiceValue
             AddToChatLog(.Name & " heeft " & sum.ToString & " gegooid", .Color)
             .Position = .Position + sum
+            GetTileCords(player(turn).Position, playerPics(turn).Left, playerPics(turn).Top)
             sum = Nothing
         End With
 
@@ -243,10 +245,18 @@ Public Class Form1
         BtnDice.Visible = True
         Players.Visible = True
         DragAndDropBox.Hide()
-        pictplayer1.BackColor = player(1).Color
+        playerPics = New List(Of PictureBox)
+       
+        For i = 0 To player.Count - 1
+            playerPics.Add(New PictureBox())
+            Board.Controls.Add(playerPics(i))
+            playerPics.Item(i).Size = New Size(50, 50)
+            playerPics(i).Visible() = True
+            playerPics(i).BackColor = player(i).Color
+            GetTileCords(0, playerPics(i).Left, playerPics(i).Top)
+        Next
+        
 
-        GetTileCords(0, pictplayer1.Left, pictplayer1.Top)
-        pictplayer1.Visible() = True
 
     End Sub
 End Class
