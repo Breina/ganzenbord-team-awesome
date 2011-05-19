@@ -9,13 +9,14 @@ Public Class Form1
     Private logColor As List(Of Color)          ' Tracks the colours for log messages
     Private lvlWidth, lvlHeight As Integer      ' Dimentions of the board
     Private lvl As Level                        ' The level
-    Private lvlTilePics As List(Of PictureBox)
-    Private playerPics As List(Of PictureBox) ' Pictureboxes for each tile
-    Private turn As Integer = 0
-    Private dobbel1, dobbel2 As Dice
-    Private playerTurn As List(Of String)
-    Private diceRolling As Boolean
-    Private tileSize As Integer
+    Private lvlTilePics As List(Of PictureBox)  ' Pictureboxes for each tile
+    Private playerPics As List(Of PictureBox)   ' Pictureboxes for each player
+    Private turn As Integer = 0                 ' Keeping track whose turn it is
+    Private dobbel1, dobbel2 As Dice            ' The 2 dice
+    Private playerTurn As List(Of String)       ' For keeping track of the turn list
+    Private diceRolling As Boolean              ' Indicates wether the dice is rolling
+    Private tileSize As Integer                 ' The length of the size of each tile
+    Private curPlayerPos As Integer             ' Used for tracking where the player is while moving
 
 
     ' Brecht
@@ -32,7 +33,7 @@ Public Class Form1
             lvlTilePics.Add(New PictureBox())
 
             With lvlTilePics.Item(i)
-                .Location = New Point(Board.Left + tileSize * lvl.TileIndex(i).X, Board.Top + tileSize * lvl.TileIndex(i).Y)
+                GetTileCords(i, .Left, .Top)
                 .Size = New Size(tileSize, tileSize)
                 .Name = "PicBoxTile" & Convert.ToString(i)
                 .ImageLocation = "images\tiles\" & lvl.TileIndex(i).Orientation & ".png"
@@ -60,7 +61,6 @@ Public Class Form1
     End Sub
 
     Private Sub BtnDice_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnDice.Click
-        BtnDice.Text = "Gooi"
         BtnDice.Enabled = False
         diceRolling = True
         TimerDiceDuration.Start()
@@ -172,10 +172,18 @@ Public Class Form1
     End Sub
 
     Private Sub RedrawLevel()
+        tileSize = Convert.ToInt32(Math.Min(Board.Width / lvlWidth, Board.Height / lvlHeight))
         For i As Integer = 0 To lvlTilePics.Count - 1
             lvlTilePics(i).Dispose()
         Next
         RenderLevel(NewGame.lvl)
+        '''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+        For i = 0 To player.Count - 1
+            With playerPics(i)
+                .Size = New Size(tileSize, tileSize)
+                GetTileCords(player(i).Position, .Left, .Top)
+            End With
+        Next
     End Sub
 
     Private Sub Form1_Resize(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.ResizeEnd
@@ -188,14 +196,17 @@ Public Class Form1
 
     Private Sub ProcessTurn()
         With player(turn)
+            curPlayerPos = .Position
             Dim sum As Integer
             sum = dobbel1.DiceValue + dobbel2.DiceValue
             AddToChatLog(.Name & " heeft " & sum.ToString & " gegooid", .Color)
             .Position = .Position + sum
-            GetTileCords(player(turn).Position, playerPics(turn).Left, playerPics(turn).Top)
-            sum = Nothing
         End With
 
+        PlayerMoveTick.Start()
+    End Sub
+
+    Private Sub NextPlayer()
         FindNextPlayer(turn)
         UpdateNextPlayerList()
 
@@ -203,8 +214,29 @@ Public Class Form1
             AddToChatLog(.Name & " zijn/haar beurt!", .Color)
 
             If .Comput = True Then
-                ProcessTurn()
+                BtnDice.Enabled = False
+                diceRolling = True
+                TimerDiceDuration.Start()
+                TimerDiceTick.Start()
+            Else
+                BtnDice.Enabled = True
             End If
+        End With
+    End Sub
+
+    Private Sub PlayerMoveTick_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PlayerMoveTick.Tick
+        If player(turn).Position > curPlayerPos Then
+            curPlayerPos += 1
+        ElseIf player(turn).Position < curPlayerPos Then
+            curPlayerPos -= 1
+        Else
+            NextPlayer()
+            PlayerMoveTick.Stop()
+        End If
+
+        With playerPics(turn)
+            GetTileCords(curPlayerPos, .Left, .Top)
+            .BringToFront()
         End With
     End Sub
 
@@ -214,10 +246,9 @@ Public Class Form1
     End Sub
 
     Private Sub TimerDiceDuration_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TimerDiceDuration.Tick
-        ProcessTurn()
-        BtnDice.Enabled = True
         TimerDiceTick.Stop()
         TimerDiceDuration.Stop()
+        ProcessTurn()
     End Sub
 
     Private Sub FullscreenToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FullscreenToolStripMenuItem.Click
@@ -249,14 +280,13 @@ Public Class Form1
        
         For i = 0 To player.Count - 1
             playerPics.Add(New PictureBox())
+            With playerPics(i)
+                .Size = New Size(tileSize, tileSize)
+                .BackColor = player(i).Color
+                GetTileCords(0, .Left, .Top)
+            End With
             Board.Controls.Add(playerPics(i))
-            playerPics.Item(i).Size = New Size(50, 50)
-            playerPics(i).Visible() = True
-            playerPics(i).BackColor = player(i).Color
-            GetTileCords(0, playerPics(i).Left, playerPics(i).Top)
         Next
-        
-
-
     End Sub
+
 End Class
