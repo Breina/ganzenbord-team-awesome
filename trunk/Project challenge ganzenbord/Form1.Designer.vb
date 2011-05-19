@@ -34,7 +34,7 @@ Partial Class Form1
         Me.PctDice1 = New System.Windows.Forms.PictureBox()
         Me.PctDice2 = New System.Windows.Forms.PictureBox()
         Me.LstChatLog = New System.Windows.Forms.ListBox()
-        Me.NewPlayer = New System.Windows.Forms.GroupBox()
+        Me.Players = New System.Windows.Forms.GroupBox()
         Me.LstPlayers = New System.Windows.Forms.ListBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.BtnDice = New System.Windows.Forms.Button()
@@ -42,10 +42,23 @@ Partial Class Form1
         Me.TimerDiceDuration = New System.Windows.Forms.Timer(Me.components)
         Me.WindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FullscreenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BtnReady = New System.Windows.Forms.Button()
+        Me.DragAndDropBox = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PctDice1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PctDice2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.NewPlayer.SuspendLayout()
+        Me.Players.SuspendLayout()
+        Me.DragAndDropBox.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -67,13 +80,13 @@ Partial Class Form1
         'NewGameToolStripMenuItem
         '
         Me.NewGameToolStripMenuItem.Name = "NewGameToolStripMenuItem"
-        Me.NewGameToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+        Me.NewGameToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.NewGameToolStripMenuItem.Text = "New Game"
         '
         'CloseToolStripMenuItem
         '
         Me.CloseToolStripMenuItem.Name = "CloseToolStripMenuItem"
-        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.CloseToolStripMenuItem.Text = "Close"
         '
         'HelpToolStripMenuItem
@@ -86,7 +99,7 @@ Partial Class Form1
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AboutToolStripMenuItem.Text = "About"
         '
         'Board
@@ -106,6 +119,7 @@ Partial Class Form1
         'PctDice1
         '
         Me.PctDice1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PctDice1.ImageLocation = ""
         Me.PctDice1.Location = New System.Drawing.Point(572, 481)
         Me.PctDice1.Name = "PctDice1"
         Me.PctDice1.Size = New System.Drawing.Size(65, 65)
@@ -115,6 +129,7 @@ Partial Class Form1
         'PctDice2
         '
         Me.PctDice2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.PctDice2.ImageLocation = ""
         Me.PctDice2.Location = New System.Drawing.Point(572, 413)
         Me.PctDice2.Name = "PctDice2"
         Me.PctDice2.Size = New System.Drawing.Size(65, 65)
@@ -135,17 +150,18 @@ Partial Class Form1
         Me.LstChatLog.TabIndex = 4
         Me.LstChatLog.TabStop = False
         '
-        'NewPlayer
+        'Players
         '
-        Me.NewPlayer.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.Players.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.NewPlayer.Controls.Add(Me.LstPlayers)
-        Me.NewPlayer.Controls.Add(Me.Label1)
-        Me.NewPlayer.Location = New System.Drawing.Point(572, 27)
-        Me.NewPlayer.Name = "NewPlayer"
-        Me.NewPlayer.Size = New System.Drawing.Size(200, 383)
-        Me.NewPlayer.TabIndex = 2
-        Me.NewPlayer.TabStop = False
+        Me.Players.Controls.Add(Me.LstPlayers)
+        Me.Players.Controls.Add(Me.Label1)
+        Me.Players.Location = New System.Drawing.Point(746, 27)
+        Me.Players.Name = "Players"
+        Me.Players.Size = New System.Drawing.Size(200, 380)
+        Me.Players.TabIndex = 2
+        Me.Players.TabStop = False
+        Me.Players.Visible = False
         '
         'LstPlayers
         '
@@ -175,50 +191,169 @@ Partial Class Form1
         Me.BtnDice.Name = "BtnDice"
         Me.BtnDice.Size = New System.Drawing.Size(127, 131)
         Me.BtnDice.TabIndex = 5
-        Me.BtnDice.Text = "Start het spel"
+        Me.BtnDice.Text = "Gooi"
         Me.BtnDice.UseVisualStyleBackColor = True
+        Me.BtnDice.Visible = False
         '
         'TimerDiceTick
         '
         '
         'TimerDiceDuration
         '
-        Me.TimerDiceDuration.Interval = 1000
+        Me.TimerDiceDuration.Interval = 500
         '
         'WindowToolStripMenuItem
         '
         Me.WindowToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FullscreenToolStripMenuItem})
         Me.WindowToolStripMenuItem.Name = "WindowToolStripMenuItem"
-        Me.WindowToolStripMenuItem.Size = New System.Drawing.Size(63, 20)
-        Me.WindowToolStripMenuItem.Text = "Window"
+        Me.WindowToolStripMenuItem.Size = New System.Drawing.Size(58, 20)
+        Me.WindowToolStripMenuItem.Text = "Venster"
         '
         'FullscreenToolStripMenuItem
         '
         Me.FullscreenToolStripMenuItem.Name = "FullscreenToolStripMenuItem"
-        Me.FullscreenToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.FullscreenToolStripMenuItem.Text = "Fullscreen"
+        Me.FullscreenToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
+        Me.FullscreenToolStripMenuItem.Text = "Volledig scherm"
+        '
+        'BtnReady
+        '
+        Me.BtnReady.Location = New System.Drawing.Point(645, 416)
+        Me.BtnReady.Name = "BtnReady"
+        Me.BtnReady.Size = New System.Drawing.Size(127, 131)
+        Me.BtnReady.TabIndex = 6
+        Me.BtnReady.Text = "Start het spel"
+        Me.BtnReady.UseVisualStyleBackColor = True
+        '
+        'DragAndDropBox
+        '
+        Me.DragAndDropBox.Controls.Add(Me.Label6)
+        Me.DragAndDropBox.Controls.Add(Me.Label5)
+        Me.DragAndDropBox.Controls.Add(Me.Label4)
+        Me.DragAndDropBox.Controls.Add(Me.Label3)
+        Me.DragAndDropBox.Controls.Add(Me.Button5)
+        Me.DragAndDropBox.Controls.Add(Me.Button4)
+        Me.DragAndDropBox.Controls.Add(Me.Button3)
+        Me.DragAndDropBox.Controls.Add(Me.Button2)
+        Me.DragAndDropBox.Controls.Add(Me.Label2)
+        Me.DragAndDropBox.Controls.Add(Me.Button1)
+        Me.DragAndDropBox.Location = New System.Drawing.Point(572, 28)
+        Me.DragAndDropBox.Name = "DragAndDropBox"
+        Me.DragAndDropBox.Size = New System.Drawing.Size(157, 379)
+        Me.DragAndDropBox.TabIndex = 7
+        Me.DragAndDropBox.TabStop = False
+        Me.DragAndDropBox.Text = "Vakjes"
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(6, 72)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(35, 35)
+        Me.Button1.TabIndex = 0
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(48, 83)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(45, 13)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "Herberg"
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(6, 113)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(35, 35)
+        Me.Button2.TabIndex = 2
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(6, 154)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(35, 35)
+        Me.Button3.TabIndex = 3
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'Button4
+        '
+        Me.Button4.Location = New System.Drawing.Point(6, 196)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(35, 35)
+        Me.Button4.TabIndex = 4
+        Me.Button4.UseVisualStyleBackColor = True
+        '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(6, 237)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(35, 35)
+        Me.Button5.TabIndex = 5
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(48, 124)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(64, 13)
+        Me.Label3.TabIndex = 6
+        Me.Label3.Text = "Gevangenis"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(48, 165)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(32, 13)
+        Me.Label4.TabIndex = 7
+        Me.Label4.Text = "Gans"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(48, 207)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(44, 13)
+        Me.Label5.TabIndex = 8
+        Me.Label5.Text = "Doolhof"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(48, 248)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(52, 13)
+        Me.Label6.TabIndex = 9
+        Me.Label6.Text = "Vermoord"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(785, 558)
+        Me.Controls.Add(Me.DragAndDropBox)
+        Me.Controls.Add(Me.BtnReady)
         Me.Controls.Add(Me.BtnDice)
-        Me.Controls.Add(Me.NewPlayer)
+        Me.Controls.Add(Me.Players)
         Me.Controls.Add(Me.LstChatLog)
         Me.Controls.Add(Me.PctDice2)
         Me.Controls.Add(Me.PctDice1)
         Me.Controls.Add(Me.Board)
         Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
+        Me.MinimumSize = New System.Drawing.Size(400, 400)
         Me.Name = "Form1"
         Me.Text = "Gooseboard "
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.PctDice1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PctDice2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.NewPlayer.ResumeLayout(False)
-        Me.NewPlayer.PerformLayout()
+        Me.Players.ResumeLayout(False)
+        Me.Players.PerformLayout()
+        Me.DragAndDropBox.ResumeLayout(False)
+        Me.DragAndDropBox.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -230,7 +365,7 @@ Partial Class Form1
     Friend WithEvents PctDice1 As System.Windows.Forms.PictureBox
     Friend WithEvents PctDice2 As System.Windows.Forms.PictureBox
     Friend WithEvents LstChatLog As System.Windows.Forms.ListBox
-    Friend WithEvents NewPlayer As System.Windows.Forms.GroupBox
+    Friend WithEvents Players As System.Windows.Forms.GroupBox
     Friend WithEvents BtnDice As System.Windows.Forms.Button
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Board As System.Windows.Forms.GroupBox
@@ -241,5 +376,17 @@ Partial Class Form1
     Friend WithEvents TimerDiceDuration As System.Windows.Forms.Timer
     Friend WithEvents WindowToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FullscreenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents BtnReady As System.Windows.Forms.Button
+    Friend WithEvents DragAndDropBox As System.Windows.Forms.GroupBox
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Button5 As System.Windows.Forms.Button
+    Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 
 End Class

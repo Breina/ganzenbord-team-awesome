@@ -230,4 +230,10 @@ Public Class Form1
             End If
         End With
     End Sub
+
+    Private Sub BtnReady_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnReady.Click
+        BtnReady.Visible = False
+        BtnDice.Visible = True
+        Players.Visible = True
+    End Sub
 End Class
