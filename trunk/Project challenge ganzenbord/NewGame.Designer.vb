@@ -78,6 +78,7 @@ Partial Class NewGame
         Me.TxtLevel.ReadOnly = True
         Me.TxtLevel.Size = New System.Drawing.Size(69, 20)
         Me.TxtLevel.TabIndex = 27
+        Me.TxtLevel.Text = "spiral.txt"
         '
         'Label2
         '

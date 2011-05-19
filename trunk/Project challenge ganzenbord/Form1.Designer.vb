@@ -67,13 +67,13 @@ Partial Class Form1
         'NewGameToolStripMenuItem
         '
         Me.NewGameToolStripMenuItem.Name = "NewGameToolStripMenuItem"
-        Me.NewGameToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.NewGameToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
         Me.NewGameToolStripMenuItem.Text = "New Game"
         '
         'CloseToolStripMenuItem
         '
         Me.CloseToolStripMenuItem.Name = "CloseToolStripMenuItem"
-        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
         Me.CloseToolStripMenuItem.Text = "Close"
         '
         'HelpToolStripMenuItem
@@ -153,7 +153,7 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(14, 198)
+        Me.Label2.Location = New System.Drawing.Point(11, 177)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(103, 13)
         Me.Label2.TabIndex = 3
@@ -164,10 +164,10 @@ Partial Class Form1
         Me.LstPlayersTest.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
         Me.LstPlayersTest.FormattingEnabled = True
         Me.LstPlayersTest.ItemHeight = 24
-        Me.LstPlayersTest.Location = New System.Drawing.Point(14, 217)
+        Me.LstPlayersTest.Location = New System.Drawing.Point(14, 193)
         Me.LstPlayersTest.Name = "LstPlayersTest"
         Me.LstPlayersTest.SelectionMode = System.Windows.Forms.SelectionMode.None
-        Me.LstPlayersTest.Size = New System.Drawing.Size(180, 124)
+        Me.LstPlayersTest.Size = New System.Drawing.Size(180, 148)
         Me.LstPlayersTest.TabIndex = 2
         Me.LstPlayersTest.TabStop = False
         '
