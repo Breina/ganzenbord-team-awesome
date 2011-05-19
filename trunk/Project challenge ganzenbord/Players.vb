@@ -1,8 +1,8 @@
 ﻿'Kristof
 'Deze klasse behoudt de speler zijn informatie
 Public Class Players
-    Private mNaam As String
-    Private mKleur As Color
+    Private mName As String
+    Private mColor As Color
     Private mComput As Boolean
     Private mHasFinished As Boolean
     Private mLastRoll As Integer
@@ -10,29 +10,29 @@ Public Class Players
     Private mInJail As Boolean
     Private mPosition As Integer
 
-    Public Sub New(ByVal Naam As String, ByVal Kleur As Color, ByVal Comput As Boolean, ByVal HasFinished As Boolean, ByVal LastRoll As Integer, ByVal SkipTurn As Boolean, ByVal InJail As Boolean)
-        mNaam = Naam
-        mKleur = Kleur
+    Public Sub New(ByVal name As String, ByVal color As Color, ByVal Comput As Boolean, ByVal HasFinished As Boolean, ByVal LastRoll As Integer, ByVal SkipTurn As Boolean, ByVal InJail As Boolean)
+        mName = name
+        mColor = color
         mComput = Comput
         mHasFinished = HasFinished
         mLastRoll = LastRoll
         mSkipTurn = SkipTurn
         mInJail = InJail
     End Sub
-    Public Property Naam() As String
+    Public Property Name() As String
         Get
-            Return Me.mNaam
+            Return Me.mName
         End Get
         Set(ByVal value As String)
-            Me.mNaam = value
+            Me.mName = value
         End Set
     End Property
-    Public Property Kleur() As Color
+    Public Property Color() As Color
         Get
-            Return Me.mKleur
+            Return Me.mColor
         End Get
         Set(ByVal value As Color)
-            Me.mKleur = value
+            Me.mColor = value
         End Set
     End Property
     Public Property Comput() As Boolean

@@ -38,7 +38,8 @@ Partial Class Form1
         Me.LstPlayers = New System.Windows.Forms.ListBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.BtnDice = New System.Windows.Forms.Button()
-        Me.TimerDice = New System.Windows.Forms.Timer(Me.components)
+        Me.TimerDiceTick = New System.Windows.Forms.Timer(Me.components)
+        Me.TimerDiceDuration = New System.Windows.Forms.Timer(Me.components)
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PctDice1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PctDice2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -165,9 +166,12 @@ Partial Class Form1
         Me.BtnDice.Text = "Start het spel"
         Me.BtnDice.UseVisualStyleBackColor = True
         '
-        'TimerDice
+        'TimerDiceTick
         '
-        Me.TimerDice.Interval = 500
+        '
+        'TimerDiceDuration
+        '
+        Me.TimerDiceDuration.Interval = 1000
         '
         'Form1
         '
@@ -205,9 +209,10 @@ Partial Class Form1
     Friend WithEvents BtnDice As System.Windows.Forms.Button
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Board As System.Windows.Forms.GroupBox
-    Friend WithEvents TimerDice As System.Windows.Forms.Timer
+    Friend WithEvents TimerDiceTick As System.Windows.Forms.Timer
     Friend WithEvents HelpToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AboutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LstPlayers As System.Windows.Forms.ListBox
+    Friend WithEvents TimerDiceDuration As System.Windows.Forms.Timer
 
 End Class
