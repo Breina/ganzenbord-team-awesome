@@ -14,8 +14,9 @@ Public Class TileDeath
         Return True
     End Function
 
-    Public Overrides Sub Go(ByRef player As Players)
-        player.Move(-player.Position)
-    End Sub
+    Public Overrides Function Go(ByRef player As Players) As String
+        player.Position = 0
+        Return player.Name & " mag terug opnieuw beginnen, proficiat!"
+    End Function
 
 End Class

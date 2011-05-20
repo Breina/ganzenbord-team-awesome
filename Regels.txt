@@ -13,7 +13,7 @@ Verplicht voor de code:
 [x]	level .txt inladen
 [x]	min 2 speler ( mag computer )
 [ ]	wie het hoogste gooit mag beginnen ( met 2 dobbelstenen ) en als diegene vb als hoogste 9 gooit wordt dit ook zijn eerste verplaatsing
-[ ]	komt met op vakje waar speler staat: terug naar de oude plaats
+[x]	komt met op vakje waar speler staat: terug naar de oude plaats
 [ ]	gelijke ogen: extra beurt om te gooien
 [x]	About form met logo,versienr,wie,hoe bereiken en in dialoog venster verschijnen
 [ ]	Plaatsjes worden 'at random' geladen : Welke?-gans, gevang,doolhof,herberg,dood ( 1 van elk min. aanwezig )
@@ -33,7 +33,7 @@ Verplicht voor de code:
 Uitbreiding:
 
 [x]	pion kleur kiezen
-[ ]	drag/drop aan begin van spel kiezen ( dus keuze uit At random / drag&drop)
+[x]	drag/drop aan begin van spel kiezen ( dus keuze uit At random / drag&drop)
 [ ]	extra plaatjes
 [ ]	geluid
 [x]	rollende dobbelstenen

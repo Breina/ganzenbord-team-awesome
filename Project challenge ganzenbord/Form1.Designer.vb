@@ -37,23 +37,24 @@ Partial Class Form1
         Me.PctDice2 = New System.Windows.Forms.PictureBox()
         Me.LstChatLog = New System.Windows.Forms.ListBox()
         Me.Players = New System.Windows.Forms.GroupBox()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.LstPlayers = New System.Windows.Forms.ListBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.BtnDice = New System.Windows.Forms.Button()
-        Me.TimerDiceTick = New System.Windows.Forms.Timer(Me.components)
-        Me.TimerDiceDuration = New System.Windows.Forms.Timer(Me.components)
-        Me.BtnReady = New System.Windows.Forms.Button()
         Me.DragAndDropBox = New System.Windows.Forms.GroupBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.BtnDeath = New System.Windows.Forms.Button()
+        Me.BtnMaze = New System.Windows.Forms.Button()
+        Me.BtnGoose = New System.Windows.Forms.Button()
+        Me.BtnJail = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.BtnInn = New System.Windows.Forms.Button()
+        Me.BtnDice = New System.Windows.Forms.Button()
+        Me.TimerDiceTick = New System.Windows.Forms.Timer(Me.components)
+        Me.TimerDiceDuration = New System.Windows.Forms.Timer(Me.components)
+        Me.BtnReady = New System.Windows.Forms.Button()
         Me.PlayerMoveTick = New System.Windows.Forms.Timer(Me.components)
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PctDice1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -168,14 +169,24 @@ Partial Class Form1
         '
         Me.Players.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Players.Controls.Add(Me.Label7)
         Me.Players.Controls.Add(Me.LstPlayers)
         Me.Players.Controls.Add(Me.Label1)
-        Me.Players.Location = New System.Drawing.Point(569, 24)
+        Me.Players.Location = New System.Drawing.Point(573, 27)
         Me.Players.Name = "Players"
         Me.Players.Size = New System.Drawing.Size(200, 380)
         Me.Players.TabIndex = 2
         Me.Players.TabStop = False
         Me.Players.Visible = False
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(9, 328)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(39, 13)
+        Me.Label7.TabIndex = 8
+        Me.Label7.Text = "Label7"
         '
         'LstPlayers
         '
@@ -197,6 +208,122 @@ Partial Class Form1
         Me.Label1.Size = New System.Drawing.Size(42, 13)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Spelers"
+        '
+        'DragAndDropBox
+        '
+        Me.DragAndDropBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DragAndDropBox.Controls.Add(Me.Label6)
+        Me.DragAndDropBox.Controls.Add(Me.Label5)
+        Me.DragAndDropBox.Controls.Add(Me.Label4)
+        Me.DragAndDropBox.Controls.Add(Me.Label3)
+        Me.DragAndDropBox.Controls.Add(Me.BtnDeath)
+        Me.DragAndDropBox.Controls.Add(Me.BtnMaze)
+        Me.DragAndDropBox.Controls.Add(Me.BtnGoose)
+        Me.DragAndDropBox.Controls.Add(Me.BtnJail)
+        Me.DragAndDropBox.Controls.Add(Me.Label2)
+        Me.DragAndDropBox.Controls.Add(Me.BtnInn)
+        Me.DragAndDropBox.Location = New System.Drawing.Point(573, 27)
+        Me.DragAndDropBox.Name = "DragAndDropBox"
+        Me.DragAndDropBox.Size = New System.Drawing.Size(201, 379)
+        Me.DragAndDropBox.TabIndex = 7
+        Me.DragAndDropBox.TabStop = False
+        Me.DragAndDropBox.Text = "Vakjes"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(52, 204)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(52, 13)
+        Me.Label6.TabIndex = 9
+        Me.Label6.Text = "Vermoord"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(52, 163)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(44, 13)
+        Me.Label5.TabIndex = 8
+        Me.Label5.Text = "Doolhof"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(52, 121)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(32, 13)
+        Me.Label4.TabIndex = 7
+        Me.Label4.Text = "Gans"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(52, 80)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(64, 13)
+        Me.Label3.TabIndex = 6
+        Me.Label3.Text = "Gevangenis"
+        '
+        'BtnDeath
+        '
+        Me.BtnDeath.BackgroundImage = CType(resources.GetObject("BtnDeath.BackgroundImage"), System.Drawing.Image)
+        Me.BtnDeath.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnDeath.Location = New System.Drawing.Point(10, 193)
+        Me.BtnDeath.Name = "BtnDeath"
+        Me.BtnDeath.Size = New System.Drawing.Size(35, 35)
+        Me.BtnDeath.TabIndex = 5
+        Me.BtnDeath.UseVisualStyleBackColor = True
+        '
+        'BtnMaze
+        '
+        Me.BtnMaze.BackgroundImage = CType(resources.GetObject("BtnMaze.BackgroundImage"), System.Drawing.Image)
+        Me.BtnMaze.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnMaze.Location = New System.Drawing.Point(10, 152)
+        Me.BtnMaze.Name = "BtnMaze"
+        Me.BtnMaze.Size = New System.Drawing.Size(35, 35)
+        Me.BtnMaze.TabIndex = 4
+        Me.BtnMaze.UseVisualStyleBackColor = True
+        '
+        'BtnGoose
+        '
+        Me.BtnGoose.BackgroundImage = CType(resources.GetObject("BtnGoose.BackgroundImage"), System.Drawing.Image)
+        Me.BtnGoose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnGoose.Location = New System.Drawing.Point(10, 110)
+        Me.BtnGoose.Name = "BtnGoose"
+        Me.BtnGoose.Size = New System.Drawing.Size(35, 35)
+        Me.BtnGoose.TabIndex = 3
+        Me.BtnGoose.UseVisualStyleBackColor = True
+        '
+        'BtnJail
+        '
+        Me.BtnJail.BackgroundImage = CType(resources.GetObject("BtnJail.BackgroundImage"), System.Drawing.Image)
+        Me.BtnJail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnJail.Location = New System.Drawing.Point(10, 69)
+        Me.BtnJail.Name = "BtnJail"
+        Me.BtnJail.Size = New System.Drawing.Size(35, 35)
+        Me.BtnJail.TabIndex = 2
+        Me.BtnJail.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(52, 39)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(45, 13)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "Herberg"
+        '
+        'BtnInn
+        '
+        Me.BtnInn.BackgroundImage = CType(resources.GetObject("BtnInn.BackgroundImage"), System.Drawing.Image)
+        Me.BtnInn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnInn.Location = New System.Drawing.Point(10, 28)
+        Me.BtnInn.Name = "BtnInn"
+        Me.BtnInn.Size = New System.Drawing.Size(35, 35)
+        Me.BtnInn.TabIndex = 0
+        Me.BtnInn.UseVisualStyleBackColor = True
         '
         'BtnDice
         '
@@ -225,112 +352,6 @@ Partial Class Form1
         Me.BtnReady.TabIndex = 6
         Me.BtnReady.Text = "Start het spel"
         Me.BtnReady.UseVisualStyleBackColor = True
-        '
-        'DragAndDropBox
-        '
-        Me.DragAndDropBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DragAndDropBox.Controls.Add(Me.Label6)
-        Me.DragAndDropBox.Controls.Add(Me.Label5)
-        Me.DragAndDropBox.Controls.Add(Me.Label4)
-        Me.DragAndDropBox.Controls.Add(Me.Label3)
-        Me.DragAndDropBox.Controls.Add(Me.Button5)
-        Me.DragAndDropBox.Controls.Add(Me.Button4)
-        Me.DragAndDropBox.Controls.Add(Me.Button3)
-        Me.DragAndDropBox.Controls.Add(Me.Button2)
-        Me.DragAndDropBox.Controls.Add(Me.Label2)
-        Me.DragAndDropBox.Controls.Add(Me.Button1)
-        Me.DragAndDropBox.Location = New System.Drawing.Point(568, 28)
-        Me.DragAndDropBox.Name = "DragAndDropBox"
-        Me.DragAndDropBox.Size = New System.Drawing.Size(201, 379)
-        Me.DragAndDropBox.TabIndex = 7
-        Me.DragAndDropBox.TabStop = False
-        Me.DragAndDropBox.Text = "Vakjes"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(52, 247)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(52, 13)
-        Me.Label6.TabIndex = 9
-        Me.Label6.Text = "Vermoord"
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(52, 206)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(44, 13)
-        Me.Label5.TabIndex = 8
-        Me.Label5.Text = "Doolhof"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(52, 164)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(32, 13)
-        Me.Label4.TabIndex = 7
-        Me.Label4.Text = "Gans"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(52, 123)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(64, 13)
-        Me.Label3.TabIndex = 6
-        Me.Label3.Text = "Gevangenis"
-        '
-        'Button5
-        '
-        Me.Button5.Location = New System.Drawing.Point(10, 236)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(35, 35)
-        Me.Button5.TabIndex = 5
-        Me.Button5.UseVisualStyleBackColor = True
-        '
-        'Button4
-        '
-        Me.Button4.Location = New System.Drawing.Point(10, 195)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(35, 35)
-        Me.Button4.TabIndex = 4
-        Me.Button4.UseVisualStyleBackColor = True
-        '
-        'Button3
-        '
-        Me.Button3.Location = New System.Drawing.Point(10, 153)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(35, 35)
-        Me.Button3.TabIndex = 3
-        Me.Button3.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(10, 112)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(35, 35)
-        Me.Button2.TabIndex = 2
-        Me.Button2.UseVisualStyleBackColor = True
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(52, 82)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(45, 13)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "Herberg"
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(10, 71)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(35, 35)
-        Me.Button1.TabIndex = 0
-        Me.Button1.UseVisualStyleBackColor = True
         '
         'PlayerMoveTick
         '
@@ -389,12 +410,13 @@ Partial Class Form1
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents Button5 As System.Windows.Forms.Button
-    Friend WithEvents Button4 As System.Windows.Forms.Button
-    Friend WithEvents Button3 As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents BtnDeath As System.Windows.Forms.Button
+    Friend WithEvents BtnMaze As System.Windows.Forms.Button
+    Friend WithEvents BtnGoose As System.Windows.Forms.Button
+    Friend WithEvents BtnJail As System.Windows.Forms.Button
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents BtnInn As System.Windows.Forms.Button
     Friend WithEvents PlayerMoveTick As System.Windows.Forms.Timer
+    Friend WithEvents Label7 As System.Windows.Forms.Label
 
 End Class

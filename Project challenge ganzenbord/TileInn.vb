@@ -14,8 +14,9 @@ Public Class TileInn
         Return True
     End Function
 
-    Public Overrides Sub Go(ByRef player As Players)
+    Public Overrides Function Go(ByRef player As Players) As String
         player.SkipTurn = True
-    End Sub
+        Return "Zatlap " & player.Name & " is ene drinke."
+    End Function
 
 End Class

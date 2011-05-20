@@ -15,7 +15,8 @@ Public Class TileStart
         Return False
     End Function
 
-    Public Overrides Sub Go(ByRef player As Players)
-    End Sub
+    Public Overrides Function Go(ByRef player As Players) As String
+        Return "ERROR"  ' Throw een exception hier
+    End Function
 
 End Class
