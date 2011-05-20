@@ -14,8 +14,9 @@ Public Class TileMaze
         Return True
     End Function
 
-    Public Overrides Sub Go(ByRef player As Players)
-        player.Move(-player.LastRoll)
-    End Sub
+    Public Overrides Function Go(ByRef player As Players) As String
+        player.Position -= player.LastRoll
+        Return "Het doolhof was te moeilijk voor " & player.Name & "."
+    End Function
 
 End Class

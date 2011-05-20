@@ -93,6 +93,7 @@ De error staan in de file error.txt
 
 Toedels :) xxx 
 
+
 Kristof:
 ComputerSpeler werkt en die gooien automatisch
 dobbelstenen hebbe nieuwe foto 
@@ -102,7 +103,15 @@ Brecht:
 @Ine: About werkt bij mij. :o
 Kristoofff!!!!!@@@ wilt gy n ReadOnly Property make die zegt binne hoeveel beurte ne player gaat spele? En da ook ineens laat wete of em in ne inn zit of int gevang, dan heb ik het n pak gemakkeleker :D Thx :)
 
+
 Joeri:
 @kristof: kijk de computer nog eens na die werkt niet als er meer dan 2 spelers zijn
 ik heb in newgame de levelselectie gezet zodat je die daar moet kiezen het zou niet bepaald praktisch zijn als ne flauwe int midden van u spel ineens de map veranderd en alles opnieuw doet beginne he :p
 De Form1 moet nog net alles wissen als je op new game drukt want die blijft dat onthouden dus je kan niet opnieuw beginnen ... best wel lame :p
+
+
+Brecht:
+Jha manne ge moogt debugge. Drag en drop werkt en alle speciale vakskes enzo ook. Wel een paar bugs nog;
+- Een gans kan u tot over de finish doen springe
+- Nie resizen als ge in het drag en drop menu zit
+Kijk maar wa werkt en ni werkt :p

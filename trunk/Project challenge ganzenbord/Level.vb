@@ -141,10 +141,14 @@ Public Class Level
         AddTile(pos, width, OrientationEnum.finish)    ' Finish tile
     End Sub
 
-    ' Returns the tile at index
-    Public ReadOnly Property TileIndex(ByVal index As Integer) As Tile
+    ' The tile at index
+    Public Property TileIndex(ByVal index As Integer) As Tile
         Get
             Return level.Item(index)
         End Get
+
+        Set(ByVal value As Tile)
+            level.Item(index) = value
+        End Set
     End Property
 End Class

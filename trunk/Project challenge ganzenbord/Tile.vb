@@ -2,6 +2,7 @@
 Public Class Tile
     Private _x, _y As Integer       'x en y zijn cordinaten om te tekenen, id is hoe ver het zich bevind in het veld, 0 is de start
     Private _or As OrientationEnum  ' Tracks the orientation; straight or corner
+    Private _occupied As String     ' The player who is on the tile
 
     Public ReadOnly Property X() As Integer
         Get
@@ -14,6 +15,17 @@ Public Class Tile
             Return _y
         End Get
     End Property
+
+    Public Property Occupied() As String
+        Get
+            Return _occupied
+        End Get
+
+        Set(ByVal player As String)
+            _occupied = player
+        End Set
+    End Property
+
 
     Public ReadOnly Property Orientation() As String
         Get
@@ -34,6 +46,16 @@ Public Class Tile
                     Return "start"
                 Case OrientationEnum.finish
                     Return "finish"
+                Case OrientationEnum.death
+                    Return "death"
+                Case OrientationEnum.inn
+                    Return "inn"
+                Case OrientationEnum.maze
+                    Return "maze"
+                Case OrientationEnum.goose
+                    Return "goose"
+                Case OrientationEnum.jail
+                    Return "jail"
                 Case Else
                     Return "error"
             End Select
@@ -44,6 +66,7 @@ Public Class Tile
         _x = x
         _y = y
         _or = orientation
+        _occupied = Nothing
     End Sub
 
     Public Sub New()
@@ -53,8 +76,9 @@ Public Class Tile
         Return False
     End Function
 
-    Public Overridable Sub Go(ByRef player As Players)
-    End Sub
+    Public Overridable Function Go(ByRef player As Players) As String
+        Return "ERROR"  ' Throw een exception hier
+    End Function
 
 End Class
 
@@ -65,6 +89,11 @@ Public Enum OrientationEnum
     dr      ' down right
     dl      ' down left
     lr      ' left right 
-    start   ' start
-    finish  ' finish
+    start
+    finish
+    inn
+    jail
+    maze
+    goose
+    death
 End Enum

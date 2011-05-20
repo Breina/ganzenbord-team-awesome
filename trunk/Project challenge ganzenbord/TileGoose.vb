@@ -14,8 +14,9 @@ Public Class TileGoose
         Return True
     End Function
 
-    Public Overrides Sub Go(ByRef player As Players)
-        player.Move(player.LastRoll)
-    End Sub
+    Public Overrides Function Go(ByRef player As Players) As String
+        player.Position += player.LastRoll
+        Return "Een gans gaf " & player.Name & " een steek in de rug."
+    End Function
 
 End Class

@@ -17,7 +17,8 @@ Public Class Form1
     Private diceRolling As Boolean              ' Indicates wether the dice is rolling
     Private tileSize As Integer                 ' The length of the size of each tile
     Private curPlayerPos As Integer             ' Used for tracking where the player is while moving
-
+    Private lastSelectedTile As Integer         ' Used for tracking which tile was last selected for drag and drop
+    Private finishTilesBack As Integer          ' Amount of tiles to go back from the finish
 
     ' Brecht
     Private Sub GetTileCords(ByVal pos As Integer, ByRef x As Integer, ByRef y As Integer)
@@ -35,12 +36,30 @@ Public Class Form1
             With lvlTilePics.Item(i)
                 GetTileCords(i, .Left, .Top)
                 .Size = New Size(tileSize, tileSize)
-                .Name = "PicBoxTile" & Convert.ToString(i)
+                .Name = "p" & Convert.ToString(i)
                 .ImageLocation = "images\tiles\" & lvl.TileIndex(i).Orientation & ".png"
                 .SizeMode = PictureBoxSizeMode.StretchImage
+                .AllowDrop() = True
+                AddHandler .DragDrop, AddressOf Tile_DragDrop
+                AddHandler .DragEnter, AddressOf Tile_DragEnter
             End With
 
             Board.Controls.Add(lvlTilePics.Item(i))
+        Next
+    End Sub
+
+    Private Sub RedrawLevel()
+        tileSize = Convert.ToInt32(Math.Min(Board.Width / lvlWidth, Board.Height / lvlHeight))
+        For i As Integer = 0 To lvlTilePics.Count - 1
+            lvlTilePics(i).Dispose()
+        Next
+        RenderLevel(NewGame.lvl)
+
+        For i = 0 To player.Count - 1
+            With playerPics(i)
+                .Size = New Size(tileSize, tileSize)
+                GetTileCords(player(i).Position, .Left, .Top)
+            End With
         Next
     End Sub
 
@@ -150,7 +169,60 @@ Public Class Form1
         About.Close()
     End Sub
 
+    ' Ine
+    Private Sub BtnTile_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs)
+        Dim btnPic As Button = CType(sender, Button)
+        btnPic.DoDragDrop(btnPic.BackgroundImage, DragDropEffects.Copy)
+
+        Select Case CType(sender, Button).Name.Substring(3)
+            Case "Inn"
+                With lvl.TileIndex(lastSelectedTile)
+                    lvl.TileIndex(lastSelectedTile) = New TileInn(.X, .Y, OrientationEnum.inn)      ' Der MOET ne manier zyn om de cordinate van het Tile object te 
+                End With                                                                            ' houde zonder de parameters opnieuw te moete meegeve. :(
+            Case "Goose"
+                With lvl.TileIndex(lastSelectedTile)
+                    lvl.TileIndex(lastSelectedTile) = New TileGoose(.X, .Y, OrientationEnum.goose)
+                End With
+            Case "Maze"
+                With lvl.TileIndex(lastSelectedTile)
+                    lvl.TileIndex(lastSelectedTile) = New TileMaze(.X, .Y, OrientationEnum.maze)
+                End With
+            Case "Jail"
+                With lvl.TileIndex(lastSelectedTile)
+                    lvl.TileIndex(lastSelectedTile) = New TileJail(.X, .Y, OrientationEnum.jail)
+                End With
+            Case "Death"
+                With lvl.TileIndex(lastSelectedTile)
+                    lvl.TileIndex(lastSelectedTile) = New TileDeath(.X, .Y, OrientationEnum.death)
+                End With
+        End Select
+    End Sub
+
+    ' Ine
+    Private Sub Tile_DragEnter(ByVal sender As Object, ByVal e As DragEventArgs)
+        If e.Data.GetDataPresent(DataFormats.Bitmap) Then
+            e.Effect = DragDropEffects.Copy
+        Else
+            e.Effect = DragDropEffects.None
+        End If
+        lastSelectedTile = Convert.ToInt32(CType(sender, PictureBox).Name.Substring(1))
+    End Sub
+
+
+    ' Ine
+    Private Sub Tile_DragDrop(ByVal sender As Object, ByVal e As DragEventArgs)
+        Dim picbox As PictureBox = CType(sender, PictureBox)
+        Dim g As Graphics = picbox.CreateGraphics()
+        g.DrawImage(CType(e.Data.GetData(DataFormats.Bitmap), Image), New Point(0, 0))
+    End Sub
+
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        AddHandler BtnInn.MouseDown, AddressOf BtnTile_MouseDown
+        AddHandler BtnGoose.MouseDown, AddressOf BtnTile_MouseDown
+        AddHandler BtnJail.MouseDown, AddressOf BtnTile_MouseDown
+        AddHandler BtnMaze.MouseDown, AddressOf BtnTile_MouseDown
+        AddHandler BtnDeath.MouseDown, AddressOf BtnTile_MouseDown
+
         Me.Update()
         logColor = New List(Of Color)
         logColor.Add(Color.LightGray)
@@ -171,21 +243,6 @@ Public Class Form1
         UpdateNextPlayerList()
     End Sub
 
-    Private Sub RedrawLevel()
-        tileSize = Convert.ToInt32(Math.Min(Board.Width / lvlWidth, Board.Height / lvlHeight))
-        For i As Integer = 0 To lvlTilePics.Count - 1
-            lvlTilePics(i).Dispose()
-        Next
-        RenderLevel(NewGame.lvl)
-
-        For i = 0 To player.Count - 1
-            With playerPics(i)
-                .Size = New Size(tileSize, tileSize)
-                GetTileCords(player(i).Position, .Left, .Top)
-            End With
-        Next
-    End Sub
-
     Private Sub Form1_Resize(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.ResizeEnd
         RedrawLevel()
     End Sub
@@ -197,21 +254,30 @@ Public Class Form1
     Private Sub ProcessTurn()
         With player(turn)
             curPlayerPos = .Position
-            Dim sum As Integer
-            sum = dobbel1.DiceValue + dobbel2.DiceValue
-            AddToChatLog(.Name & " heeft " & sum.ToString & " gegooid", .Color)
-            .Position = .Position + sum
+            lvl.TileIndex(.Position).Occupied = Nothing
+            .LastRoll = dobbel1.DiceValue + dobbel2.DiceValue
+            AddToChatLog(.Name & " heeft " & Convert.ToString(.LastRoll) & " gegooid.", .Color)
+            .Position += .LastRoll
+
+            If .Position > lvlLength Then
+                finishTilesBack = .Position - lvlLength
+                .Position() = lvlLength
+            Else
+                finishTilesBack = 0
+            End If
         End With
 
         PlayerMoveTick.Start()
     End Sub
 
     Private Sub NextPlayer()
+        PlayerMoveTick.Stop()
+        lvl.TileIndex(player(turn).Position).Occupied = player(turn).Name
         FindNextPlayer(turn)
         UpdateNextPlayerList()
 
         With player(turn)
-            AddToChatLog(.Name & " zijn/haar beurt!", .Color)
+            AddToChatLog(.Name & " zijn/haar beurt.", .Color)
 
             If .Comput = True Then
                 BtnDice.Enabled = False
@@ -235,10 +301,26 @@ Public Class Form1
         ElseIf player(turn).Position < curPlayerPos Then
             curPlayerPos -= 1
         Else
-            PlayerMoveTick.Stop()
-            NextPlayer()
+            If finishTilesBack = 0 Then ' If you didn't went past the finish AND
+                If lvl.TileIndex(player(turn).Position).Occupied = Nothing Then ' if the tile isn't taken already AND
+                    If Not lvl.TileIndex(player(turn).Position).IsSpecialType Then  ' if the tile isn't a special type
+                        NextPlayer()                                                'THEN move on to next player
+                    Else ' Handle special tiles
+                        AddToChatLog(lvl.TileIndex(player(turn).Position).Go(player(turn)), player(turn).Color)
+                        If player(turn).Position = curPlayerPos Then NextPlayer() ' If the position hasn't changed, like Inn or Jail
+                    End If
+                Else ' Handle taken tiles
+                    AddToChatLog("Het vakje was bezet door " & lvl.TileIndex(player(turn).Position).Occupied & " dus " & _
+                                 player(turn).Name & " moet terug", player(turn).Color)
+                    player(turn).Position -= player(turn).LastRoll
+                End If
+            Else ' Handle finish overflow
+                AddToChatLog(player(turn).Name & " gooide te veel om de finishen, en moet dus " _
+                             & Convert.ToString(finishTilesBack) & " vakjes terug.", player(turn).Color)
+                player(turn).Position -= finishTilesBack
+                finishTilesBack = 0
+            End If
         End If
-
     End Sub
 
     Private Sub TimerDiceTick_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TimerDiceTick.Tick
@@ -278,7 +360,7 @@ Public Class Form1
         Players.Visible = True
         DragAndDropBox.Hide()
         playerPics = New List(Of PictureBox)
-       
+
         For i = 0 To player.Count - 1
             playerPics.Add(New PictureBox())
             With playerPics(i)
@@ -289,5 +371,4 @@ Public Class Form1
             Board.Controls.Add(playerPics(i))
         Next
     End Sub
-
 End Class
