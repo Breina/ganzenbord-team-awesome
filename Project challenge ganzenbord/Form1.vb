@@ -12,7 +12,7 @@ Public Class Form1
     Private lvlTilePics As List(Of PictureBox)  ' Pictureboxes for each tile
     Private playerPics As List(Of PictureBox)   ' Pictureboxes for each player
     Private turn As Integer = 0                 ' Keeping track whose turn it is
-    Private dobbel1, dobbel2 As Dice            ' The 2 dice
+    Private dice1, dice2 As Dice            ' The 2 dice
     Private playerTurn As List(Of String)       ' For keeping track of the turn list
     Private diceRolling As Boolean              ' Indicates wether the dice is rolling
     Private tileSize As Integer                 ' The length of the size of each tile
@@ -88,21 +88,32 @@ Public Class Form1
 
     'Brecht
     Private Sub FindNextPlayer(ByRef t As Integer, ByVal updateStatus As Boolean)
-        Dim found As Boolean
+        If updateStatus And dice1.DiceValue = dice2.DiceValue Then
+            AddToChatLog(player(t).Name & " heeft dubbel gegooit en mag nog eens gooien.", player(t).Color)
+        Else
 
-        Do
-            found = True
-            t += 1
-            If t >= player.Count Then t = 0
+            Dim found As Boolean
 
-            With player(t)
-                If .InJail Then found = False
-                If .SkipTurn Then
-                    found = False
-                    If updateStatus Then .SkipTurn = False ' Shouldn't be called from UpdateNextPlayerList
-                End If
-            End With
-        Loop Until found
+            Do
+                found = True
+                t += 1
+                If t >= player.Count Then t = 0
+
+                With player(t)
+                    If .InJail Then
+                        found = False
+                        If updateStatus Then AddToChatLog(.Name & " zit nog altijd zijn dagen af te tellen in de gevangenis.", .Color)
+                    End If
+                    If .SkipTurn Then
+                        found = False
+                        If updateStatus Then
+                            .SkipTurn = False ' Shouldn't be called from UpdateNextPlayerList
+                            AddToChatLog("Zatlap " & .Name & " werd buitengekegeld uit de herberg en mag volgende beurt terug meedoen.", .Color)
+                        End If
+                    End If
+                End With
+            Loop Until found
+        End If
     End Sub
 
     'Brecht
@@ -231,8 +242,8 @@ Public Class Form1
         lvl = New Level(NewGame.lvl, lvlWidth, lvlHeight, lvlLength)
         tileSize = Convert.ToInt32(Math.Min(Board.Width / lvlWidth, Board.Height / lvlHeight))
         RenderLevel(NewGame.lvl)
-        dobbel1 = New Dice
-        dobbel2 = New Dice
+        dice1 = New Dice
+        dice2 = New Dice
         playerTurn = New List(Of String)
 
         For i As Integer = 0 To player.Count - 1
@@ -265,7 +276,7 @@ Public Class Form1
         With player(turn)
             curPlayerPos = .Position
             lvl.TileIndex(.Position).Occupied = Nothing
-            .LastRoll = dobbel1.DiceValue + dobbel2.DiceValue
+            .LastRoll = dice1.DiceValue + dice2.DiceValue
             AddToChatLog(.Name & " heeft " & Convert.ToString(.LastRoll) & " gegooid.", .Color)
             .Position += .LastRoll
 
@@ -333,8 +344,8 @@ Public Class Form1
     End Sub
 
     Private Sub TimerDiceTick_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TimerDiceTick.Tick
-        dobbel1.Roll(PctDice1)
-        dobbel2.Roll(PctDice2)
+        dice1.Roll(PctDice1)
+        dice2.Roll(PctDice2)
     End Sub
 
     Private Sub TimerDiceDuration_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TimerDiceDuration.Tick
