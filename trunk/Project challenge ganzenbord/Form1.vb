@@ -87,18 +87,19 @@ Public Class Form1
     End Sub
 
     'Brecht
-    Private Sub FindNextPlayer(ByRef t As Integer)
+    Private Sub FindNextPlayer(ByRef t As Integer, ByVal updateStatus As Boolean)
         Dim found As Boolean
+
         Do
             found = True
             t += 1
             If t >= player.Count Then t = 0
 
-            With player(turn)
+            With player(t)
                 If .InJail Then found = False
                 If .SkipTurn Then
                     found = False
-                    .SkipTurn = False
+                    If updateStatus Then .SkipTurn = False ' Shouldn't be called from UpdateNextPlayerList
                 End If
             End With
         Loop Until found
@@ -109,11 +110,11 @@ Public Class Form1
         Dim t As Integer = turn
         Dim j As Integer = 0
 
-        For i As Integer = 1 To player.Count
+        Do
             playerTurn(t) = Convert.ToString(j)
-            FindNextPlayer(t)
             j += 1
-        Next
+            FindNextPlayer(t, False)
+        Loop Until t = turn
 
         LstPlayers.Refresh()
     End Sub
@@ -251,6 +252,15 @@ Public Class Form1
         About.Show()
     End Sub
 
+    Private Sub CheckPos(ByRef pos As Integer)
+        If pos > lvlLength Then
+            finishTilesBack = pos - lvlLength
+            pos = lvlLength
+        Else
+            finishTilesBack = 0
+        End If
+    End Sub
+
     Private Sub ProcessTurn()
         With player(turn)
             curPlayerPos = .Position
@@ -259,12 +269,7 @@ Public Class Form1
             AddToChatLog(.Name & " heeft " & Convert.ToString(.LastRoll) & " gegooid.", .Color)
             .Position += .LastRoll
 
-            If .Position > lvlLength Then
-                finishTilesBack = .Position - lvlLength
-                .Position() = lvlLength
-            Else
-                finishTilesBack = 0
-            End If
+            CheckPos(.Position)
         End With
 
         PlayerMoveTick.Start()
@@ -273,7 +278,7 @@ Public Class Form1
     Private Sub NextPlayer()
         PlayerMoveTick.Stop()
         lvl.TileIndex(player(turn).Position).Occupied = player(turn).Name
-        FindNextPlayer(turn)
+        FindNextPlayer(turn, True)
         UpdateNextPlayerList()
 
         With player(turn)
@@ -307,7 +312,11 @@ Public Class Form1
                         NextPlayer()                                                'THEN move on to next player
                     Else ' Handle special tiles
                         AddToChatLog(lvl.TileIndex(player(turn).Position).Go(player(turn)), player(turn).Color)
-                        If player(turn).Position = curPlayerPos Then NextPlayer() ' If the position hasn't changed, like Inn or Jail
+                        If player(turn).Position = curPlayerPos Then
+                            NextPlayer() ' If the position hasn't changed, like inn, jail and finish
+                        Else
+                            CheckPos(player(turn).Position)     ' Rechecks the position if it has moved
+                        End If
                     End If
                 Else ' Handle taken tiles
                     AddToChatLog("Het vakje was bezet door " & lvl.TileIndex(player(turn).Position).Occupied & " dus " & _
