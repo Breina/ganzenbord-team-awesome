@@ -189,7 +189,8 @@ Public Class Form1
         Select Case CType(sender, Button).Name.Substring(3)
             Case "Inn"
                 With lvl.TileIndex(lastSelectedTile)
-                    lvl.TileIndex(lastSelectedTile) = New TileInn(.X, .Y, OrientationEnum.inn)      ' Der MOET ne manier zyn om de cordinate van het Tile object te 
+                    lvl.TileIndex(lastSelectedTile) = New TileInn(.X, .Y, OrientationEnum.inn)
+                    ' Der MOET ne manier zyn om de cordinate van het Tile object te 
                 End With                                                                            ' houde zonder de parameters opnieuw te moete meegeve. :(
             Case "Goose"
                 With lvl.TileIndex(lastSelectedTile)

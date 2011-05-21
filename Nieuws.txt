@@ -112,6 +112,8 @@ De Form1 moet nog net alles wissen als je op new game drukt want die blijft dat 
 
 Brecht:
 Jha manne ge moogt debugge. Drag en drop werkt en alle speciale vakskes enzo ook. Wel een paar bugs nog;
-- Een gans kan u tot over de finish doen springe
+- Een gans kan u tot over de finish doen springe (fixed)
 - Nie resizen als ge in het drag en drop menu zit
 Kijk maar wa werkt en ni werkt :p
+
+LvlTilePics MOET gelinkt worde aan tile, das ne tamelek aanzienleke verandering, ma het moet. Ik moet de backgroundimage kunne verandere wanneer da n speciale tile wordt. Dus der gaat redelek wa herschreve moete worde. :(
