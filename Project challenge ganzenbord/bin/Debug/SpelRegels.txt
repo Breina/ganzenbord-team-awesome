@@ -1,0 +1,23 @@
+Spelregels Ganzenbord
+=======================
+
+
+De spelers gooien om de beurt met de twee dobbelstenen.
+Wie hierbij het hoogste gooit mag zijn pion het aantal ogen vooruit zetten als hij/zij gegooit heeft.
+
+Speciale vakjes
+----------------
+
+Herberg: Sla een beurt over.
+Gevangenis: Wachten totdat men door een van de andere spelers wordt bevrijd.
+Dood: Helemaal opnieuw beginnen.
+Doolhof: Ga terug naar vakje nr ...
+Gansje: Hetzelfde aantal vakjes nog eens vooruit gaan.
+
+
+Winnaar
+-----------
+
+Om het spel te winnen, moet bij de laatste worp het juist aantal ogen worden gegooid om het einde te bereiken;
+gooit men teveel, dan moet het aantal ogen teveel worden teruggeteld; 
+komt de pion daarbij op een gansje, dan moet nogmaals een zelfde aantal vakjes worden teruggeteld.
