@@ -222,7 +222,10 @@ Public Class Form1
     End Sub
 
 
-    ' Ine
+    'Ine
+    'Gemaakt op: 10/05/2011 om 14.41u
+    'Drag & drop
+
     Private Sub Tile_DragDrop(ByVal sender As Object, ByVal e As DragEventArgs)
         Dim picbox As PictureBox = CType(sender, PictureBox)
         Dim g As Graphics = picbox.CreateGraphics()
@@ -392,4 +395,9 @@ Public Class Form1
             Board.Controls.Add(playerPics(i))
         Next
     End Sub
+
+    Private Sub SpelregelsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SpelregelsToolStripMenuItem.Click
+        SpelRegels.Show()
+    End Sub
+
 End Class
