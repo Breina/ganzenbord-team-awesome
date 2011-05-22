@@ -1,4 +1,6 @@
 ﻿'Ine
+'Gemaakt op: 14/05/2011 om 13:11u
+'Inlezen spelregels bestand
 Imports System.IO
 Imports Microsoft.VisualBasic.ControlChars
 

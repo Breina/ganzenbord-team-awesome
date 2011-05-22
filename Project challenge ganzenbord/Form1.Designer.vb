@@ -32,6 +32,7 @@ Partial Class Form1
         Me.FullscreenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SpelregelsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Board = New System.Windows.Forms.GroupBox()
         Me.PctDice1 = New System.Windows.Forms.PictureBox()
         Me.PctDice2 = New System.Windows.Forms.PictureBox()
@@ -106,7 +107,7 @@ Partial Class Form1
         '
         'HelpToolStripMenuItem
         '
-        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem})
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem, Me.SpelregelsToolStripMenuItem})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
         Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
         Me.HelpToolStripMenuItem.Text = "Help"
@@ -114,8 +115,14 @@ Partial Class Form1
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
         Me.AboutToolStripMenuItem.Text = "About"
+        '
+        'SpelregelsToolStripMenuItem
+        '
+        Me.SpelregelsToolStripMenuItem.Name = "SpelregelsToolStripMenuItem"
+        Me.SpelregelsToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.SpelregelsToolStripMenuItem.Text = "Spelregels"
         '
         'Board
         '
@@ -402,8 +409,6 @@ Partial Class Form1
     Friend WithEvents AboutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LstPlayers As System.Windows.Forms.ListBox
     Friend WithEvents TimerDiceDuration As System.Windows.Forms.Timer
-    Friend WithEvents WindowToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents FullscreenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BtnReady As System.Windows.Forms.Button
     Friend WithEvents DragAndDropBox As System.Windows.Forms.GroupBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
@@ -418,5 +423,8 @@ Partial Class Form1
     Friend WithEvents BtnInn As System.Windows.Forms.Button
     Friend WithEvents PlayerMoveTick As System.Windows.Forms.Timer
     Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents WindowToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents FullscreenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SpelregelsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class
