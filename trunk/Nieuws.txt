@@ -125,3 +125,7 @@ Spelregels zitten erook in :) ook met inlezen van bestandje, das makkelijk.
 @ iedereen:
 Hoever staan we?
 
+
+Brecht:
+Den grote hoop is af, nu is de meerderheid nog gwn bugfix en features toevoege.
+Goed zo ine, waarom staat spelregels.vb eig in resources?
