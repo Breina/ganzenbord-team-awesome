@@ -19,6 +19,7 @@ Public Class Form1
     Private curPlayerPos As Integer             ' Used for tracking where the player is while moving
     Private lastSelectedTile As Integer         ' Used for tracking which tile was last selected for drag and drop
     Private finishTilesBack As Integer          ' Amount of tiles to go back from the finish
+    Private BeginThrow As List(Of String)
 
     ' Brecht
     Private Sub GetTileCords(ByVal pos As Integer, ByRef x As Integer, ByRef y As Integer)
@@ -239,6 +240,7 @@ Public Class Form1
         AddHandler BtnMaze.MouseDown, AddressOf BtnTile_MouseDown
         AddHandler BtnDeath.MouseDown, AddressOf BtnTile_MouseDown
 
+
         Me.Update()
         logColor = New List(Of Color)
         logColor.Add(Color.LightGray)
@@ -286,8 +288,9 @@ Public Class Form1
 
             CheckPos(.Position)
         End With
-
         PlayerMoveTick.Start()
+
+
     End Sub
 
     Private Sub NextPlayer()

@@ -20,7 +20,7 @@ Public Class NewGame
         lvl = TxtLevel.Text
         Me.Hide()
         Form1.Show()
-
+        boolBeginBeurt = True
     End Sub
 
     Public Sub playersAanpassen(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles nudPlayers.ValueChanged

@@ -111,10 +111,10 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Players.vb" />
-    <Compile Include="Resources\SpelRegels.Designer.vb">
+    <Compile Include="SpelRegels.Designer.vb">
       <DependentUpon>SpelRegels.vb</DependentUpon>
     </Compile>
-    <Compile Include="Resources\SpelRegels.vb">
+    <Compile Include="SpelRegels.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Tile.vb" />
@@ -142,7 +142,7 @@
     <EmbeddedResource Include="NewGame.resx">
       <DependentUpon>NewGame.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\SpelRegels.resx">
+    <EmbeddedResource Include="SpelRegels.resx">
       <DependentUpon>SpelRegels.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>

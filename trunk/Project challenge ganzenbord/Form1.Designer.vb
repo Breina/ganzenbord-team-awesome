@@ -57,6 +57,8 @@ Partial Class Form1
         Me.TimerDiceDuration = New System.Windows.Forms.Timer(Me.components)
         Me.BtnReady = New System.Windows.Forms.Button()
         Me.PlayerMoveTick = New System.Windows.Forms.Timer(Me.components)
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PctDice1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PctDice2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -220,6 +222,8 @@ Partial Class Form1
         '
         Me.DragAndDropBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DragAndDropBox.Controls.Add(Me.Label9)
+        Me.DragAndDropBox.Controls.Add(Me.Label8)
         Me.DragAndDropBox.Controls.Add(Me.Label6)
         Me.DragAndDropBox.Controls.Add(Me.Label5)
         Me.DragAndDropBox.Controls.Add(Me.Label4)
@@ -363,6 +367,24 @@ Partial Class Form1
         'PlayerMoveTick
         '
         '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(3, 16)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(39, 13)
+        Me.Label8.TabIndex = 10
+        Me.Label8.Text = "Label8"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(12, 277)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(39, 13)
+        Me.Label9.TabIndex = 11
+        Me.Label9.Text = "Label9"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -426,5 +448,7 @@ Partial Class Form1
     Friend WithEvents WindowToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FullscreenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SpelregelsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents Label8 As System.Windows.Forms.Label
 
 End Class

@@ -31,6 +31,7 @@ Partial Class SpelRegels
         Me.TxtSpelRegels.Location = New System.Drawing.Point(12, 21)
         Me.TxtSpelRegels.Multiline = True
         Me.TxtSpelRegels.Name = "TxtSpelRegels"
+        Me.TxtSpelRegels.ReadOnly = True
         Me.TxtSpelRegels.Size = New System.Drawing.Size(875, 482)
         Me.TxtSpelRegels.TabIndex = 0
         '
