@@ -1,4 +1,6 @@
 ﻿'Brecht
+'Gemaakt op: 12/05/2011 om 13.45u + aangepast op 13/05/2011 om 8.01u
+'Wanneer men op het plaatje start komt.
 Public Class TileStart
     Inherits Tile
 

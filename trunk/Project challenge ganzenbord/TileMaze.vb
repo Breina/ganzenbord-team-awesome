@@ -1,4 +1,6 @@
 ﻿'Brecht
+'Gemaakt op: 12/05/2011 om 14.32u + aangepast op 13/05/2011 om 7.54u
+'Wanneer men op het plaatje doolhof komt.
 Public Class TileMaze
     Inherits Tile
 

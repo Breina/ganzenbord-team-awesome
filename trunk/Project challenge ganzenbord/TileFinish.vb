@@ -1,4 +1,6 @@
 ﻿'Brecht
+'Gemaakt op: 12/05/2011 om 11.45u + aangepast op 13/05/2011 om 7.32u
+'Wanneer men op het plaatje finish komt.
 Public Class TileFinish
     Inherits Tile
 

@@ -1,4 +1,7 @@
 ﻿'Kristof
+'Gemaakt op: 12/05/2011 om 14.02u + om 22.42u aanpassingen gedaan
+'Aangepast op: 18/05/2011 om 10.14u
+'Nieuw spel 
 Public Class NewGame
     Private loaded As Boolean = False
     Private objCreatePlayer() As CreatePlayer

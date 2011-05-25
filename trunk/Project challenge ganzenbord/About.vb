@@ -1,6 +1,6 @@
 ﻿'Ine
-'Gemaakt op: 14/05/2011 om 13:11u
-'Inlezen spelregels bestand
+'Gemaakt op: 13/05/2011 om 14:11u + 17/05/2011 om 11.33u
+'Inlezen bestand about.txt voor 'over ons'
 Imports System.IO
 Imports Microsoft.VisualBasic.ControlChars
 

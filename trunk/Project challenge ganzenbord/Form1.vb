@@ -1,4 +1,21 @@
-﻿' Brecht en Joeri en Kristof
+﻿' Brecht, Joeri, Kristof en Ine
+'Gemaakt op: -12/05/2011 om 18.07u (Joeri)
+'            -13/05/2011 om 16.21u (Brecht)
+'            -13/05/2011 om 20.10u (Joeri)
+'            -14/05/2011 om 13.59u (Brecht)
+'            -14/05/2011 om 20.10u (Joeri)
+'            -15/05/2011 om 18.36u (Joeri)
+'            -15/05/2011 om 22.52u (Brecht)
+'            -17/05/2011 om 14.05u (Kristof)
+'            -17/05/2011 om 17.24u (Brecht)
+'            -17/05/2011 om 20.59u (Joeri)
+'            -19/05/2011 om 12.59u (Brecht - Window resize)
+'            -19/05/2011 om 18.53u (Joeri)
+'            -19/05/2011 om 23.12u (Brecht + Joeri - Pionen)
+'            -19/05/2011 om 13.41u (Ine - Drag & Drop)
+'            -24/05/2011 om 11.38u (Kristof)
+
+
 Imports VB = Microsoft.VisualBasic
 Imports System.Runtime.InteropServices
 Imports System.IO
@@ -183,6 +200,8 @@ Public Class Form1
     End Sub
 
     ' Ine
+    'Gemaakt op: 19/05/2011 om 13.41u
+    'Drag & drop
     Private Sub BtnTile_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs)
         Dim btnPic As Button = CType(sender, Button)
         btnPic.DoDragDrop(btnPic.BackgroundImage, DragDropEffects.Copy)
@@ -213,6 +232,8 @@ Public Class Form1
     End Sub
 
     ' Ine
+    'Gemaakt op: 19/05/2011 om 13.41u
+    'Drag & drop
     Private Sub Tile_DragEnter(ByVal sender As Object, ByVal e As DragEventArgs)
         If e.Data.GetDataPresent(DataFormats.Bitmap) Then
             e.Effect = DragDropEffects.Copy
@@ -224,7 +245,7 @@ Public Class Form1
 
 
     'Ine
-    'Gemaakt op: 10/05/2011 om 14.41u
+    'Gemaakt op: 19/05/2011 om 13.41u
     'Drag & drop
 
     Private Sub Tile_DragDrop(ByVal sender As Object, ByVal e As DragEventArgs)

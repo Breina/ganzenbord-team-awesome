@@ -1,4 +1,7 @@
 ﻿'Brecht
+'Gemaakt op: 12/05/2011 om 13.31u + aangepast op 13/05/2011 om 7.45u
+'Wanneer men op het plaatje herberg komt.
+
 Public Class TileInn
     Inherits Tile
 
