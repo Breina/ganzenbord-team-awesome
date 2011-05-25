@@ -82,3 +82,6 @@ C:\Users\student\Desktop\Project challenge ganzenbord\Project challenge ganzenbo
 C:\Users\student\Desktop\Project challenge ganzenbord\Project challenge ganzenbord\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\student\Desktop\PC\Project challenge ganzenbord\obj\x86\Debug\Project_challenge_ganzenbord.SpelRegels.resources
 C:\Users\Student\Desktop\ganzenbord-team-awesome\Project challenge ganzenbord\obj\x86\Debug\Project_challenge_ganzenbord.SpelRegels.resources
+C:\Users\user\Desktop\PC\Project challenge ganzenbord\obj\x86\Debug\Project challenge ganzenbord.exe
+C:\Users\user\Desktop\PC\Project challenge ganzenbord\obj\x86\Debug\Project challenge ganzenbord.xml
+C:\Users\user\Desktop\PC\Project challenge ganzenbord\obj\x86\Debug\Project challenge ganzenbord.pdb
