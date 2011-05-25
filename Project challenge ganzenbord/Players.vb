@@ -1,4 +1,5 @@
 ﻿'Kristof
+'Gemaakt op: 12/05/2011 om 14.26u
 'Deze klasse behoudt de speler zijn informatie
 Public Class Players
     Private mName As String

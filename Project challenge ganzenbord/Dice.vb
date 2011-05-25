@@ -1,4 +1,8 @@
-﻿Public Class Dice
+﻿'Ine
+'Gemaakt op: 13/05/2011 om 16:11u + 14/05/2011 om 11.41u 
+'Dobbelsteen random kiezen.
+
+Public Class Dice
     Const ONE = "oog1c.gif"
     Const TWO = "oog2c.gif"
     Const THREE = "oog3c.gif"

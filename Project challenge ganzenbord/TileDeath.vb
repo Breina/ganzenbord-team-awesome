@@ -1,4 +1,6 @@
 ﻿'Brecht
+'Gemaakt op: 12/05/2011 om 11.32u
+'Wanneer men op het plaatje dood komt.
 Public Class TileDeath
     Inherits Tile
 

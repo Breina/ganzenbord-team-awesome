@@ -85,3 +85,14 @@ C:\Users\Student\Desktop\ganzenbord-team-awesome\Project challenge ganzenbord\ob
 C:\Users\user\Desktop\PC\Project challenge ganzenbord\obj\x86\Debug\Project challenge ganzenbord.exe
 C:\Users\user\Desktop\PC\Project challenge ganzenbord\obj\x86\Debug\Project challenge ganzenbord.xml
 C:\Users\user\Desktop\PC\Project challenge ganzenbord\obj\x86\Debug\Project challenge ganzenbord.pdb
+C:\Users\user\Desktop\PC\Project challenge ganzenbord\bin\Debug\Project challenge ganzenbord.exe
+C:\Users\user\Desktop\PC\Project challenge ganzenbord\bin\Debug\Project challenge ganzenbord.pdb
+C:\Users\user\Desktop\PC\Project challenge ganzenbord\bin\Debug\Project challenge ganzenbord.xml
+C:\Users\user\Desktop\PC\Project challenge ganzenbord\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\user\Desktop\PC\Project challenge ganzenbord\obj\x86\Debug\Project_challenge_ganzenbord.About.resources
+C:\Users\user\Desktop\PC\Project challenge ganzenbord\obj\x86\Debug\Project_challenge_ganzenbord.Form1.resources
+C:\Users\user\Desktop\PC\Project challenge ganzenbord\obj\x86\Debug\Project_challenge_ganzenbord.Resources.resources
+C:\Users\user\Desktop\PC\Project challenge ganzenbord\obj\x86\Debug\Project_challenge_ganzenbord.NewGame.resources
+C:\Users\user\Desktop\PC\Project challenge ganzenbord\obj\x86\Debug\Project_challenge_ganzenbord.SpelRegels.resources
+C:\Users\user\Desktop\PC\Project challenge ganzenbord\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\user\Desktop\PC\Project challenge ganzenbord\obj\x86\Debug\GenerateResource.write.1.tlog

@@ -1,4 +1,6 @@
 ﻿'Brecht
+'Gemaakt op: 12/05/2011 om 10.54u
+'
 Public Class Tile
     Private _x, _y As Integer       'x en y zijn cordinaten om te tekenen, id is hoe ver het zich bevind in het veld, 0 is de start
     Private _or As OrientationEnum  ' Tracks the orientation; straight or corner
@@ -26,6 +28,9 @@ Public Class Tile
         End Set
     End Property
 
+    'Brecht
+    'Gemaakt op: 16/05/2011 om 14.54u
+    'Oriëntatie van de vakjes
 
     Public ReadOnly Property Orientation() As String
         Get

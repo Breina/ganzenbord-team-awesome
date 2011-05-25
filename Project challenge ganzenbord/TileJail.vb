@@ -1,4 +1,6 @@
 ﻿'Brecht
+'Gemaakt op: 12/05/2011 om 14.02u + aangepast op 13/05/2011 om 7.51u
+'Wanneer men op het plaatje gevanenis komt komt.
 Public Class TileJail
     Inherits Tile
 

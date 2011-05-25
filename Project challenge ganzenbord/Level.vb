@@ -1,4 +1,6 @@
 ﻿'Brecht
+'Gemaakt op: 12/05/2011 om 17.12u + 13/05/2011 om 14.08u ( breedte en hoogte )
+'levels.
 Imports System.IO
 
 Public Class Level
