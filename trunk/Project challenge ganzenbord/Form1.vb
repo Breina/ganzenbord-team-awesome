@@ -125,7 +125,7 @@ Public Class Form1
 
     'Brecht
     Private Sub FindNextPlayer(ByRef t As Integer, ByVal updateStatus As Boolean)
-        If updateStatus And dice1.DiceValue = dice2.DiceValue Then
+        If (updateStatus And dice1.DiceValue = dice2.DiceValue) And hasGameStarted Then
             AddToChatLog(player(t).Name & " heeft dubbel gegooit en mag nog eens gooien.", player(t).Color)
         Else
 
@@ -228,23 +228,23 @@ Public Class Form1
         Select Case DirectCast(sender, Button).Name.Substring(3)
             Case "Inn"
                 With lvl.TileIndex(lastSelectedTile)
-                    lvl.TileIndex(lastSelectedTile) = New TileInn(.X, .Y, OrientationEnum.inn) ' Der MOET ne manier zyn om de cordinate van het Tile object te 
+                    lvl.TileIndex(lastSelectedTile) = New TileInn(.X, .Y) ' Der MOET ne manier zyn om de cordinate van het Tile object te 
                 End With                                                                       ' houde zonder de parameters opnieuw te moete meegeve. :(
             Case "Goose"
                 With lvl.TileIndex(lastSelectedTile)
-                    lvl.TileIndex(lastSelectedTile) = New TileGoose(.X, .Y, OrientationEnum.goose)
+                    lvl.TileIndex(lastSelectedTile) = New TileGoose(.X, .Y)
                 End With
             Case "Maze"
                 With lvl.TileIndex(lastSelectedTile)
-                    lvl.TileIndex(lastSelectedTile) = New TileMaze(.X, .Y, OrientationEnum.maze)
+                    lvl.TileIndex(lastSelectedTile) = New TileMaze(.X, .Y)
                 End With
             Case "Jail"
                 With lvl.TileIndex(lastSelectedTile)
-                    lvl.TileIndex(lastSelectedTile) = New TileJail(.X, .Y, OrientationEnum.jail)
+                    lvl.TileIndex(lastSelectedTile) = New TileJail(.X, .Y)
                 End With
             Case "Death"
                 With lvl.TileIndex(lastSelectedTile)
-                    lvl.TileIndex(lastSelectedTile) = New TileDeath(.X, .Y, OrientationEnum.death)
+                    lvl.TileIndex(lastSelectedTile) = New TileDeath(.X, .Y)
                 End With
         End Select
 

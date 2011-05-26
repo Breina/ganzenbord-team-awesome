@@ -4,12 +4,8 @@
 Public Class TileStart
     Inherits Tile
 
-    Public Sub New(ByVal x As Integer, ByVal y As Integer, ByVal orientation As OrientationEnum)
-        MyBase.New(x, y, orientation)
-    End Sub
-
-    Public Sub New()
-        MyBase.New()
+    Public Sub New(ByVal x As Integer, ByVal y As Integer)
+        MyBase.New(x, y, OrientationEnum.start)
     End Sub
 
     ' The following shouldn't ever be called, unless the board is shorter than 12 tiles

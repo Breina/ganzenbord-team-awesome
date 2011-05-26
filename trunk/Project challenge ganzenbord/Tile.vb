@@ -2,9 +2,9 @@
 'Gemaakt op: 12/05/2011 om 10.54u
 '
 Public Class Tile
-    Private _x, _y As Integer       'x en y zijn cordinaten om te tekenen, id is hoe ver het zich bevind in het veld, 0 is de start
-    Private _or As OrientationEnum  ' Tracks the orientation; straight or corner
-    Private _occupied As String     ' The player who is on the tile
+    Protected _x, _y As Integer         'x en y zijn cordinaten om te tekenen, id is hoe ver het zich bevind in het veld, 0 is de start
+    Protected _or As OrientationEnum    ' Tracks the orientation; straight or corner
+    Private _occupied As String         ' The player who is on the tile
 
     Public ReadOnly Property X() As Integer
         Get
@@ -72,9 +72,6 @@ Public Class Tile
         _y = y
         _or = orientation
         _occupied = Nothing
-    End Sub
-
-    Public Sub New()
     End Sub
 
     Public Overridable Function IsSpecialType() As Boolean
