@@ -365,14 +365,18 @@ Public Class Form1
 
     Private Sub ProcessPreGame()
         If turn = (player.Count - 1) Then
-
+            hasGameStarted = True
+            turn = highestThrowPlayer
+            AddToChatLog(player(turn).Name & " gooide het hoogste met " & Convert.ToString(highestThrowValue) & " ogen, en mag beginnen.", player(turn).Color)
+            ProcessTurn()
         Else
             Dim s As Integer
             s = dice1.DiceValue + dice2.DiceValue
+            AddToChatLog(player(turn).Name & " gooide " + Convert.ToString(s) & ".", player(turn).Color)
             If s > highestThrowValue Then
-
+                highestThrowValue = s
+                highestThrowPlayer = turn
             End If
-
 
             NextPlayer()
         End If

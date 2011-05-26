@@ -12,7 +12,7 @@ Verplicht voor de code:
 
 [x]	level .txt inladen
 [x]	min 2 speler ( mag computer )
-[ ]	wie het hoogste gooit mag beginnen ( met 2 dobbelstenen ) en als diegene vb als hoogste 9 gooit wordt dit ook zijn eerste verplaatsing
+[x]	wie het hoogste gooit mag beginnen ( met 2 dobbelstenen ) en als diegene vb als hoogste 9 gooit wordt dit ook zijn eerste verplaatsing
 [x]	komt met op vakje waar speler staat: terug naar de oude plaats
 [x]	gelijke ogen: extra beurt om te gooien
 [x]	About form met logo,versienr,wie,hoe bereiken en in dialoog venster verschijnen
