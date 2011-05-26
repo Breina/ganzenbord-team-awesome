@@ -36,7 +36,9 @@ Public Class Form1
     Private curPlayerPos As Integer             ' Used for tracking where the player is while moving
     Private lastSelectedTile As Integer         ' Used for tracking which tile was last selected for drag and drop
     Private finishTilesBack As Integer          ' Amount of tiles to go back from the finish
-    Private BeginThrow As List(Of String)
+    Private hasGameStarted As Boolean           ' Indicates if the game has started already
+    Private highestThrowValue As Integer        ' The amount the highest roller has thrown
+    Private highestThrowPlayer As Integer       ' The player index if the highest roller
 
     ' Brecht
     Private Sub GetTileCords(ByVal pos As Integer, ByRef x As Integer, ByRef y As Integer)
@@ -221,9 +223,9 @@ Public Class Form1
     'Drag & drop
     Private Sub BtnTile_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs)
         Dim btnPic As Button = CType(sender, Button)
-        btnPic.DoDragDrop(btnPic.BackgroundImage, DragDropEffects.Copy)
+        btnPic.DoDragDrop(btnPic.BackgroundImage, DragDropEffects.Copy)     ' Copy cursor
 
-        Select Case CType(sender, Button).Name.Substring(3)
+        Select Case DirectCast(sender, Button).Name.Substring(3)
             Case "Inn"
                 With lvl.TileIndex(lastSelectedTile)
                     lvl.TileIndex(lastSelectedTile) = New TileInn(.X, .Y, OrientationEnum.inn) ' Der MOET ne manier zyn om de cordinate van het Tile object te 
@@ -279,7 +281,6 @@ Public Class Form1
         AddHandler BtnMaze.MouseDown, AddressOf BtnTile_MouseDown
         AddHandler BtnDeath.MouseDown, AddressOf BtnTile_MouseDown
 
-
         Me.Update()
         logColor = New List(Of Color)
         logColor.Add(Color.LightGray)
@@ -294,6 +295,18 @@ Public Class Form1
         For i As Integer = 0 To player.Count - 1
             LstPlayers.Items.Add(player(i).Name)
             playerTurn.Add(Convert.ToString(i))
+        Next
+
+        playerPics = New List(Of PictureBox)
+
+        For i = 0 To player.Count - 1
+            playerPics.Add(New PictureBox())
+            With playerPics(i)
+                .Size = New Size(tileSize, tileSize)
+                .BackColor = player(i).Color
+                GetTileCords(0, .Left, .Top)
+            End With
+            Board.Controls.Add(playerPics(i))
         Next
 
         turn = 0
@@ -328,8 +341,6 @@ Public Class Form1
             CheckPos(.Position)
         End With
         PlayerMoveTick.Start()
-
-
     End Sub
 
     Private Sub NextPlayer()
@@ -350,6 +361,21 @@ Public Class Form1
                 BtnDice.Enabled = True
             End If
         End With
+    End Sub
+
+    Private Sub ProcessPreGame()
+        If turn = (player.Count - 1) Then
+
+        Else
+            Dim s As Integer
+            s = dice1.DiceValue + dice2.DiceValue
+            If s > highestThrowValue Then
+
+            End If
+
+
+            NextPlayer()
+        End If
     End Sub
 
     Private Sub PlayerMoveTick_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PlayerMoveTick.Tick
@@ -397,7 +423,11 @@ Public Class Form1
     Private Sub TimerDiceDuration_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TimerDiceDuration.Tick
         TimerDiceTick.Stop()
         TimerDiceDuration.Stop()
-        ProcessTurn()
+        If hasGameStarted Then
+            ProcessTurn()
+        Else
+            ProcessPreGame()
+        End If
     End Sub
 
     Private Sub FullscreenToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FullscreenToolStripMenuItem.Click
@@ -425,17 +455,11 @@ Public Class Form1
         BtnDice.Visible = True
         Players.Visible = True
         DragAndDropBox.Hide()
-        playerPics = New List(Of PictureBox)
 
-        For i = 0 To player.Count - 1
-            playerPics.Add(New PictureBox())
-            With playerPics(i)
-                .Size = New Size(tileSize, tileSize)
-                .BackColor = player(i).Color
-                GetTileCords(0, .Left, .Top)
-            End With
-            Board.Controls.Add(playerPics(i))
-        Next
+        hasGameStarted = False
+        highestThrowPlayer = 0
+        highestThrowValue = 2
+        AddToChatLog("Iedere speler mag nu om beurt gooien, wie het hoogste gooit mag beginnen.", Color.LightGray)
     End Sub
 
     Private Sub SpelregelsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SpelregelsToolStripMenuItem.Click
