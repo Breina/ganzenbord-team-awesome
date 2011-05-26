@@ -96,3 +96,4 @@ C:\Users\user\Desktop\PC\Project challenge ganzenbord\obj\x86\Debug\Project_chal
 C:\Users\user\Desktop\PC\Project challenge ganzenbord\obj\x86\Debug\Project_challenge_ganzenbord.SpelRegels.resources
 C:\Users\user\Desktop\PC\Project challenge ganzenbord\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\user\Desktop\PC\Project challenge ganzenbord\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\student\Desktop\Project challenge ganzenbord\Project challenge ganzenbord\obj\x86\Debug\Project_challenge_ganzenbord.SpelRegels.resources

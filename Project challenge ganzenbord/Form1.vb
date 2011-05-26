@@ -29,7 +29,7 @@ Public Class Form1
     Private lvlTilePics As List(Of PictureBox)  ' Pictureboxes for each tile
     Private playerPics As List(Of PictureBox)   ' Pictureboxes for each player
     Private turn As Integer = 0                 ' Keeping track whose turn it is
-    Private dice1, dice2 As Dice            ' The 2 dice
+    Private dice1, dice2 As Dice                ' The 2 dice
     Private playerTurn As List(Of String)       ' For keeping track of the turn list
     Private diceRolling As Boolean              ' Indicates wether the dice is rolling
     Private tileSize As Integer                 ' The length of the size of each tile
@@ -45,13 +45,31 @@ Public Class Form1
     End Sub
 
     ' Brecht
-    Private Sub RenderLevel(ByVal name As String)
+    Private Sub RenderTile(ByVal tileIndex As Integer)
+        lvlTilePics.Item(tileIndex).Dispose()
+        lvlTilePics.Item(tileIndex) = New PictureBox()
+
+        With lvlTilePics.Item(tileIndex)
+            GetTileCords(tileIndex, .Left, .Top)
+            .Size = New Size(tileSize, tileSize)
+            .Name = "p" & Convert.ToString(tileIndex)
+            .ImageLocation = "images\tiles\" & lvl.TileIndex(tileIndex).Orientation & ".png"
+            .SizeMode = PictureBoxSizeMode.StretchImage
+            .AllowDrop() = True
+            AddHandler .DragDrop, AddressOf Tile_DragDrop
+            AddHandler .DragEnter, AddressOf Tile_DragEnter
+        End With
+        Board.Controls.Add(lvlTilePics.Item(tileIndex))
+    End Sub
+
+    ' Brecht
+    Private Sub RenderLevel()
         lvlTilePics = New List(Of PictureBox)
 
         For i As Integer = 0 To lvlLength
             lvlTilePics.Add(New PictureBox())
 
-            With lvlTilePics.Item(i)
+            With lvlTilePics.Item(i)            ' Can't use RenderTile for this since then the Picturebox would be constructed twice
                 GetTileCords(i, .Left, .Top)
                 .Size = New Size(tileSize, tileSize)
                 .Name = "p" & Convert.ToString(i)
@@ -61,7 +79,6 @@ Public Class Form1
                 AddHandler .DragDrop, AddressOf Tile_DragDrop
                 AddHandler .DragEnter, AddressOf Tile_DragEnter
             End With
-
             Board.Controls.Add(lvlTilePics.Item(i))
         Next
     End Sub
@@ -71,7 +88,7 @@ Public Class Form1
         For i As Integer = 0 To lvlTilePics.Count - 1
             lvlTilePics(i).Dispose()
         Next
-        RenderLevel(NewGame.lvl)
+        RenderLevel()
 
         For i = 0 To player.Count - 1
             With playerPics(i)
@@ -209,9 +226,8 @@ Public Class Form1
         Select Case CType(sender, Button).Name.Substring(3)
             Case "Inn"
                 With lvl.TileIndex(lastSelectedTile)
-                    lvl.TileIndex(lastSelectedTile) = New TileInn(.X, .Y, OrientationEnum.inn)
-                    ' Der MOET ne manier zyn om de cordinate van het Tile object te 
-                End With                                                                            ' houde zonder de parameters opnieuw te moete meegeve. :(
+                    lvl.TileIndex(lastSelectedTile) = New TileInn(.X, .Y, OrientationEnum.inn) ' Der MOET ne manier zyn om de cordinate van het Tile object te 
+                End With                                                                       ' houde zonder de parameters opnieuw te moete meegeve. :(
             Case "Goose"
                 With lvl.TileIndex(lastSelectedTile)
                     lvl.TileIndex(lastSelectedTile) = New TileGoose(.X, .Y, OrientationEnum.goose)
@@ -229,6 +245,8 @@ Public Class Form1
                     lvl.TileIndex(lastSelectedTile) = New TileDeath(.X, .Y, OrientationEnum.death)
                 End With
         End Select
+
+        RenderTile(lastSelectedTile)
     End Sub
 
     ' Ine
@@ -240,7 +258,7 @@ Public Class Form1
         Else
             e.Effect = DragDropEffects.None
         End If
-        lastSelectedTile = Convert.ToInt32(CType(sender, PictureBox).Name.Substring(1))
+        lastSelectedTile = Convert.ToInt32(DirectCast(sender, PictureBox).Name.Substring(1))
     End Sub
 
 
@@ -268,7 +286,7 @@ Public Class Form1
 
         lvl = New Level(NewGame.lvl, lvlWidth, lvlHeight, lvlLength)
         tileSize = Convert.ToInt32(Math.Min(Board.Width / lvlWidth, Board.Height / lvlHeight))
-        RenderLevel(NewGame.lvl)
+        RenderLevel()
         dice1 = New Dice
         dice2 = New Dice
         playerTurn = New List(Of String)
