@@ -5,12 +5,8 @@
 Public Class TileInn
     Inherits Tile
 
-    Public Sub New(ByVal x As Integer, ByVal y As Integer, ByVal orientation As OrientationEnum)
-        MyBase.New(x, y, orientation)
-    End Sub
-
-    Public Sub New()
-        MyBase.New()
+    Public Sub New(ByVal x As Integer, ByVal y As Integer)
+        MyBase.New(x, y, OrientationEnum.inn)
     End Sub
 
     Public Overrides Function IsSpecialType() As Boolean
