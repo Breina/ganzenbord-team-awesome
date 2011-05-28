@@ -1,5 +1,5 @@
 ﻿' Brecht, Joeri, Kristof en Ine
-'Gemaakt op: -12/05/2011 om 18.07u (Joeri)
+'Gemaakt op: -12/05/2011 om 18.07u (Joeri - basic form)
 '            -13/05/2011 om 16.21u (Brecht)
 '            -13/05/2011 om 20.10u (Joeri)
 '            -14/05/2011 om 13.59u (Brecht)
@@ -118,7 +118,9 @@ Public Class Form1
         'LstChatLog.SelectionMode() = SelectionMode.One             ' Zoek ne ander manier voor autoscroll
         LstChatLog.SelectedIndex = LstChatLog.Items.Count - 1       ' Autoscroll
     End Sub
-
+    'Joeri
+    '13/05/2011 om 20.10u
+    'to make the dice's roll
     Private Sub BtnDice_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnDice.Click
         BtnDice.Enabled = False
         diceRolling = True
@@ -276,7 +278,9 @@ Public Class Form1
         Dim g As Graphics = picbox.CreateGraphics()
         g.DrawImage(CType(e.Data.GetData(DataFormats.Bitmap), Image), New Point(0, 0))
     End Sub
-
+    'Joeri later adjusted by Brecht
+    '14/05/2011 om 20.10u
+    'the load of the form
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         AddHandler BtnInn.MouseDown, AddressOf BtnTile_MouseDown
         AddHandler BtnGoose.MouseDown, AddressOf BtnTile_MouseDown
@@ -350,7 +354,9 @@ Public Class Form1
         End With
         PlayerMoveTick.Start()
     End Sub
-
+    'Joeri + kristof
+    '17/05/2011 om 14.05u 
+    'Next player and checking for PC
     Private Sub NextPlayer()
         PlayerMoveTick.Stop()
         lvl.TileIndex(player(turn).Position).Occupied = player(turn).Name
@@ -396,7 +402,7 @@ Public Class Form1
             NextPlayer()
         End If
     End Sub
-
+    'brecht
     Private Sub PlayerMoveTick_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PlayerMoveTick.Tick
         With playerPics(turn)
             GetTileCords(curPlayerPos, .Left, .Top)
@@ -435,7 +441,9 @@ Public Class Form1
             End If
         End If
     End Sub
-
+    'Joeri
+    '19/05/2011 om 18.53u 
+    'timer for the dice's
     Private Sub TimerDiceTick_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TimerDiceTick.Tick
         dice1.Roll(PctDice1)
         dice2.Roll(PctDice2)
@@ -470,7 +478,9 @@ Public Class Form1
             End If
         End With
     End Sub
-
+    'Joeri
+    '13/05/2011 om 20.10u
+    'the start button
     Private Sub BtnReady_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnReady.Click
         BtnReady.Visible = False
         BtnDice.Visible = True
