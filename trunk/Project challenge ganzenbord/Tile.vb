@@ -79,7 +79,7 @@ Public Class Tile
     End Function
 
     Public Overridable Function Go(ByRef player As Players) As String
-        Return "ERROR"  ' Throw een exception hier
+        Return "ERROR: De functie voor een normaal vakje werd aangeroepen"  ' Throw een exception hier
     End Function
 
 End Class

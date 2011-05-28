@@ -39,6 +39,8 @@ Public Class Form1
     Private hasGameStarted As Boolean           ' Indicates if the game has started already
     Private highestThrowValue As Integer        ' The amount the highest roller has thrown
     Private highestThrowPlayer As Integer       ' The player index if the highest roller
+    Private debugMode As Boolean = False        ' If the dice should debug
+    Private executedSpecial As Boolean = False  ' Ensures only 1 special tile will be activated each turn
 
     ' Brecht
     Private Sub GetTileCords(ByVal pos As Integer, ByRef x As Integer, ByRef y As Integer)
@@ -125,7 +127,7 @@ Public Class Form1
 
     'Brecht
     Private Sub FindNextPlayer(ByRef t As Integer, ByVal updateStatus As Boolean)
-        If (updateStatus And dice1.DiceValue = dice2.DiceValue) And hasGameStarted Then
+        If (updateStatus And dice1.DiceValue = dice2.DiceValue) And hasGameStarted And Not (debugMode) Then
             AddToChatLog(player(t).Name & " heeft dubbel gegooit en mag nog eens gooien.", player(t).Color)
         Else
 
@@ -334,7 +336,11 @@ Public Class Form1
         With player(turn)
             curPlayerPos = .Position
             lvl.TileIndex(.Position).Occupied = Nothing
-            .LastRoll = dice1.DiceValue + dice2.DiceValue
+            If debugMode Then
+                .LastRoll = Convert.ToInt32(ThrowToolStripMenuItem.Text)
+            Else
+                .LastRoll = dice1.DiceValue + dice2.DiceValue
+            End If
             AddToChatLog(.Name & " heeft " & Convert.ToString(.LastRoll) & " gegooid.", .Color)
             .Position += .LastRoll
 
@@ -348,6 +354,7 @@ Public Class Form1
         lvl.TileIndex(player(turn).Position).Occupied = player(turn).Name
         FindNextPlayer(turn, True)
         UpdateNextPlayerList()
+        executedSpecial = False
 
         With player(turn)
             AddToChatLog(.Name & " zijn/haar beurt.", .Color)
@@ -371,7 +378,11 @@ Public Class Form1
             ProcessTurn()
         Else
             Dim s As Integer
-            s = dice1.DiceValue + dice2.DiceValue
+            If debugMode Then
+                s = Convert.ToInt32(ThrowToolStripMenuItem.Text)
+            Else
+                s = dice1.DiceValue + dice2.DiceValue
+            End If
             AddToChatLog(player(turn).Name & " gooide " + Convert.ToString(s) & ".", player(turn).Color)
             If s > highestThrowValue Then
                 highestThrowValue = s
@@ -394,11 +405,12 @@ Public Class Form1
             curPlayerPos -= 1
         Else
             If finishTilesBack = 0 Then ' If you didn't went past the finish AND
-                If lvl.TileIndex(player(turn).Position).Occupied = Nothing Then ' if the tile isn't taken already AND
-                    If Not lvl.TileIndex(player(turn).Position).IsSpecialType Then  ' if the tile isn't a special type
+                If lvl.TileIndex(player(turn).Position).Occupied = Nothing Or player(turn).Position = 0 Then ' if the tile isn't taken already AND
+                    If Not (lvl.TileIndex(player(turn).Position).IsSpecialType And Not (executedSpecial)) Then  ' if the tile isn't a special type
                         NextPlayer()                                                'THEN move on to next player
                     Else ' Handle special tiles
                         AddToChatLog(lvl.TileIndex(player(turn).Position).Go(player(turn)), player(turn).Color)
+                        executedSpecial = True
                         If player(turn).Position = curPlayerPos Then
                             NextPlayer() ' If the position hasn't changed, like inn, jail and finish
                         Else
@@ -470,4 +482,13 @@ Public Class Form1
         SpelRegels.Show()
     End Sub
 
+    Private Sub EnableDebugToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EnableDebugToolStripMenuItem.Click
+        If EnableDebugToolStripMenuItem.Checked Then
+            EnableDebugToolStripMenuItem.Checked = False
+            debugMode = False
+        Else
+            EnableDebugToolStripMenuItem.Checked = True
+            debugMode = True
+        End If
+    End Sub
 End Class
