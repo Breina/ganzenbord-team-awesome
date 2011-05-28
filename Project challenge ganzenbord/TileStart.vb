@@ -14,7 +14,7 @@ Public Class TileStart
     End Function
 
     Public Overrides Function Go(ByRef player As Players) As String
-        Return "ERROR"  ' Throw een exception hier
+        Return "ERROR: De start functie werd aangeroepen"  ' Throw een exception hier
     End Function
 
 End Class

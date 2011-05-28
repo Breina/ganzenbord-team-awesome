@@ -1,0 +1,4 @@
+De lijst met exceptions die moeten worden aangeroepen:
+- Pad niet gevonden
+- De Go functie voor een normaal vakje werd aangeroepen
+- De Go functie voor start werd aangeroepen

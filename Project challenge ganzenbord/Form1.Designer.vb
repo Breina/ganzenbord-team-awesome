@@ -42,6 +42,8 @@ Partial Class Form1
         Me.LstPlayers = New System.Windows.Forms.ListBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DragAndDropBox = New System.Windows.Forms.GroupBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -57,8 +59,9 @@ Partial Class Form1
         Me.TimerDiceDuration = New System.Windows.Forms.Timer(Me.components)
         Me.BtnReady = New System.Windows.Forms.Button()
         Me.PlayerMoveTick = New System.Windows.Forms.Timer(Me.components)
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
+        Me.DebugToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EnableDebugToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ThrowToolStripMenuItem = New System.Windows.Forms.ToolStripTextBox()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PctDice1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PctDice2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -68,7 +71,7 @@ Partial Class Form1
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem, Me.WindowToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MenuToolStripMenuItem, Me.WindowToolStripMenuItem, Me.DebugToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(785, 24)
@@ -117,13 +120,13 @@ Partial Class Form1
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AboutToolStripMenuItem.Text = "About"
         '
         'SpelregelsToolStripMenuItem
         '
         Me.SpelregelsToolStripMenuItem.Name = "SpelregelsToolStripMenuItem"
-        Me.SpelregelsToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.SpelregelsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SpelregelsToolStripMenuItem.Text = "Spelregels"
         '
         'Board
@@ -240,6 +243,24 @@ Partial Class Form1
         Me.DragAndDropBox.TabIndex = 7
         Me.DragAndDropBox.TabStop = False
         Me.DragAndDropBox.Text = "Vakjes"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(12, 277)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(39, 13)
+        Me.Label9.TabIndex = 11
+        Me.Label9.Text = "Label9"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(3, 16)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(39, 13)
+        Me.Label8.TabIndex = 10
+        Me.Label8.Text = "Label8"
         '
         'Label6
         '
@@ -367,23 +388,23 @@ Partial Class Form1
         'PlayerMoveTick
         '
         '
-        'Label8
+        'DebugToolStripMenuItem
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(3, 16)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(39, 13)
-        Me.Label8.TabIndex = 10
-        Me.Label8.Text = "Label8"
+        Me.DebugToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnableDebugToolStripMenuItem, Me.ThrowToolStripMenuItem})
+        Me.DebugToolStripMenuItem.Name = "DebugToolStripMenuItem"
+        Me.DebugToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
+        Me.DebugToolStripMenuItem.Text = "Debug"
         '
-        'Label9
+        'EnableDebugToolStripMenuItem
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(12, 277)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(39, 13)
-        Me.Label9.TabIndex = 11
-        Me.Label9.Text = "Label9"
+        Me.EnableDebugToolStripMenuItem.Name = "EnableDebugToolStripMenuItem"
+        Me.EnableDebugToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
+        Me.EnableDebugToolStripMenuItem.Text = "Enable debug"
+        '
+        'ThrowToolStripMenuItem
+        '
+        Me.ThrowToolStripMenuItem.Name = "ThrowToolStripMenuItem"
+        Me.ThrowToolStripMenuItem.Size = New System.Drawing.Size(152, 23)
         '
         'Form1
         '
@@ -450,5 +471,8 @@ Partial Class Form1
     Friend WithEvents SpelregelsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents DebugToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents EnableDebugToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ThrowToolStripMenuItem As System.Windows.Forms.ToolStripTextBox
 
 End Class

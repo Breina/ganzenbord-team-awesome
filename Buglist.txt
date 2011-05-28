@@ -1,2 +1,0 @@
-- Crash wanneer 2 spelers door 'dood' terug naar start gaan
-- Loop wanneer een speler vast zit tussen een doolhof of speler en een gans
