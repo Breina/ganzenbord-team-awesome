@@ -41,6 +41,7 @@ Public Class Form1
     Private highestThrowPlayer As Integer       ' The player index if the highest roller
     Private debugMode As Boolean = False        ' If the dice should debug
     Private executedSpecial As Boolean = False  ' Ensures only 1 special tile will be activated each turn
+    Private continueGame As Boolean = True      ' To stop the game after someone has finished
 
     ' Brecht
     Private Sub GetTileCords(ByVal pos As Integer, ByRef x As Integer, ByRef y As Integer)
@@ -353,22 +354,24 @@ Public Class Form1
     Private Sub NextPlayer()
         PlayerMoveTick.Stop()
         lvl.TileIndex(player(turn).Position).Occupied = player(turn).Name
-        FindNextPlayer(turn, True)
-        UpdateNextPlayerList()
-        executedSpecial = False
+        If continueGame Then
+            FindNextPlayer(turn, True)
+            UpdateNextPlayerList()
+            executedSpecial = False
 
-        With player(turn)
-            AddToChatLog(.Name & " zijn/haar beurt.", .Color)
+            With player(turn)
+                AddToChatLog(.Name & " zijn/haar beurt.", .Color)
 
-            If .Comput = True Then
-                BtnDice.Enabled = False
-                diceRolling = True
-                TimerDiceDuration.Start()
-                TimerDiceTick.Start()
-            Else
-                BtnDice.Enabled = True
-            End If
-        End With
+                If .Comput = True Then
+                    BtnDice.Enabled = False
+                    diceRolling = True
+                    TimerDiceDuration.Start()
+                    TimerDiceTick.Start()
+                Else
+                    BtnDice.Enabled = True
+                End If
+            End With
+        End If
     End Sub
 
     Private Sub ProcessPreGame()
@@ -406,13 +409,14 @@ Public Class Form1
             curPlayerPos -= 1
         Else
             If finishTilesBack = 0 Then ' If you didn't went past the finish AND
-                If lvl.TileIndex(player(turn).Position).Occupied = Nothing Or player(turn).Position = 0 Then ' if the tile isn't taken already AND
-                    If Not (lvl.TileIndex(player(turn).Position).IsSpecialType And Not (executedSpecial)) Then  ' if the tile isn't a special type
+                If lvl.TileIndex(player(turn).Position).Occupied = Nothing Or player(turn).Position = 0 Then ' if the tile isn't taken already, except when on the start AND
+                    If Not ((lvl.TileIndex(player(turn).Position).IsSpecialType And Not executedSpecial) Or player(turn).Position = lvlLength) Then  ' if the tile isn't (a special type AND able to execute one) or if it isn't on the finish
                         NextPlayer()                                                'THEN move on to next player
                     Else ' Handle special tiles
                         AddToChatLog(lvl.TileIndex(player(turn).Position).Go(player(turn)), player(turn).Color)
                         executedSpecial = True
                         If player(turn).Position = curPlayerPos Then
+                            If curPlayerPos = lvlLength Then continueGame = False ' Stop the game when this player has finished
                             NextPlayer() ' If the position hasn't changed, like inn, jail and finish
                         Else
                             CheckPos(player(turn).Position)     ' Rechecks the position if it has moved
