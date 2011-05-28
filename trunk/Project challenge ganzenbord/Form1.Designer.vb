@@ -30,6 +30,9 @@ Partial Class Form1
         Me.CloseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.WindowToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FullscreenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DebugToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EnableDebugToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ThrowToolStripMenuItem = New System.Windows.Forms.ToolStripTextBox()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SpelregelsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -59,9 +62,6 @@ Partial Class Form1
         Me.TimerDiceDuration = New System.Windows.Forms.Timer(Me.components)
         Me.BtnReady = New System.Windows.Forms.Button()
         Me.PlayerMoveTick = New System.Windows.Forms.Timer(Me.components)
-        Me.DebugToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EnableDebugToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ThrowToolStripMenuItem = New System.Windows.Forms.ToolStripTextBox()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PctDice1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PctDice2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -110,6 +110,24 @@ Partial Class Form1
         Me.FullscreenToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
         Me.FullscreenToolStripMenuItem.Text = "Volledig scherm"
         '
+        'DebugToolStripMenuItem
+        '
+        Me.DebugToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnableDebugToolStripMenuItem, Me.ThrowToolStripMenuItem})
+        Me.DebugToolStripMenuItem.Name = "DebugToolStripMenuItem"
+        Me.DebugToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
+        Me.DebugToolStripMenuItem.Text = "Debug"
+        '
+        'EnableDebugToolStripMenuItem
+        '
+        Me.EnableDebugToolStripMenuItem.Name = "EnableDebugToolStripMenuItem"
+        Me.EnableDebugToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
+        Me.EnableDebugToolStripMenuItem.Text = "Enable debug"
+        '
+        'ThrowToolStripMenuItem
+        '
+        Me.ThrowToolStripMenuItem.Name = "ThrowToolStripMenuItem"
+        Me.ThrowToolStripMenuItem.Size = New System.Drawing.Size(152, 23)
+        '
         'HelpToolStripMenuItem
         '
         Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem, Me.SpelregelsToolStripMenuItem})
@@ -120,13 +138,13 @@ Partial Class Form1
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
         Me.AboutToolStripMenuItem.Text = "About"
         '
         'SpelregelsToolStripMenuItem
         '
         Me.SpelregelsToolStripMenuItem.Name = "SpelregelsToolStripMenuItem"
-        Me.SpelregelsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SpelregelsToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
         Me.SpelregelsToolStripMenuItem.Text = "Spelregels"
         '
         'Board
@@ -387,24 +405,6 @@ Partial Class Form1
         '
         'PlayerMoveTick
         '
-        '
-        'DebugToolStripMenuItem
-        '
-        Me.DebugToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnableDebugToolStripMenuItem, Me.ThrowToolStripMenuItem})
-        Me.DebugToolStripMenuItem.Name = "DebugToolStripMenuItem"
-        Me.DebugToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
-        Me.DebugToolStripMenuItem.Text = "Debug"
-        '
-        'EnableDebugToolStripMenuItem
-        '
-        Me.EnableDebugToolStripMenuItem.Name = "EnableDebugToolStripMenuItem"
-        Me.EnableDebugToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
-        Me.EnableDebugToolStripMenuItem.Text = "Enable debug"
-        '
-        'ThrowToolStripMenuItem
-        '
-        Me.ThrowToolStripMenuItem.Name = "ThrowToolStripMenuItem"
-        Me.ThrowToolStripMenuItem.Size = New System.Drawing.Size(152, 23)
         '
         'Form1
         '
