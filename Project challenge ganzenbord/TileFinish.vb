@@ -13,7 +13,6 @@ Public Class TileFinish
     End Function
 
     Public Overrides Function Go(ByRef player As Players) As String
-        player.HasFinished = True
         Return player.Name & " heeft gewonnen! Proficiat!"
     End Function
 

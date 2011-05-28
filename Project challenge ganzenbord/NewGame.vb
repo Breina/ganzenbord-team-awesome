@@ -18,7 +18,7 @@ Public Class NewGame
                 Else
                     checked = False
                 End If
-                player.Add(New Players(objCreatePlayer(i).tekst.Text, objCreatePlayer(i).btn.BackColor, checked, False, 0, False, False))
+            player.Add(New Players(objCreatePlayer(i).tekst.Text, objCreatePlayer(i).btn.BackColor, checked))
         Next
         lvl = TxtLevel.Text
         Me.Hide()
