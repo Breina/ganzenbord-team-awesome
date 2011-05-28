@@ -47,7 +47,7 @@ Public Class Level
         pos = s.IndexOf(START)
 
         level = New List(Of Tile)
-        AddTile(pos, width, OrientationEnum.start)      ' Start tile
+        level.Add(New TileStart(pos Mod width, pos \ width)) ' Finish tile
 
         Dim directions As List(Of Integer)
         directions = New List(Of Integer)
@@ -140,7 +140,8 @@ Public Class Level
         Loop
 
         length = level.Count()
-        AddTile(pos, width, OrientationEnum.finish)    ' Finish tile
+
+        level.Add(New TileFinish(pos Mod width, pos \ width)) ' Finish tile
     End Sub
 
     ' The tile at index

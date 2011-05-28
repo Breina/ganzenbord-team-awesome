@@ -328,6 +328,7 @@ Public Class Form1
             finishTilesBack = pos - lvlLength
             pos = lvlLength
         Else
+            If pos < 0 Then pos = 0
             finishTilesBack = 0
         End If
     End Sub
