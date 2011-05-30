@@ -2,6 +2,7 @@
 'Gemaakt op: 12/05/2011 om 17.12u + 13/05/2011 om 14.08u ( breedte en hoogte )
 'levels.
 Imports System.IO
+Imports System.Text
 
 Public Class Level
 
@@ -27,8 +28,8 @@ Public Class Level
         Dim sr As StreamReader
         sr = File.OpenText("levels/" & fileName) ' From the debug .exe, change this when folder structure is made. Also catch errors
 
-        Dim s, line As String
-        s = ""
+        Dim sb As StringBuilder = New StringBuilder()
+        Dim line As String
 
         line = sr.ReadLine()
         width = line.Length()
@@ -36,12 +37,14 @@ Public Class Level
 
         While line <> Nothing
             height += 1
-            s &= line
+            sb.Append(line)
             line = sr.ReadLine()
         End While
 
         line = Nothing
         sr.Close()
+        Dim s As String = Convert.ToString(sb)
+        sb = Nothing
 
         Dim pos As Integer
         pos = s.IndexOf(START)

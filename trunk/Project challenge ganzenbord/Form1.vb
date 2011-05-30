@@ -513,7 +513,7 @@ Public Class Form1
                 RedrawLevel()
             End If
         End With
-    End Sub.
+    End Sub
 
     'Joeri
     '13/05/2011 om 20.10u
