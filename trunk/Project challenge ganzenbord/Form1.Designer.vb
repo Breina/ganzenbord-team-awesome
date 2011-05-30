@@ -41,12 +41,9 @@ Partial Class Form1
         Me.PctDice2 = New System.Windows.Forms.PictureBox()
         Me.LstChatLog = New System.Windows.Forms.ListBox()
         Me.Players = New System.Windows.Forms.GroupBox()
-        Me.Label7 = New System.Windows.Forms.Label()
         Me.LstPlayers = New System.Windows.Forms.ListBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DragAndDropBox = New System.Windows.Forms.GroupBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -88,13 +85,13 @@ Partial Class Form1
         'NewGameToolStripMenuItem
         '
         Me.NewGameToolStripMenuItem.Name = "NewGameToolStripMenuItem"
-        Me.NewGameToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+        Me.NewGameToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.NewGameToolStripMenuItem.Text = "New Game"
         '
         'CloseToolStripMenuItem
         '
         Me.CloseToolStripMenuItem.Name = "CloseToolStripMenuItem"
-        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.CloseToolStripMenuItem.Text = "Close"
         '
         'WindowToolStripMenuItem
@@ -199,7 +196,6 @@ Partial Class Form1
         '
         Me.Players.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Players.Controls.Add(Me.Label7)
         Me.Players.Controls.Add(Me.LstPlayers)
         Me.Players.Controls.Add(Me.Label1)
         Me.Players.Location = New System.Drawing.Point(573, 27)
@@ -208,15 +204,6 @@ Partial Class Form1
         Me.Players.TabIndex = 2
         Me.Players.TabStop = False
         Me.Players.Visible = False
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(9, 328)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(39, 13)
-        Me.Label7.TabIndex = 8
-        Me.Label7.Text = "Label7"
         '
         'LstPlayers
         '
@@ -243,8 +230,6 @@ Partial Class Form1
         '
         Me.DragAndDropBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DragAndDropBox.Controls.Add(Me.Label9)
-        Me.DragAndDropBox.Controls.Add(Me.Label8)
         Me.DragAndDropBox.Controls.Add(Me.Label6)
         Me.DragAndDropBox.Controls.Add(Me.Label5)
         Me.DragAndDropBox.Controls.Add(Me.Label4)
@@ -261,24 +246,6 @@ Partial Class Form1
         Me.DragAndDropBox.TabIndex = 7
         Me.DragAndDropBox.TabStop = False
         Me.DragAndDropBox.Text = "Vakjes"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(12, 277)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(39, 13)
-        Me.Label9.TabIndex = 11
-        Me.Label9.Text = "Label9"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(3, 16)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(39, 13)
-        Me.Label8.TabIndex = 10
-        Me.Label8.Text = "Label8"
         '
         'Label6
         '
@@ -320,6 +287,7 @@ Partial Class Form1
         '
         Me.BtnDeath.BackgroundImage = CType(resources.GetObject("BtnDeath.BackgroundImage"), System.Drawing.Image)
         Me.BtnDeath.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnDeath.Enabled = False
         Me.BtnDeath.Location = New System.Drawing.Point(10, 193)
         Me.BtnDeath.Name = "BtnDeath"
         Me.BtnDeath.Size = New System.Drawing.Size(35, 35)
@@ -330,6 +298,7 @@ Partial Class Form1
         '
         Me.BtnMaze.BackgroundImage = CType(resources.GetObject("BtnMaze.BackgroundImage"), System.Drawing.Image)
         Me.BtnMaze.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnMaze.Enabled = False
         Me.BtnMaze.Location = New System.Drawing.Point(10, 152)
         Me.BtnMaze.Name = "BtnMaze"
         Me.BtnMaze.Size = New System.Drawing.Size(35, 35)
@@ -340,6 +309,7 @@ Partial Class Form1
         '
         Me.BtnGoose.BackgroundImage = CType(resources.GetObject("BtnGoose.BackgroundImage"), System.Drawing.Image)
         Me.BtnGoose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnGoose.Enabled = False
         Me.BtnGoose.Location = New System.Drawing.Point(10, 110)
         Me.BtnGoose.Name = "BtnGoose"
         Me.BtnGoose.Size = New System.Drawing.Size(35, 35)
@@ -350,6 +320,7 @@ Partial Class Form1
         '
         Me.BtnJail.BackgroundImage = CType(resources.GetObject("BtnJail.BackgroundImage"), System.Drawing.Image)
         Me.BtnJail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnJail.Enabled = False
         Me.BtnJail.Location = New System.Drawing.Point(10, 69)
         Me.BtnJail.Name = "BtnJail"
         Me.BtnJail.Size = New System.Drawing.Size(35, 35)
@@ -369,6 +340,7 @@ Partial Class Form1
         '
         Me.BtnInn.BackgroundImage = CType(resources.GetObject("BtnInn.BackgroundImage"), System.Drawing.Image)
         Me.BtnInn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BtnInn.Enabled = False
         Me.BtnInn.Location = New System.Drawing.Point(10, 28)
         Me.BtnInn.Name = "BtnInn"
         Me.BtnInn.Size = New System.Drawing.Size(35, 35)
@@ -378,13 +350,13 @@ Partial Class Form1
         'BtnDice
         '
         Me.BtnDice.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.BtnDice.Enabled = False
         Me.BtnDice.Location = New System.Drawing.Point(645, 416)
         Me.BtnDice.Name = "BtnDice"
         Me.BtnDice.Size = New System.Drawing.Size(127, 131)
         Me.BtnDice.TabIndex = 5
         Me.BtnDice.Text = "Gooi"
         Me.BtnDice.UseVisualStyleBackColor = True
-        Me.BtnDice.Visible = False
         '
         'TimerDiceTick
         '
@@ -396,12 +368,13 @@ Partial Class Form1
         'BtnReady
         '
         Me.BtnReady.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnReady.Location = New System.Drawing.Point(646, 416)
+        Me.BtnReady.Location = New System.Drawing.Point(645, 416)
         Me.BtnReady.Name = "BtnReady"
-        Me.BtnReady.Size = New System.Drawing.Size(127, 131)
+        Me.BtnReady.Size = New System.Drawing.Size(128, 131)
         Me.BtnReady.TabIndex = 6
         Me.BtnReady.Text = "Start het spel"
         Me.BtnReady.UseVisualStyleBackColor = True
+        Me.BtnReady.Visible = False
         '
         'PlayerMoveTick
         '
@@ -465,12 +438,9 @@ Partial Class Form1
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents BtnInn As System.Windows.Forms.Button
     Friend WithEvents PlayerMoveTick As System.Windows.Forms.Timer
-    Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents WindowToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents FullscreenToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SpelregelsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents DebugToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents EnableDebugToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ThrowToolStripMenuItem As System.Windows.Forms.ToolStripTextBox

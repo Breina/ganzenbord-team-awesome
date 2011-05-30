@@ -19,6 +19,8 @@ Public Class NewGame
         Next
 
         lvl = TxtLevel.Text
+        Form1.InitialiseGame()
+
         Me.Hide()
         Form1.Show()
     End Sub

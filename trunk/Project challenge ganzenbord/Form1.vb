@@ -21,7 +21,6 @@ Imports System.Runtime.InteropServices
 Imports System.IO
 
 Public Class Form1
-
     Private lvlLength As Integer                ' Length of the level
     Private logColor As List(Of Color)          ' Tracks the colours for log messages
     Private lvlWidth, lvlHeight As Integer      ' Dimentions of the board
@@ -88,7 +87,7 @@ Public Class Form1
         Next
     End Sub
 
-    Private Sub RedrawLevel()
+    Private Sub RedrawLevel() Handles MyBase.ResizeEnd
         tileSize = Convert.ToInt32(Math.Min(Board.Width / lvlWidth, Board.Height / lvlHeight))
         For i As Integer = 0 To lvlTilePics.Count - 1
             lvlTilePics(i).Dispose()
@@ -104,20 +103,45 @@ Public Class Form1
     End Sub
 
     Private Sub NewGameToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles NewGameToolStripMenuItem.Click
-        NewGame.Show()
-        Me.Hide()       ' Make NewGame have priority over Me, so you can't do anything in Me while NewGame is open, then remove this line
+        If Not (lvlTilePics Is Nothing) Then
+            For Each pic In lvlTilePics
+                pic.Dispose()
+            Next
+        End If
+
+        If Not (playerPics Is Nothing) Then
+            For Each pic In playerPics
+                pic.Dispose()
+            Next
+        End If
+
+        BtnInn.Enabled = True
+        BtnGoose.Enabled = True
+        BtnJail.Enabled = True
+        BtnMaze.Enabled = True
+        BtnDeath.Enabled = True
+
+        player.Clear()
+        LstPlayers.Items.Clear()
+
+        NewGame.FormBorderStyle = Windows.Forms.FormBorderStyle.FixedDialog
+        NewGame.ShowDialog()
+
+        BtnReady.Visible = True
     End Sub
 
     Private Sub CloseToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CloseToolStripMenuItem.Click
         Me.Close()
     End Sub
+
     ' Brecht
+    ' Adds a message with backgroundcolor to the chatlog
     Private Sub AddToChatLog(ByVal msg As String, ByVal col As Color)
         logColor.Add(col)
         LstChatLog.Items.Add(msg)
-        'LstChatLog.SelectionMode() = SelectionMode.One             ' Zoek ne ander manier voor autoscroll
-        LstChatLog.SelectedIndex = LstChatLog.Items.Count - 1       ' Autoscroll
+        LstChatLog.SelectedIndex = LstChatLog.Items.Count - 1
     End Sub
+
     'Joeri
     '13/05/2011 om 20.10u
     'to make the dice's roll
@@ -128,7 +152,8 @@ Public Class Form1
         TimerDiceTick.Start()
     End Sub
 
-    'Brecht
+    ' Brecht
+    ' Finds the next player with turn t, if the status of the jail and inn should be updated, updateStatus should be true
     Private Sub FindNextPlayer(ByRef t As Integer, ByVal updateStatus As Boolean)
         If (updateStatus And dice1.DiceValue = dice2.DiceValue) And hasGameStarted And Not (debugMode) Then
             AddToChatLog(player(t).Name & " heeft dubbel gegooit en mag nog eens gooien.", player(t).Color)
@@ -158,7 +183,8 @@ Public Class Form1
         End If
     End Sub
 
-    'Brecht
+    ' Brecht
+    ' Recalculates the nextPlayerList
     Private Sub UpdateNextPlayerList()
         Dim t As Integer = turn
         Dim j As Integer = 0
@@ -218,6 +244,7 @@ Public Class Form1
         e.Graphics.DrawImage(img, New Point(e.Bounds.X + 1, e.Bounds.Y + 1))
     End Sub
 
+    ' Close all forms
     Private Sub Form1_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
         NewGame.Close()
         About.Close()
@@ -268,20 +295,19 @@ Public Class Form1
         lastSelectedTile = Convert.ToInt32(DirectCast(sender, PictureBox).Name.Substring(1))
     End Sub
 
-
     'Ine
     'Gemaakt op: 19/05/2011 om 13.41u
     'Drag & drop
-
     Private Sub Tile_DragDrop(ByVal sender As Object, ByVal e As DragEventArgs)
         Dim picbox As PictureBox = CType(sender, PictureBox)
         Dim g As Graphics = picbox.CreateGraphics()
-        g.DrawImage(CType(e.Data.GetData(DataFormats.Bitmap), Image), New Point(0, 0))
+        g.DrawImage(DirectCast(e.Data.GetData(DataFormats.Bitmap), Image), New Point(0, 0))
     End Sub
+
     'Joeri later adjusted by Brecht
     '14/05/2011 om 20.10u
     'the load of the form
-    Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Public Sub InitialiseGame()
         AddHandler BtnInn.MouseDown, AddressOf BtnTile_MouseDown
         AddHandler BtnGoose.MouseDown, AddressOf BtnTile_MouseDown
         AddHandler BtnJail.MouseDown, AddressOf BtnTile_MouseDown
@@ -320,14 +346,12 @@ Public Class Form1
         UpdateNextPlayerList()
     End Sub
 
-    Private Sub Form1_Resize(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.ResizeEnd
-        RedrawLevel()
-    End Sub
-
+    ' Open about window
     Private Sub AboutToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles AboutToolStripMenuItem.Click
         About.Show()
     End Sub
 
+    ' Bring the position back in if it's oob
     Private Sub CheckPos(ByRef pos As Integer)
         If pos > lvlLength Then
             finishTilesBack = pos - lvlLength
@@ -338,6 +362,7 @@ Public Class Form1
         End If
     End Sub
 
+    ' Start a player turn
     Private Sub ProcessTurn()
         With player(turn)
             curPlayerPos = .Position
@@ -354,12 +379,13 @@ Public Class Form1
         End With
         PlayerMoveTick.Start()
     End Sub
+
     'Joeri + kristof
     '17/05/2011 om 14.05u 
     'Next player and checking for PC
     Private Sub NextPlayer()
         PlayerMoveTick.Stop()
-        lvl.TileIndex(player(turn).Position).Occupied = player(turn).Name
+        lvl.TileIndex(player(turn).Position).Occupied = player(turn)
         If continueGame Then
             FindNextPlayer(turn, True)
             UpdateNextPlayerList()
@@ -380,8 +406,10 @@ Public Class Form1
         End If
     End Sub
 
+    ' All actions for pre-game dice roll
     Private Sub ProcessPreGame()
         If turn = (player.Count - 1) Then
+            AddToChatLog(player(turn).Name & " gooide " + Convert.ToString(dice1.DiceValue + dice2.DiceValue) & ".", player(turn).Color)
             hasGameStarted = True
             turn = highestThrowPlayer
             AddToChatLog(player(turn).Name & " gooide het hoogste met " & Convert.ToString(highestThrowValue) & " ogen, en mag beginnen.", player(turn).Color)
@@ -402,7 +430,9 @@ Public Class Form1
             NextPlayer()
         End If
     End Sub
-    'brecht
+
+    ' Brecht
+    ' Handles both the player animation, and what it should do when it has reached its destination
     Private Sub PlayerMoveTick_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PlayerMoveTick.Tick
         With playerPics(turn)
             GetTileCords(curPlayerPos, .Left, .Top)
@@ -415,8 +445,11 @@ Public Class Form1
             curPlayerPos -= 1
         Else
             If finishTilesBack = 0 Then ' If you didn't went past the finish AND
-                If lvl.TileIndex(player(turn).Position).Occupied = Nothing Or player(turn).Position = 0 Then ' if the tile isn't taken already, except when on the start AND
-                    If Not ((lvl.TileIndex(player(turn).Position).IsSpecialType And Not executedSpecial) Or player(turn).Position = lvlLength) Then  ' if the tile isn't (a special type AND able to execute one) or if it isn't on the finish
+                If lvl.TileIndex(player(turn).Position).Occupied Is Nothing Or player(turn).Position = 0 Or _
+                    (TypeOf lvl.TileIndex(player(turn).Position) Is TileJail) Then ' if the tile isn't taken already, except when on the start or a jail AND
+                    If Not ((lvl.TileIndex(player(turn).Position).IsSpecialType And Not executedSpecial) Or _
+                        player(turn).Position = lvlLength) Then  ' if the tile isn't (a special type AND able to execute one) or if it isn't on the finish
+
                         NextPlayer()                                                'THEN move on to next player
                     Else ' Handle special tiles
                         AddToChatLog(lvl.TileIndex(player(turn).Position).Go(player(turn)), player(turn).Color)
@@ -429,26 +462,27 @@ Public Class Form1
                         End If
                     End If
                 Else ' Handle taken tiles
-                    AddToChatLog("Het vakje was bezet door " & lvl.TileIndex(player(turn).Position).Occupied & " dus " & _
+                    AddToChatLog("Het vakje was bezet door " & lvl.TileIndex(player(turn).Position).Occupied.Name & " dus " & _
                                  player(turn).Name & " moet terug", player(turn).Color)
                     player(turn).Position -= player(turn).LastRoll
                 End If
-            Else ' Handle finish overflow
-                AddToChatLog(player(turn).Name & " gooide te veel om de finishen, en moet dus " _
-                             & Convert.ToString(finishTilesBack) & " vakjes terug.", player(turn).Color)
-                player(turn).Position -= finishTilesBack
-                finishTilesBack = 0
-            End If
+                Else ' Handle finish overflow
+                    AddToChatLog(player(turn).Name & " gooide te veel om de finishen, en moet dus " _
+                                 & Convert.ToString(finishTilesBack) & " vakjes terug.", player(turn).Color)
+                    player(turn).Position -= finishTilesBack
+                    finishTilesBack = 0
+                End If
         End If
     End Sub
     'Joeri
     '19/05/2011 om 18.53u 
-    'timer for the dice's
+    ' Handles rolling dice
     Private Sub TimerDiceTick_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TimerDiceTick.Tick
         dice1.Roll(PctDice1)
         dice2.Roll(PctDice2)
     End Sub
 
+    ' Handles when dice have done rolling
     Private Sub TimerDiceDuration_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TimerDiceDuration.Tick
         TimerDiceTick.Stop()
         TimerDiceDuration.Stop()
@@ -459,6 +493,8 @@ Public Class Form1
         End If
     End Sub
 
+    ' Kristof
+    ' Handles full screen
     Private Sub FullscreenToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FullscreenToolStripMenuItem.Click
         With FullscreenToolStripMenuItem
             If .Checked Then
@@ -477,13 +513,14 @@ Public Class Form1
                 RedrawLevel()
             End If
         End With
-    End Sub
+    End Sub.
+
     'Joeri
     '13/05/2011 om 20.10u
     'the start button
     Private Sub BtnReady_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnReady.Click
         BtnReady.Visible = False
-        BtnDice.Visible = True
+        BtnDice.Enabled = True
         Players.Visible = True
         DragAndDropBox.Hide()
 
@@ -493,10 +530,12 @@ Public Class Form1
         AddToChatLog("Iedere speler mag nu om beurt gooien, wie het hoogste gooit mag beginnen.", Color.LightGray)
     End Sub
 
+    ' Game rules
     Private Sub SpelregelsToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SpelregelsToolStripMenuItem.Click
         SpelRegels.Show()
     End Sub
 
+    ' DEBUG
     Private Sub EnableDebugToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles EnableDebugToolStripMenuItem.Click
         If EnableDebugToolStripMenuItem.Checked Then
             EnableDebugToolStripMenuItem.Checked = False
