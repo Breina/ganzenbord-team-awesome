@@ -130,7 +130,8 @@ Public Class Level
 
                         pos += directions.Item(lastDirection)
                     Else
-                        ' Path break exception
+                        Throw New PathNotFoundException("The level's path wasn't found in " & fileName)
+                        Exit Do     ' KRISTOF HIER MOET GE KIJKE!!!!!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
                     End If
                 End If
             End If
