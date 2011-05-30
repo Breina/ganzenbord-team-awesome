@@ -4,7 +4,7 @@
 Public Class Tile
     Protected _x, _y As Integer         'x en y zijn cordinaten om te tekenen, id is hoe ver het zich bevind in het veld, 0 is de start
     Protected _or As OrientationEnum    ' Tracks the orientation; straight or corner
-    Private _occupied As String         ' The player who is on the tile
+    Private _occupied As Players         ' The player who is on the tile
 
     Public ReadOnly Property X() As Integer
         Get
@@ -18,12 +18,12 @@ Public Class Tile
         End Get
     End Property
 
-    Public Property Occupied() As String
+    Public Property Occupied() As Players
         Get
             Return _occupied
         End Get
 
-        Set(ByVal player As String)
+        Set(ByVal player As Players)
             _occupied = player
         End Set
     End Property

@@ -13,6 +13,9 @@ Public Class TileJail
     End Function
 
     Public Overrides Function Go(ByRef player As Players) As String
+        If Not MyBase.Occupied Is Nothing Then
+            MyBase.Occupied.InJail = False
+        End If
         player.InJail = True
         Return player.Name & " kwam zichzelf aangeven in de gevangenis."
     End Function

@@ -20,7 +20,7 @@ Verplicht voor de code:
 [x]	wie wint er ? - laatste worp is het juiste aantal ogen
 [x]	zoniet, pion overigge stappen terug zetten.
 
-[ ]	Bij elk geschreven stuk code erbijzetten in comment 'omschrijving code, wie, wanneer ( tijd + datum ) als ge da nie meer weet zet dan daar maar iets he
+[x]	Bij elk geschreven stuk code erbijzetten in comment 'omschrijving code, wie, wanneer ( tijd + datum ) als ge da nie meer weet zet dan daar maar iets he
 [x]	MENU : - tekst bestand laden
 	 - programma afsluiten
 	 - About venster
