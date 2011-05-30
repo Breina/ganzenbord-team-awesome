@@ -40,7 +40,6 @@ Public Class Form1
     Private highestThrowPlayer As Integer       ' The player index if the highest roller
     Private debugMode As Boolean = False        ' If the dice should debug
     Private executedSpecial As Boolean = False  ' Ensures only 1 special tile will be activated each turn
-    Private continueGame As Boolean = True      ' To stop the game after someone has finished
 
     ' Brecht
     Private Sub GetTileCords(ByVal pos As Integer, ByRef x As Integer, ByRef y As Integer)
@@ -136,7 +135,7 @@ Public Class Form1
 
     ' Brecht
     ' Adds a message with backgroundcolor to the chatlog
-    Private Sub AddToChatLog(ByVal msg As String, ByVal col As Color)
+    Public Sub AddToChatLog(ByVal msg As String, ByVal col As Color)
         logColor.Add(col)
         LstChatLog.Items.Add(msg)
         LstChatLog.SelectedIndex = LstChatLog.Items.Count - 1
