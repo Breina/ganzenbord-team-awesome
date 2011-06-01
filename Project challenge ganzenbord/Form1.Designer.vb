@@ -85,13 +85,14 @@ Partial Class Form1
         'NewGameToolStripMenuItem
         '
         Me.NewGameToolStripMenuItem.Name = "NewGameToolStripMenuItem"
-        Me.NewGameToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.NewGameToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
+        Me.NewGameToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
         Me.NewGameToolStripMenuItem.Text = "New Game"
         '
         'CloseToolStripMenuItem
         '
         Me.CloseToolStripMenuItem.Name = "CloseToolStripMenuItem"
-        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(175, 22)
         Me.CloseToolStripMenuItem.Text = "Close"
         '
         'WindowToolStripMenuItem
@@ -104,7 +105,8 @@ Partial Class Form1
         'FullscreenToolStripMenuItem
         '
         Me.FullscreenToolStripMenuItem.Name = "FullscreenToolStripMenuItem"
-        Me.FullscreenToolStripMenuItem.Size = New System.Drawing.Size(159, 22)
+        Me.FullscreenToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F11
+        Me.FullscreenToolStripMenuItem.Size = New System.Drawing.Size(184, 22)
         Me.FullscreenToolStripMenuItem.Text = "Volledig scherm"
         '
         'DebugToolStripMenuItem
@@ -135,13 +137,13 @@ Partial Class Form1
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AboutToolStripMenuItem.Text = "About"
         '
         'SpelregelsToolStripMenuItem
         '
         Me.SpelregelsToolStripMenuItem.Name = "SpelregelsToolStripMenuItem"
-        Me.SpelregelsToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
+        Me.SpelregelsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SpelregelsToolStripMenuItem.Text = "Spelregels"
         '
         'Board
