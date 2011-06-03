@@ -149,8 +149,9 @@ Public Class Level
             length = level.Count()
 
             level.Add(New TileFinish(pos Mod width, pos \ width)) ' Finish tile
+            Form1.BtnReady.Enabled = True
         Catch ex As PathNotFoundException
-            MsgBox("De file die u opgegeven heeft is niet geldig")
+
         End Try
      
 
