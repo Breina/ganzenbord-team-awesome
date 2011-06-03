@@ -119,6 +119,7 @@ Public Class Form1
         BtnJail.Enabled = True
         BtnMaze.Enabled = True
         BtnDeath.Enabled = True
+        ButtonRandomize.Enabled = True
 
         player.Clear()
         LstPlayers.Items.Clear()
@@ -249,37 +250,52 @@ Public Class Form1
         About.Close()
     End Sub
 
+    ' Brekt
+    Private Sub AddTile(ByVal tileIndex As Integer, ByVal type As String)
+        Select Case type
+            Case "Inn"
+                With lvl.TileIndex(tileIndex)
+                    lvl.TileIndex(tileIndex) = New TileInn(.X, .Y) ' Der MOET ne manier zyn om de cordinate van het Tile object te 
+                End With                                                                       ' houde zonder de parameters opnieuw te moete meegeve. :(
+            Case "Goose"
+                With lvl.TileIndex(tileIndex)
+                    lvl.TileIndex(tileIndex) = New TileGoose(.X, .Y)
+                End With
+            Case "Maze"
+                With lvl.TileIndex(tileIndex)
+                    lvl.TileIndex(tileIndex) = New TileMaze(.X, .Y)
+                End With
+            Case "Jail"
+                With lvl.TileIndex(tileIndex)
+                    lvl.TileIndex(tileIndex) = New TileJail(.X, .Y)
+                End With
+            Case "Death"
+                With lvl.TileIndex(tileIndex)
+                    lvl.TileIndex(tileIndex) = New TileDeath(.X, .Y)
+                End With
+        End Select
+
+        RenderTile(tileIndex)
+    End Sub
+
+    ' Brekt
+    Private Sub ButtonRandomize_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonRandomize.Click
+        Dim r As New Random
+        AddTile(r.Next(1, lvlLength - 1), "Inn")
+        AddTile(r.Next(1, lvlLength - 1), "Goose")
+        AddTile(r.Next(1, lvlLength - 1), "Maze")
+        AddTile(r.Next(1, lvlLength - 1), "Jail")
+        AddTile(r.Next(1, lvlLength - 1), "Death")
+    End Sub
+
     ' Ine
     'Gemaakt op: 19/05/2011 om 13.41u
     'Drag & drop
     Private Sub BtnTile_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs)
-        Dim btnPic As Button = CType(sender, Button)
+        Dim btnPic As Button = DirectCast(sender, Button)
         btnPic.DoDragDrop(btnPic.BackgroundImage, DragDropEffects.Copy)     ' Copy cursor
 
-        Select Case DirectCast(sender, Button).Name.Substring(3)
-            Case "Inn"
-                With lvl.TileIndex(lastSelectedTile)
-                    lvl.TileIndex(lastSelectedTile) = New TileInn(.X, .Y) ' Der MOET ne manier zyn om de cordinate van het Tile object te 
-                End With                                                                       ' houde zonder de parameters opnieuw te moete meegeve. :(
-            Case "Goose"
-                With lvl.TileIndex(lastSelectedTile)
-                    lvl.TileIndex(lastSelectedTile) = New TileGoose(.X, .Y)
-                End With
-            Case "Maze"
-                With lvl.TileIndex(lastSelectedTile)
-                    lvl.TileIndex(lastSelectedTile) = New TileMaze(.X, .Y)
-                End With
-            Case "Jail"
-                With lvl.TileIndex(lastSelectedTile)
-                    lvl.TileIndex(lastSelectedTile) = New TileJail(.X, .Y)
-                End With
-            Case "Death"
-                With lvl.TileIndex(lastSelectedTile)
-                    lvl.TileIndex(lastSelectedTile) = New TileDeath(.X, .Y)
-                End With
-        End Select
-
-        RenderTile(lastSelectedTile)
+        AddTile(lastSelectedTile, DirectCast(sender, Button).Name.Substring(3))
     End Sub
 
     ' Ine
@@ -465,12 +481,12 @@ Public Class Form1
                                  player(turn).Name & " moet terug", player(turn).Color)
                     player(turn).Position -= player(turn).LastRoll
                 End If
-                Else ' Handle finish overflow
-                    AddToChatLog(player(turn).Name & " gooide te veel om de finishen, en moet dus " _
-                                 & Convert.ToString(finishTilesBack) & " vakjes terug.", player(turn).Color)
-                    player(turn).Position -= finishTilesBack
-                    finishTilesBack = 0
-                End If
+            Else ' Handle finish overflow
+                AddToChatLog(player(turn).Name & " gooide te veel om de finishen, en moet dus " _
+                             & Convert.ToString(finishTilesBack) & " vakjes terug.", player(turn).Color)
+                player(turn).Position -= finishTilesBack
+                finishTilesBack = 0
+            End If
         End If
     End Sub
     'Joeri
@@ -544,4 +560,5 @@ Public Class Form1
             debugMode = True
         End If
     End Sub
+
 End Class
