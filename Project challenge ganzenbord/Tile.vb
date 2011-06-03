@@ -5,7 +5,7 @@ Public Class Tile
     Protected _x, _y As Integer         'x en y zijn cordinaten om te tekenen, id is hoe ver het zich bevind in het veld, 0 is de start
     Protected _or As OrientationEnum    ' Tracks the orientation; straight or corner
     Private _occupied As Players         ' The player who is on the tile
-
+   
     Public ReadOnly Property X() As Integer
         Get
             Return _x
