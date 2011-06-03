@@ -59,6 +59,7 @@ Partial Class Form1
         Me.TimerDiceDuration = New System.Windows.Forms.Timer(Me.components)
         Me.BtnReady = New System.Windows.Forms.Button()
         Me.PlayerMoveTick = New System.Windows.Forms.Timer(Me.components)
+        Me.ButtonRandomize = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PctDice1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PctDice2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -137,13 +138,13 @@ Partial Class Form1
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
         Me.AboutToolStripMenuItem.Text = "About"
         '
         'SpelregelsToolStripMenuItem
         '
         Me.SpelregelsToolStripMenuItem.Name = "SpelregelsToolStripMenuItem"
-        Me.SpelregelsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SpelregelsToolStripMenuItem.Size = New System.Drawing.Size(127, 22)
         Me.SpelregelsToolStripMenuItem.Text = "Spelregels"
         '
         'Board
@@ -232,6 +233,7 @@ Partial Class Form1
         '
         Me.DragAndDropBox.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DragAndDropBox.Controls.Add(Me.ButtonRandomize)
         Me.DragAndDropBox.Controls.Add(Me.Label6)
         Me.DragAndDropBox.Controls.Add(Me.Label5)
         Me.DragAndDropBox.Controls.Add(Me.Label4)
@@ -381,6 +383,16 @@ Partial Class Form1
         'PlayerMoveTick
         '
         '
+        'ButtonRandomize
+        '
+        Me.ButtonRandomize.Enabled = False
+        Me.ButtonRandomize.Location = New System.Drawing.Point(7, 235)
+        Me.ButtonRandomize.Name = "ButtonRandomize"
+        Me.ButtonRandomize.Size = New System.Drawing.Size(182, 37)
+        Me.ButtonRandomize.TabIndex = 10
+        Me.ButtonRandomize.Text = "Willekeurig"
+        Me.ButtonRandomize.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -446,5 +458,6 @@ Partial Class Form1
     Friend WithEvents DebugToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents EnableDebugToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ThrowToolStripMenuItem As System.Windows.Forms.ToolStripTextBox
+    Friend WithEvents ButtonRandomize As System.Windows.Forms.Button
 
 End Class
