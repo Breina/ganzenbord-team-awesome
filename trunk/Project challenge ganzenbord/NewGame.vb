@@ -3,7 +3,7 @@
 'Aangepast op: 18/05/2011 om 10.14u
 'Nieuw spel 
 Public Class NewGame
-
+    Implements TileInterface
     Public lvl As String
 
     Private previousPlayerCount As Integer = 0
@@ -137,4 +137,10 @@ Public Class NewGame
             s = Nothing
         End If
     End Sub
+
+
+    Private Sub dosomething() Implements TileInterface.dosomething
+        MessageBox.Show("zo gebruiken wij een interface :p")
+    End Sub
+
 End Class

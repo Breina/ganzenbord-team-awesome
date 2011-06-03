@@ -16,7 +16,7 @@ Verplicht voor de code:
 [x]	komt met op vakje waar speler staat: terug naar de oude plaats
 [x]	gelijke ogen: extra beurt om te gooien
 [x]	About form met logo,versienr,wie,hoe bereiken en in dialoog venster verschijnen
-[ ]	Plaatsjes worden 'at random' geladen : Welke?-gans, gevang,doolhof,herberg,dood ( 1 van elk min. aanwezig )
+[x]	Plaatsjes worden 'at random' geladen : Welke?-gans, gevang,doolhof,herberg,dood ( 1 van elk min. aanwezig )
 [x]	wie wint er ? - laatste worp is het juiste aantal ogen
 [x]	zoniet, pion overigge stappen terug zetten.
 
@@ -25,7 +25,7 @@ Verplicht voor de code:
 	 - programma afsluiten
 	 - About venster
 [ ]	MINIMUM 1 interface + implementatie ervan
-[ ]	1 exception Class
+[X]	1 exception Class
 
 
 
