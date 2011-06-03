@@ -115,11 +115,8 @@ Public Class NewGame
         Openlvl.InitialDirectory = "\levels"
         Openlvl.Title = "Open a Text File"
         Openlvl.Filter = "Text files (*.txt)|*.txt|" & "All files|*.*"
-        Openlvl.ShowDialog()
         Openlvl.Multiselect = False
-
         If Openlvl.ShowDialog = vbOK Then
-
 
             Dim c As Char
             Dim s As String
