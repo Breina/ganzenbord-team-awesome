@@ -10,7 +10,7 @@ Public Class NewGame
     Private playerLabels As List(Of Label) = New List(Of Label)             ' "Naam:" label
     Private playerTextBoxes As List(Of TextBox) = New List(Of TextBox)      ' Name
     Private playerButtons As List(Of Button) = New List(Of Button)          ' Player colour
-    Private playerCheckBoxes As List(Of CheckBox) = New List(Of CheckBox)   ' For cpu
+    Private playerCheckBoxes As List(Of CheckBox) = New List(Of CheckBox)   ' For ai
 
     Public Sub btnStart_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnStart.Click
         For i As Integer = 1 To previousPlayerCount
@@ -118,22 +118,26 @@ Public Class NewGame
         Openlvl.ShowDialog()
         Openlvl.Multiselect = False
 
-        Dim c As Char
-        Dim s As String
-        Dim i As Integer
-        s = ""
-        i = 0
+        If Openlvl.ShowDialog = vbOK Then
 
-        Do
-            s = c + s
-            i += 1
-            c = Convert.ToChar(Openlvl.FileName.Substring(Openlvl.FileName.Length - i, 1))
-        Loop Until c = "\"
 
-        c = Nothing
-        i = Nothing
+            Dim c As Char
+            Dim s As String
+            Dim i As Integer
+            s = ""
+            i = 0
 
-        TxtLevel.Text = s
-        s = Nothing
+            Do
+                s = c + s
+                i += 1
+                c = Convert.ToChar(Openlvl.FileName.Substring(Openlvl.FileName.Length - i, 1))
+            Loop Until c = "\"
+
+            c = Nothing
+            i = Nothing
+
+            TxtLevel.Text = s
+            s = Nothing
+        End If
     End Sub
 End Class
