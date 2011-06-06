@@ -32,7 +32,6 @@ Partial Class Form1
         Me.FullscreenToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DebugToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EnableDebugToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ThrowToolStripMenuItem = New System.Windows.Forms.ToolStripTextBox()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SpelregelsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -44,6 +43,7 @@ Partial Class Form1
         Me.LstPlayers = New System.Windows.Forms.ListBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DragAndDropBox = New System.Windows.Forms.GroupBox()
+        Me.ButtonRandomize = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -59,7 +59,6 @@ Partial Class Form1
         Me.TimerDiceDuration = New System.Windows.Forms.Timer(Me.components)
         Me.BtnReady = New System.Windows.Forms.Button()
         Me.PlayerMoveTick = New System.Windows.Forms.Timer(Me.components)
-        Me.ButtonRandomize = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.PctDice1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PctDice2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -112,7 +111,7 @@ Partial Class Form1
         '
         'DebugToolStripMenuItem
         '
-        Me.DebugToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnableDebugToolStripMenuItem, Me.ThrowToolStripMenuItem})
+        Me.DebugToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.EnableDebugToolStripMenuItem})
         Me.DebugToolStripMenuItem.Name = "DebugToolStripMenuItem"
         Me.DebugToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
         Me.DebugToolStripMenuItem.Text = "Debug"
@@ -120,13 +119,8 @@ Partial Class Form1
         'EnableDebugToolStripMenuItem
         '
         Me.EnableDebugToolStripMenuItem.Name = "EnableDebugToolStripMenuItem"
-        Me.EnableDebugToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
+        Me.EnableDebugToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.EnableDebugToolStripMenuItem.Text = "Enable debug"
-        '
-        'ThrowToolStripMenuItem
-        '
-        Me.ThrowToolStripMenuItem.Name = "ThrowToolStripMenuItem"
-        Me.ThrowToolStripMenuItem.Size = New System.Drawing.Size(152, 23)
         '
         'HelpToolStripMenuItem
         '
@@ -250,6 +244,16 @@ Partial Class Form1
         Me.DragAndDropBox.TabIndex = 7
         Me.DragAndDropBox.TabStop = False
         Me.DragAndDropBox.Text = "Vakjes"
+        '
+        'ButtonRandomize
+        '
+        Me.ButtonRandomize.Enabled = False
+        Me.ButtonRandomize.Location = New System.Drawing.Point(7, 235)
+        Me.ButtonRandomize.Name = "ButtonRandomize"
+        Me.ButtonRandomize.Size = New System.Drawing.Size(182, 37)
+        Me.ButtonRandomize.TabIndex = 10
+        Me.ButtonRandomize.Text = "Willekeurig"
+        Me.ButtonRandomize.UseVisualStyleBackColor = True
         '
         'Label6
         '
@@ -383,16 +387,6 @@ Partial Class Form1
         'PlayerMoveTick
         '
         '
-        'ButtonRandomize
-        '
-        Me.ButtonRandomize.Enabled = False
-        Me.ButtonRandomize.Location = New System.Drawing.Point(7, 235)
-        Me.ButtonRandomize.Name = "ButtonRandomize"
-        Me.ButtonRandomize.Size = New System.Drawing.Size(182, 37)
-        Me.ButtonRandomize.TabIndex = 10
-        Me.ButtonRandomize.Text = "Willekeurig"
-        Me.ButtonRandomize.UseVisualStyleBackColor = True
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -457,7 +451,6 @@ Partial Class Form1
     Friend WithEvents SpelregelsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents DebugToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents EnableDebugToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ThrowToolStripMenuItem As System.Windows.Forms.ToolStripTextBox
     Friend WithEvents ButtonRandomize As System.Windows.Forms.Button
 
 End Class
